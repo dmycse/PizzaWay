@@ -15,6 +15,11 @@
   }
   
   .custom__btn {
-    @apply px-8 py-1 bg-primary text-white rounded-xl border border-primary hover:text-primary hover:bg-white
+    @apply px-8 py-2 bg-primary text-white rounded-xl border border-primary hover:text-primary hover:bg-white
   }
+
+  .formInput {
+    @apply block w-full my-5 p-2 border border-gray-300 rounded-md text-xl bg-white hover:border-orange-500 outline-none placeholder:text-xl
+  }
+
 }

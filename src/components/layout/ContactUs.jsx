@@ -1,5 +1,5 @@
-import { HeaderSection } from "@/components";
-import { contactUs } from "@/data";
+import { HeaderSection } from "../../components";
+import { contactUs } from "../../data";
 
 export default function ContactUs() {
 
