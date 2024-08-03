@@ -24,7 +24,7 @@ export default function Hero() {
           </div>
         </div>
         <Image 
-          src='/assets/hero_pizza.png' 
+          src='/assets/images/hero_pizza.webp' 
           alt='pizza'
           width={600}
           height={400}

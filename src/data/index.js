@@ -11,37 +11,37 @@ export const bestSellers = [
     id: 1, 
     title: 'Piccante',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
-    url: '/assets/tomatosalami.png',
+    url: '/assets/images/tomatosalami.webp',
     price: 17
   },{
     id: 2, 
     title: 'Ham',
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
-    url: '/assets/tomatomashrooms.png',
+    url: '/assets/images/tomatomashrooms.webp',
     price: 19
   },{
     id: 3, 
     title: 'Mozzarella', 
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
-    url: '/assets/tomatomozarella.png',
+    url: '/assets/images/tomatomozarella.webp',
     price: 18
   },{
     id: 4, 
     title: 'Brocoli', 
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
-    url: '/assets/brocolipizza.png',
+    url: '/assets/images/brocolipizza.webp',
     price: 15
   },{
     id: 5, 
     title: 'Beef', 
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
-    url: '/assets/beefpizza.png',
+    url: '/assets/images/beefpizza.webp',
     price: 22
   },{
     id: 6, 
     title: 'Cheese', 
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
-    url: '/assets/cheesepizza.png',
+    url: '/assets/images/cheesepizza.webp',
     price: 15
   }
 ];

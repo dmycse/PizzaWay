@@ -8,10 +8,10 @@ export default function BestSellers() {
       <div className="wrapper">
         <div className="max-md:hidden absolute left-0 right-0 w-full">
           <div className="absolute -top-[90px] -left-[80px] -z-10 text-left">
-            <Image src={'/assets/greenpeper.jpeg'} width={300} height={300} alt={'tomatoes'} />
+            <Image src={'/assets/images/greenpeper.webp'} width={300} height={300} alt={'tomatoes'} />
           </div>
           <div className="absolute -top-[90px] -right-[70px] -z-10">
-            <Image src={'/assets/redpeper.png'} width={300} height={300} alt={'peprika'} />
+            <Image src={'/assets/images/redpeper.webp'} width={300} height={300} alt={'peprika'} />
           </div>
         </div>
         <div className="pt-10 mb-24 max-md:pt-4 max-md:mb-10 flex flex-col items-center">
