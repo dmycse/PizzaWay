@@ -12,7 +12,7 @@
 
 import Header from './layout/Header';
 import Hero from "./layout/Hero";
-import HomeMenu from "./layout/HomeMenu";
+import BestSellers from "./layout/BestSellers";
 import AboutUs from "./layout/AboutUs";
 import ContactUs from "./layout/ContactUs";
 import HeaderSection from "./layout/HeaderSection";
@@ -24,7 +24,7 @@ import CustomButton from "./ui/CustomButton";
 export {
   Header,
   Hero,
-  HomeMenu,
+  BestSellers,
   AboutUs,
   ContactUs,
   HeaderSection,

@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { HeaderSection } from "../../components/";
+import { HeaderSection } from "..";
 import { bestSellers } from "../../data";
 
-export default function HomeMenu() {
+export default function BestSellers() {
   return (
     <section>
       <div className="wrapper">
