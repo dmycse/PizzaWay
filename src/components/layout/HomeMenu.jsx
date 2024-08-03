@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { HeaderSection } from "@/components";
-import { bestSellers } from "@/data";
+import { HeaderSection } from "../../components/";
+import { bestSellers } from "../../data";
 
 export default function HomeMenu() {
   return (
@@ -17,7 +17,7 @@ export default function HomeMenu() {
         <div className="pt-10 mb-24 max-md:pt-4 max-md:mb-10 flex flex-col items-center">
           <HeaderSection
             subHeader={'check out'}
-            mainHeader={'Our Best Sellers'} />
+            mainHeader={'Our Menu'} />
         </div>
         {/* <div className="grid sm:grid-cols-3 gap-4">
           {bestSellers?.length > 0 && bestSellers.map(item => (
