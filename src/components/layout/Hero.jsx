@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { CustomButton } from '@/components';
+import CustomButton from '../ui/CustomButton';
 import RightUp from '../icons/RightUp';
 
 export default function Hero() {
   return (
-    <section>
+    <section className='mt-20'>
       <div className="wrapper grid grid-cols-1 md:grid-cols-2">
         <div className='pt-10 md:pt-20 pb-10'>
           <h1 className='lg:max-w-[95%] text-5xl lg:text-7xl max-md:text-4xl text-gray-800 font-bold lg:leading-[80px]'>
@@ -18,7 +18,7 @@ export default function Hero() {
               Taste Now
               <RightUp />
             </CustomButton>
-            <CustomButton btnStyles='text-gray-400 hover:text-secondary hover:font-semibold'>
+            <CustomButton btnStyles='text-gray-400 hover:text-orange-500 hover:font-semibold'>
               Learn more
             </CustomButton>
           </div>
