@@ -1,9 +1,9 @@
 export const navBar = [
-  {id: 1, title: 'Home', url: '/'},
-  {id: 2, title: 'Menu', url: '/'},
-  {id: 3, title: 'About', url: '/'},
-  {id: 4, title: 'Contact', url: '/'},
-  // {id: 5, title: 'Login', url: '/'},
+  {id: 1, label: 'Home', url: '/'},
+  {id: 2, label: 'Menu', url: '/'},
+  {id: 3, label: 'About', url: '/'},
+  {id: 4, label: 'Contact', url: '/'},
+  // {id: 5, label: 'Login', url: '/'},
 ];
 
 export const bestSellers = [
