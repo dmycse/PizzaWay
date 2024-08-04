@@ -17,7 +17,7 @@ export default function BestSellers() {
         <div className="pt-10 mb-24 max-md:pt-4 max-md:mb-10 flex flex-col items-center">
           <HeaderSection
             subHeader={'check out'}
-            mainHeader={'Our Menu'} />
+            mainHeader={'Our High Demanded Pizzas'} />
         </div>
         {/* <div className="grid sm:grid-cols-3 gap-4">
           {bestSellers?.length > 0 && bestSellers.map(item => (
@@ -26,7 +26,7 @@ export default function BestSellers() {
         </div> */}
         <div className="grid sm:grid-cols-3 gap-4">
         {bestSellers.map(item => (
-          <div id={item.id} className="p-4 border-2 border-orange-500 shadow-lg text-center rounded-lg">
+          <div key={item.id} className="p-4 border-2 border-orange-500 shadow-lg text-center rounded-lg">
             <div className="w-full flex-1 flex justify-center h-[150px]">
               <img src={item.url} alt={`${item.title} pizza`} width={250} height={200} />
             </div>
@@ -40,7 +40,7 @@ export default function BestSellers() {
             <button className="py-2 px-14 max-md:px-8 bg-primary text-white rounded-md">
               Add to Cart €{item.price}
             </button>
-        </div>
+          </div>
         ))}  
         </div>
       </div>
