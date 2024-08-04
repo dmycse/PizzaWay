@@ -1,11 +1,11 @@
 
 export default function CustomButton({type, children, btnStyles}) {
   return (
-    <buton 
+    <button 
       type={type || 'button'} 
       className={`cursor-pointer ${btnStyles}`}
     >
       {children}
-    </buton>
+    </button>
   )
 }
