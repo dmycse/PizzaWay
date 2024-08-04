@@ -24,7 +24,7 @@ export const bestSellers = [
     title: 'Mozzarella', 
     description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit', 
     url: '/assets/images/tomatomozarella.webp',
-    price: 18
+    price: 1 
   },{
     id: 4, 
     title: 'Brocoli', 
