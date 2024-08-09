@@ -1,25 +1,13 @@
-// export {default as Header} from "./layout/Header";
-// export {default as Hero} from "./layout/Hero";
-// export {default as HomeMenu} from "./layout/HomeMenu";
-// export {default as AboutUs} from "./layout/AboutUs";
-// export {default as ContactUs} from "./layout/ContactUs";
-// export {default as HeaderSection} from "./layout/HeaderSection";
+import Header from '@/components/layout/Header';
+import Hero from "@/components/layout/Hero";
+import BestSellers from "@/components/layout/BestSellers";
+import AboutUs from "@/components/layout/AboutUs";
+import ContactUs from "@/components/layout/ContactUs";
+import Footer from "@/components/layout/Footer";
 
-// export {default as Footer} from "./layout/Footer";
-
-// export {default as CustomButton} from "./ui/CustomButton";
-
-
-import Header from './layout/Header';
-import Hero from "./layout/Hero";
-import BestSellers from "./layout/BestSellers";
-import AboutUs from "./layout/AboutUs";
-import ContactUs from "./layout/ContactUs";
-import HeaderSection from "./layout/HeaderSection";
-
-import Footer from "./layout/Footer";
-
-import CustomButton from "./ui/CustomButton";
+import HeaderSection from "@/components/ui/HeaderSection";
+import SignupForm from "@/components/ui/SignupForm";
+import CustomButton from "@/components/ui/CustomButton";
 
 export {
   Header,
@@ -29,5 +17,6 @@ export {
   ContactUs,
   HeaderSection,
   Footer,
-  CustomButton
+  CustomButton,
+  SignupForm
 }
