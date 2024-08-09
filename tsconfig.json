@@ -20,14 +20,17 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "paths": {
+      "@/*": ["./src/*"]
+    }
   },
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-, "src/app/api/signup/route.js", "src/app/api/auth/[...nextauth]/route.js", "src/app/signup/page.jsx"  ],
+, "src/app/api/signup/route.js", "src/app/api/auth/[...nextauth]/route.js", "src/app/signup/page.jsx", "auth.js", "middleware.js"  ],
   "exclude": [
     "node_modules"
   ]
