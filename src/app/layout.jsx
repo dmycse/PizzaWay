@@ -11,7 +11,10 @@ const roboto = Roboto({
 
 export const metadata = {
   title: "PizzaWay",
-  description: "Greate Pizzas for takeaway and delivery",
+  description: "Delicious Pizzas for takeaway and delivery",
+  icons: {
+    icon: '/assets/icons/favicon.ico'
+  }
 };
 
 export default function RootLayout({ children }) {
