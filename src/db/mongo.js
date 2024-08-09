@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-export let mongoDbConnect = () => {
+export let mongoDbConnect = async () => {
   try {
-    mongoose.connect(process.env.MONGO_URL);
+    await mongoose.connect(process.env.MONGO_URL);
     console.log(`Successfully connected to MongoDB`);
 
   } catch (error) {
