@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navBar } from "../../data";
+import { navBar } from "@/data";
 
 export default function Header() {
   return (

@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { HeaderSection } from "..";
-import { bestSellers } from "../../data";
+import { HeaderSection } from "@/components";
+import { bestSellers } from "@/data";
 
 export default function BestSellers() {
   return (

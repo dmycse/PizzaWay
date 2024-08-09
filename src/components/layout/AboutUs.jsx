@@ -1,5 +1,5 @@
-import { HeaderSection } from '../../components';
-import { aboutUs } from '../../data';
+import { HeaderSection } from '@/components';
+import { aboutUs } from '@/data';
 
 export default function AboutUs() {
 

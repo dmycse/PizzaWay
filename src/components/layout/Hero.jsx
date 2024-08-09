@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import CustomButton from '../ui/CustomButton';
-import RightUp from '../icons/RightUp';
+import RightUp from '@/components/icons/RightUp';
 
 export default function Hero() {
   return (
