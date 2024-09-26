@@ -12,8 +12,8 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "Pizzas | Pizza Way App",
-  description: "Delicious Pizzas just for you",
+  title: "Pizzas | PizzaWay",
+  description: "Delicious Pizzas for takeaway and delivery.",
 };
 
 export default function RootLayout({
