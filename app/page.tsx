@@ -1,5 +1,5 @@
 import { Container, Title } from "@/components/shared";
-import { Categories, SortPopup } from "@/components/layout";
+import { TopBar } from "@/components/layout";
 
 
 export default function Home() {
@@ -7,8 +7,7 @@ export default function Home() {
     <>
       <Container className='mt-8'>
         <Title text='Pizzas' size='lg' className="font-extrabold"/>
-       <Categories />
-       <SortPopup />
+       <TopBar />
       </Container>
     
     
