@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { Checkbox } from '@/components/ui';
 
-export type FilterChecboxProps = {
-  text: string;
+export type FilterCheckboxProps = {
+  label: string;
   value: string;
   checked?: boolean;
   name?: string;
@@ -11,13 +11,13 @@ export type FilterChecboxProps = {
 }
 
 export const FilterCheckbox = ({
-    text,
+    label,
     value,
     endAdornment,
     checked,
     name,
     onCheckedChange,
-  }: FilterChecboxProps) => {
+  }: FilterCheckboxProps) => {
 
   return (
     <div className="flex items-center space-x-2">
@@ -31,7 +31,7 @@ export const FilterCheckbox = ({
       <label
         htmlFor={`checkbox-${String(name)}-${String(value)}`}
         className="leading-none cursor-pointer flex-1">
-        {text}
+        {label}
       </label>
       {endAdornment}
     </div>
