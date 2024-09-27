@@ -19,10 +19,13 @@ export let Header = ({className, children}: Props) => {
   return (
     <header className={ cn('border-b', className) }>
       <Container className='py-8 flex items-center justify-between'>
-        <div className='flex items-center gap-2'>
-          <Image src='/brand/logo.webp' alt='' width={50} height={50}/>
-          <Link href="/" className="text-primary font-[900] text-4xl">
-            Pizza<span className="text-brand">Way</span>
+        <div className=''>
+          <Link href="/" className="text-primary flex items-center gap-1 font-[900] text-4xl">
+            <Image src='/brand/logo.webp' alt='' width={50} height={50}/>
+            <span>
+              Pizza
+              <span className="text-brand">Way</span>
+            </span>
           </Link>
         </div>
 
