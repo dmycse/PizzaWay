@@ -75,7 +75,7 @@ export let FilterCheckboxGroup = ({
       {
         items.length > limitItems && (
           <div className="mt-5 border-t border-neutral-100">
-            <Button variant='outline' className='mt-3 border-none' onClick={() => setShowAll(!showAll)}>
+            <Button variant='outline' className='mt-3' onClick={() => setShowAll(!showAll)}>
               { showAll ? 'Show less' : 'Show all' }
             </Button>
           </div>
