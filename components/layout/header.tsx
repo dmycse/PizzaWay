@@ -20,7 +20,7 @@ export let Header = ({className, children}: Props) => {
     <header className={ cn('border-b', className) }>
       <Container className='py-8 flex items-center justify-between'>
         <div className='flex items-center gap-2'>
-          <Image src='/brand/logo.webp' alt='' width={30} height={30}/>
+          <Image src='/brand/logo.webp' alt='' width={50} height={50}/>
           <Link href="/" className="text-primary font-[900] text-4xl">
             Pizza<span className="text-brand">Way</span>
           </Link>
@@ -43,7 +43,10 @@ export let Header = ({className, children}: Props) => {
                 <ShoppingBasket strokeWidth={2} size={18} className='relative' />
                 <b>3</b>
               </div>
-              <ArrowRight size={20} className='absolute right-5 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0' />
+              <ArrowRight 
+                size={20} 
+                className='absolute right-5 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0' 
+              />
             </Button>
           </div>
         </div>

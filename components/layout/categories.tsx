@@ -1,12 +1,12 @@
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { Button } from '../ui';
+import { categories } from '@/data';
 
 type Props = {
     className?: string
 };
 
-let categories = ['Pizzas', 'Combo', 'Starters', 'Coctails', 'Drinks', 'Desserts'];
 const activeIndex = 0;
 
 

@@ -22,8 +22,8 @@ export let Filters = ({className}: FiltersProps) => {
       <section className="mt-5 py-6 pb-7 border-y border-y-neutral-100">
         <p className="mb-3 font-bold">Price from and to</p>
         <div className="mb-5 flex gap-3">
-          <Input type="number" min={5} max={100} placeholder='5' defaultValue={5}/>
-          <Input type="number" min={5} max={100} placeholder='100'/>
+          <Input type="number" min={5} max={100} placeholder='5' defaultValue={5} step={5}/>
+          <Input type="number" min={5} max={100} placeholder='100' step={5} />
         </div>
         <RangeSlider min={0} max={100} step={5} value={[0, 100]}/>
       </section>

@@ -13,7 +13,7 @@ export let TopBar = ({className}: TopBarProps) => {
 
   return (
     <div className={ cn('py-5 sticky top-0 z-10 bg-white shadow-lg', className) }>
-      <Container className='px-0 flex items-center justify-between'>
+      <Container className='flex items-center justify-between'>
         <Categories />
         <SortPopup />
       </Container>
