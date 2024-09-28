@@ -21,7 +21,7 @@ export let Header = ({className, children}: Props) => {
       <Container className='py-8 flex items-center justify-between'>
         <div className=''>
           <Link href="/" className="text-primary flex items-center gap-1 font-[900] text-4xl">
-            <Image src='/brand/logo.webp' alt='logo' width={50} height={50} className='w-auto'/>
+            <Image src='/brand/logo.webp' alt='logo' width={40} height={40} className='w-auto'/>
             <span>
               Pizza
               <span className="text-brand">Way</span>
