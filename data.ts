@@ -1,9 +1,18 @@
-export let categories = ['Pizzas', 'Combo', 'Starters', 'Coctails', 'Drinks', 'Desserts'];
+// export let categories = ['Pizzas', 'Combo', 'Starters', 'Coctails', 'Drinks', 'Desserts'];
+
+export let categories = [
+  {id: 1, name: 'Pizzas'},
+  {id: 2, name: 'Combo'},
+  {id: 3, name: 'Starters'},
+  {id: 4, name: 'Coctails'},
+  {id: 5, name: 'Drinks'},
+  {id: 6, name: 'Desserts'},
+];
 
 export let ingradients = [
   {label: 'Cheese sauce', value: '1'},
   {label: 'Mozzarella', value: '2'},
-  {label: 'Garlic', value: '3'},
+  {label: 'Garlic', value: '3'},  
   {label: 'Pikles', value: '4'},
   {label: 'Red onion', value: '5'},
   {label: 'Tomatos', value: '6'},

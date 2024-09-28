@@ -4,6 +4,7 @@ import { useEffect, useRef } from 'react';
 import { useIntersection } from 'react-use';
 import { ProductCard, Title } from '@/components/shared';
 import { cn } from '@/lib/utils';
+import { useCategoryStore } from '@/store/category';
 
 type ProductsGroupProps = {
   title: string;
@@ -22,6 +23,7 @@ export let ProductsGroup = ({
   listClassName
   }: ProductsGroupProps) => {
 
+  const setCategoryId = useCategoryStore(state => state.setActiveId);
   const intersectionRef = useRef(null);
   const intersection = useIntersection(intersectionRef, {
     threshold: 0.4
@@ -29,7 +31,7 @@ export let ProductsGroup = ({
 
   useEffect(() => {     
     if (intersection?.isIntersecting) {
-      console.log('Caterory ID: ', {title, categoryId});
+      setCategoryId(categoryId);
       // intersectionRef.current.scrollIntoView({ behavior: 'smooth' });
     }  
   }, [intersection?.isIntersecting, categoryId, title]);
