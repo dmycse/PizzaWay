@@ -1,6 +1,9 @@
+'use client';
 
-import { cn } from '@/lib/utils';
+import { useEffect, useRef } from 'react';
+import { useIntersection } from 'react-use';
 import { ProductCard, Title } from '@/components/shared';
+import { cn } from '@/lib/utils';
 
 type ProductsGroupProps = {
   title: string;
@@ -19,10 +22,22 @@ export let ProductsGroup = ({
   listClassName
   }: ProductsGroupProps) => {
 
+  const intersectionRef = useRef(null);
+  const intersection = useIntersection(intersectionRef, {
+    threshold: 0.4
+  });
+
+  useEffect(() => {     
+    if (intersection?.isIntersecting) {
+      console.log('Caterory ID: ', {title, categoryId});
+      // intersectionRef.current.scrollIntoView({ behavior: 'smooth' });
+    }  
+  }, [intersection?.isIntersecting, categoryId, title]);
+
   return (
-    <div className={ cn('', className) }>
+    <section className={ cn('', className)} id={title} ref={intersectionRef}>
       <Title text={title} size='lg' className='mb-5 font-bold' />
-      <div className={ cn('grid grid-cols-3 gap-5', listClassName) }>
+      <article className={ cn('grid grid-cols-3 gap-7', listClassName) }>
         {items.map((product: any) => (
           <ProductCard 
             key={product.id}
@@ -32,7 +47,7 @@ export let ProductsGroup = ({
             imageUrl={product.image_url} 
           />
       ))}
-      </div>
-    </div>
+      </article>
+    </section>
   );
 };
