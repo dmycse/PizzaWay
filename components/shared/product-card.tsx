@@ -23,30 +23,28 @@ export let ProductCard = ({
   }: ProductCardProps) => {
 
   return (
-    <div className=''>
-      <Link href={`/products/${id}`}>
-        <div className="p-6 h-[200px] flex justify-center  bg-white rounded-lg">
-          <Image src={imageUrl} alt={name} width={200} height={200}/>
-        </div>
+    <Link href={`/products/${id}`} className="flex flex-col gap-3">
+      <div className="p-1 h-[250px] flex-1 flex justify-center bg-white rounded-lg transition transition-duration-500 hover:translate-y-1">
+        <Image src={imageUrl} alt={name} width={250} height={250} priority={true} className='ml-[1rem] w-auto'/>
+      </div>
 
-        <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
+      <div className="flex justify-between items-center">
+        <Title text={name} size="sm" className="  font-bold" />
+        <span className="text-base text-primary">
+          from &#8364;{price}
+        </span>
+      </div>
 
-        <p className="text-sm text-gray-400">
-          Cream, cream cheese, ham, bacon, fresh agaric mushrooms, Edam cheese, fresh pepper, mozzarella & parmesan
-        </p>
+      <p className="mb-2 text-sm text-gray-400">
+      Mozzarella, ham, spicy pepperoni, cheese cubes, tomatoes, champignons, Italian herbs, firm tomato sauce
+      </p>
 
-        <div className="mt-4 flex justify-between items-center">
-          <span className="text-[20px] text-primary">
-            from <b>&#8364;{price}</b>
-          </span>
-
-          <Button variant="outline" className="text-base text-brand font-bold border-brand hover:bg-brand">
-            <Plus size={20} className="mr-1" />
-            Add
-          </Button>
-        </div>
-        
-      </Link>
-    </div>
+      <Button variant="outline" className="w-full self-center text-base text-brand font-bold border-brand hover:bg-brand">
+        <Plus size={20} className="mr-1" />
+        Add
+      </Button>
+      
+    </Link>
+  
   );
 };
