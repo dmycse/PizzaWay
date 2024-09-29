@@ -15,18 +15,67 @@ datasource db {
 }
 
 model User {
-  id        Int      @id @default(autoincrement())
-  fullName  String?
-  email     String   @unique
-  password  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int      @id @default(autoincrement())
+  
+  fullName    String?
+  email       String   @unique
+  password    String
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
 
+
+model Category {
+  id          Int      @id @default(autoincrement())
+  
+  name        String   @unique
+  products    Product[]
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
 model Product {
-  id        Int @id @default(autoincrement())
-  name      String
-  imageUrl  String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id          Int @id @default(autoincrement())
+  
+  name        String
+  imageUrl    String
+
+  ingredients Ingradient[]
+  
+  options     ProductOption[]
+  
+  categoryId  Int 
+  category    Category @relation(fields: [categoryId], references: [id])
+  
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+
+model ProductOption {
+  id          Int @id @default(autoincrement())
+  
+  size        Int?
+  price       Int
+  pizzaType   Int?
+
+  productId   Int
+  product     Product @relation(fields: [productId], references: [id])  
+}
+
+
+model Ingradient {
+  id          Int      @id @default(autoincrement())
+  
+  name        String   @unique
+  price       Int
+  imageUrl    String
+  
+  products    Product[]
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
