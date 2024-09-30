@@ -64,7 +64,7 @@ model Product {
   options     ProductOption[]
   
   categoryId  Int 
-  category    Category @relation(fields: [categoryId], references: [id])
+  category    Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
   
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
@@ -82,7 +82,7 @@ model ProductOption {
   price       Int
 
   productId   Int
-  product     Product @relation(fields: [productId], references: [id])  
+  product     Product @relation(fields: [productId], references: [id], onDelete: Cascade)  
 
   cartItems   CartItem[]
 }
@@ -108,7 +108,7 @@ model Cart {
     id        Int   @id @default(autoincrement())
 
     userId    Int?   @unique
-    user      User?  @relation(fields: [userId], references: [id])
+    user      User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     items     CartItem[]
 
@@ -125,10 +125,10 @@ model CartItem {
   id                Int @id @default(autoincrement())
   
   cartId            Int
-  cart              Cart @relation(fields: [cartId], references: [id])
+  cart              Cart @relation(fields: [cartId], references: [id], onDelete: Cascade)
 
   productOptionId   Int
-  productOption     ProductOption @relation(fields: [productOptionId], references: [id])
+  productOption     ProductOption @relation(fields: [productOptionId], references: [id], onDelete: Cascade)
 
   quantity          Int @default(1)
 
@@ -150,7 +150,7 @@ model Order {
     id           Int @id @default(autoincrement())
 
     userId       Int?
-    user         User? @relation(fields: [userId], references: [id])
+    user         User? @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     token        String
 
@@ -176,7 +176,7 @@ model VerificationCode {
     id           Int @id @default(autoincrement())
 
     userId       Int  @unique
-    user         User @relation(fields: [userId], references: [id])
+    user         User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
     code         String
 
