@@ -8,7 +8,11 @@
     "start": "next start",
     "lint": "next lint",
     "prisma:push": "npx prisma db push",
-    "prisma:studio": "npx prisma studio"
+    "prisma:studio": "npx prisma studio",
+    "prisma:seed": "npx prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@prisma/client": "^5.20.0",
@@ -28,6 +32,7 @@
     "react-use": "^17.5.1",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
+    "ts-node": "^10.9.2",
     "vaul": "^0.9.4",
     "zustand": "^5.0.0-rc.2"
   },
