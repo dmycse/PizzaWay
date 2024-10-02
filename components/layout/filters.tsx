@@ -1,6 +1,6 @@
 import { Title, FilterCheckbox, RangeSlider, FilterCheckboxGroup } from '@/components/shared';
 import { Input } from '@/components/ui';
-import { ingradients } from '@/data';
+import { ingredients } from '@/prisma/constants';
 import { cn } from '@/lib/utils';
 
 type FiltersProps = {
@@ -9,6 +9,8 @@ type FiltersProps = {
 
 
 export let Filters = ({className}: FiltersProps) => {
+
+  let items = ingredients.map((item, index) => ({label: item.name, value: String(index + 1)}));
 
   return (
     <aside className={ cn('mt-10', className) }>
@@ -30,9 +32,9 @@ export let Filters = ({className}: FiltersProps) => {
 
       <FilterCheckboxGroup
         className='mt-5' 
-        title='Ingradients' 
+        title='Ingredients' 
         // defaultItems={ingradients}
-        items={ingradients}
+        items={items}
       />
     </aside>
   );
