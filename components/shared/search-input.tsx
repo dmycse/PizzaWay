@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { MouseEventHandler, useRef, useState } from 'react';
 import Link from 'next/link';
 import {useClickAway, useDebounce} from 'react-use';
 import { Search } from 'lucide-react';
@@ -42,7 +42,7 @@ export let SearchInput = ({ className }: SearchInputProps) => {
     [searchQuery]
   );
 
-  let onClickHandler = () => {
+  let onClickHandler: MouseEventHandler<HTMLAnchorElement> = () => {
     setInputFocused(false);
     setSearchQuery('');
     setProducts([]);
