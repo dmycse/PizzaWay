@@ -45,6 +45,7 @@ export let SearchInput = ({ className }: SearchInputProps) => {
   let onClickHandler = () => {
     setInputFocused(false);
     setSearchQuery('');
+    setProducts([]);
   };
 
 
