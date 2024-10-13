@@ -1,24 +1,23 @@
-import { ReactNode } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Container } from '@/components/shared/container';
+import { Container, SearchInput } from '@/components/shared';
 import { Button } from '@/components/ui';
 
 import { cn } from '@/lib/utils';
 import { ArrowRight, ShoppingBasket, UserPen } from 'lucide-react';
 
-type Props = {
+
+type HeaderProps = {
     className?: string
-    children?: ReactNode
 };
 
 
-export let Header = ({className, children}: Props) => {
+export let Header = ({className }: HeaderProps) => {
 
   return (
     <header className={ cn('border-b', className) }>
-      <Container className='py-8 flex items-center justify-between'>
+      <Container className='py-8 flex justify-between items-center'>
         <div className=''>
           <Link href="/" className="text-primary flex items-center gap-1 font-[900] text-4xl">
             <Image src='/brand/logo.webp' alt='logo' width={40} height={40} className='w-auto'/>
@@ -29,8 +28,8 @@ export let Header = ({className, children}: Props) => {
           </Link>
         </div>
 
-        <div className='flex-1 bg-gray-200'>
-          Search
+        <div className='mx-10 flex-1'>
+          <SearchInput />
         </div>
 
         <div className='flex items-center gap-3'>
