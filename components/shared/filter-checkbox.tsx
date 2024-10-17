@@ -19,18 +19,20 @@ export const FilterCheckbox = ({
     onCheckedChange,
   }: FilterCheckboxProps) => {
 
+
   return (
     <div className="flex items-center space-x-2">
       <Checkbox
         className="w-6 h-6 rounded-[8px]"
-        id={`checkbox-${String(name)}-${String(value)}`}
+        id={`checkbox-${name}-${value}`}
         value={value}
         checked={checked}
         onCheckedChange={onCheckedChange}
       />
       <label
-        htmlFor={`checkbox-${String(name)}-${String(value)}`}
-        className="leading-none cursor-pointer flex-1 hover:font-bold">
+        className="flex-1 leading-none cursor-pointer hover:font-semibold"
+        htmlFor={`checkbox-${name}-${value}`}
+      >
         {label}
       </label>
       {endAdornment}
