@@ -22,92 +22,93 @@ export const ingredients = [
       'https://cdn.dodostatic.net/static/Img/Ingredients/cdea869ef287426386ed634e6099a5ba.png',
   },
   {
+    id: 3,
     name: 'Сыры чеддер и пармезан',
     price: 79,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA69C1FE796',
   },
   {
-    id: 3,
+    id: 4,
     name: 'Острый перец халапеньо',
     price: 59,
     imageUrl:
       'https://cdn.dodostatic.net/static/Img/Ingredients/11ee95b6bfdf98fb88a113db92d7b3df.png',
   },
   {
-    id: 4,
+    id: 5,
     name: 'Нежный цыпленок',
     price: 79,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA5B328D35A',
   },
   {
-    id: 5,
+    id: 6,
     name: 'Шампиньоны',
     price: 59,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA67259A324',
   },
   {
-    id: 6,
+    id: 7,
     name: 'Ветчина',
     price: 79,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA61B9A8D61',
   },
   {
-    id: 7,
+    id: 8,
     name: 'Пикантная пепперони',
     price: 79,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA6258199C3',
   },
   {
-    id: 8,
+    id: 9,
     name: 'Острая чоризо',
     price: 79,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA62D5D6027',
   },
   {
-    id: 9,
+    id: 10,
     name: 'Маринованные огурчики',
     price: 59,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A21DA51A81211E9EA89958D782B',
   },
   {
-    id: 10,
+    id: 11,
     name: 'Свежие томаты',
     price: 59,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA7AC1A1D67',
   },
   {
-    id: 11,
+    id: 12,
     name: 'Красный лук',
     price: 59,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA60AE6464C',
   },
   {
-    id: 12,
+    id: 13,
     name: 'Сочные ананасы',
     price: 59,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A21DA51A81211E9AFA6795BA2A0',
   },
   {
-    id: 13,
+    id: 14,
     name: 'Итальянские травы',
     price: 39,
     imageUrl:
       'https://cdn.dodostatic.net/static/Img/Ingredients/370dac9ed21e4bffaf9bc2618d258734.png',
   },
   {
-    id: 14,
+    id: 15,
     name: 'Сладкий перец',
     price: 59,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A22FA54A81411E9AFA63F774C1B',
   },
   {
-    id: 15,
+    id: 16,
     name: 'Кубики брынзы',
     price: 79,
     imageUrl: 'https://cdn.dodostatic.net/static/Img/Ingredients/000D3A39D824A82E11E9AFA6B0FFC349',
   },
   {
-    id: 16,
+    id: 17,
     name: 'Митболы',
     price: 79,
     imageUrl:
@@ -220,3 +221,15 @@ export const products = [
     categoryId: 5,
   },
 ].map(({ name, imageUrl, categoryId }) => ({ name, imageUrl, categoryId }));
+
+
+export const pizzaSizes = [
+  {label: '20 sm', value: '20'},
+  {label: '30 sm', value: '30'},
+  {label: '40 sm', value: '40'}
+];
+
+export const pizzaCrust = [
+  {label: 'Thin', value: 'thin'},
+  {label: 'Thick', value: 'thick'},
+];
