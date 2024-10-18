@@ -1,60 +1,62 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import { Title, RangeSlider, FilterCheckboxGroup } from '@/components/shared';
-import { Input } from '@/components/ui';
+import { Button, Input } from '@/components/ui';
+import { pizzaSizes, pizzaCrust, prices } from '@/prisma/constants';
+import { useIngredients, useFilters, useQueryFilters } from '@/hooks';
 import { cn } from '@/lib/utils';
-import { useFilterIngredients } from '@/hooks/useFilterIngredients';
-import { pizzaSizes, pizzaCrust } from '@/prisma/constants';
 
 type FiltersProps = {
     className?: string
 };
 
-type PriceRangeProps = {
-  priceMin: number;
-  priceMax: number;
-};
+export let Filters = ({ className }: FiltersProps) => {
 
+  let ingredients = useIngredients();
 
-export let Filters = ({className}: FiltersProps) => {
-
-  let {
-    ingredients, 
-    selectedIngredients,
-    selectedPizzaSize,
-    selectedPizzaCrust,
-    setSelectedIngredient,
-    setSelectedPizzaSize,
-    setSelectedPizzaCrust
-  } = useFilterIngredients();
+  let filter = useFilters();
   
-  let [priceRange, setPriceRange] = useState<PriceRangeProps>({priceMin: 0, priceMax: 50});
+  useQueryFilters(filter);
 
   let items = ingredients.map((item, index) => ({label: item.name, value: String(index + 1)}));
 
-  let onPriceRangeChange = (name: keyof PriceRangeProps, value: number) => {
-    setPriceRange({
-      ...priceRange,
-      [name]: value
-    });
+  let onPriceRangeChange = (prices: number[]) => {
+    filter.setPriceRange('priceMin', prices[0]);
+    filter.setPriceRange('priceMax', prices[1]);
   };
 
-  useEffect(() => {
-    console.log({priceRange, selectedIngredients, selectedPizzaSize, selectedPizzaCrust})
-  }, [priceRange, selectedIngredients, selectedPizzaSize, selectedPizzaCrust]);
+  let handleFilterClear = () => {
+    filter.selectedPizzaSize.size > 0 && filter.clearSelectedPizzaSize();
+    filter.selectedPizzaCrust.size > 0 && filter.clearSelectedPizzaCrust();
+    filter.selectedIngredients.size > 0 && filter.clearSelectedIngredients();
+    (filter.priceRange.priceMin || filter.priceRange.priceMax) && filter.clearPriceRange();
+  };
 
   return (
     <aside className={ cn('mt-10', className) }>
-      <Title text='Filters' size='sm' className='mb-5 font-bold' />
+      <div className="flex gap-2">
+        <Title text='Filters' size='sm' className='mb-5 font-semibold' />
+        {(
+          filter.selectedPizzaSize.size > 0 || 
+          filter.selectedPizzaCrust.size > 0 || 
+          filter.selectedIngredients.size > 0 ||
+          filter.priceRange.priceMin || 
+          filter.priceRange.priceMax
+          ) && (
+            <Button variant='link' className='text-gray-700 hover:font-bold' onClick={handleFilterClear}>
+              Clear
+            </Button>
+          )
+        }
+      </div>
       
       <FilterCheckboxGroup
         className='mb-6' 
         title='Size'
         name='size' 
         items={pizzaSizes}
-        selectedItem={selectedPizzaSize}
-        onClickCheckbox={setSelectedPizzaSize}
+        selectedItem={filter.selectedPizzaSize}
+        onClickCheckbox={filter.setSelectedPizzaSize}
       />
 
       <FilterCheckboxGroup
@@ -62,40 +64,40 @@ export let Filters = ({className}: FiltersProps) => {
         title='Crust'
         name='crust' 
         items={pizzaCrust}
-        selectedItem={selectedPizzaCrust}
-        onClickCheckbox={setSelectedPizzaCrust}
+        selectedItem={filter.selectedPizzaCrust}
+        onClickCheckbox={filter.setSelectedPizzaCrust}
       />
   
       <section className="mt-5 py-6 pb-7 border-y border-y-neutral-100">
-        <p className="mb-3 font-bold text-brand">Price from and to</p>
+        <p className="mb-3 font-bold text-brand">Price range, &#8364;</p>
         <div className="mb-7 flex gap-3">
           <Input 
             className='focus:border-none'
             type="number" 
-            min={5} 
-            max={50}
-            step={5} 
-            placeholder='5' 
-            value={String(priceRange.priceMin)}
-            onChange={({target}) => onPriceRangeChange('priceMin', Number(target.value))}
+            min={prices.priceMin} 
+            max={prices.priceMax}
+            step={prices.rangeStep} 
+            placeholder={String(prices.priceMin)} 
+            value={String(filter.priceRange.priceMin)}
+            onChange={({target}) => filter.setPriceRange('priceMin', Number(target.value))}
           />
           <Input
             className='focus:border-none' 
             type="number" 
-            min={5} 
-            max={50}
-            step={5} 
-            placeholder='50' 
-            value={String(priceRange.priceMax)}
-            onChange={({target}) => onPriceRangeChange('priceMax', Number(target.value))}
+            min={prices.priceMin} 
+            max={prices.priceMax}
+            step={prices.rangeStep} 
+            placeholder={String(prices.priceMax)} 
+            value={String(filter.priceRange.priceMax)}
+            onChange={({target}) => filter.setPriceRange('priceMax', Number(target.value))}
           />
         </div>
         <RangeSlider 
-          min={0} 
-          max={50} 
-          step={5} 
-          value={[priceRange.priceMin, priceRange.priceMax]}
-          onValueChange={([priceMin, priceMax]) => setPriceRange({priceMin, priceMax})}  
+          min={prices.priceMin} 
+          max={prices.priceMax} 
+          step={prices.rangeStep} 
+          value={[filter.priceRange.priceMin || prices.priceMin, filter.priceRange.priceMax || prices.priceMax]}
+          onValueChange={onPriceRangeChange}  
         />
       </section>
 
@@ -105,9 +107,10 @@ export let Filters = ({className}: FiltersProps) => {
         name='ingredients' 
         items={items}
         loading={ingredients.length < 1}
-        selectedItem={selectedIngredients}
-        onClickCheckbox={setSelectedIngredient}
+        selectedItem={filter.selectedIngredients}
+        onClickCheckbox={filter.setSelectedIngredients}
       />
+
     </aside>
   );
 };

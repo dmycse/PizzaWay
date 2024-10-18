@@ -10,14 +10,12 @@ type FilterCheckboxGroupProps = {
   title: string;
   items: Item[];
   name?: string;
-  // defaultItems?: Item[];
   limitItems?: number;
   searchInputPlaceholder?: string;
-  defaultValue?: string[];
-  className?: string;
   loading?: boolean;
   selectedItem?: Set<string>;
   onClickCheckbox?: (id: string) => void;
+  className?: string;
 };
 
 
@@ -27,7 +25,6 @@ export let FilterCheckboxGroup = ({
     name, 
     limitItems = 5, 
     searchInputPlaceholder = 'Search...', 
-    defaultValue,
     loading,
     selectedItem, 
     onClickCheckbox,  
@@ -84,8 +81,6 @@ export let FilterCheckboxGroup = ({
               name={name}
               checked={selectedItem?.has(item.value)}
               onCheckedChange={() => onClickCheckbox?.(item.value)}
-              // text={item.text}
-              // value={item.value}
               // endAdornment={item.endAdornment}
             />
           ))
