@@ -233,3 +233,9 @@ export const pizzaCrust = [
   {label: 'Thin', value: 'thin'},
   {label: 'Thick', value: 'thick'},
 ];
+
+export const prices = {
+  priceMin: 5,
+  priceMax: 50,
+  rangeStep: 5
+};
