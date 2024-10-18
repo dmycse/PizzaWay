@@ -6,7 +6,7 @@ import qs from 'qs';
 export const useQueryFilters = ({
     selectedIngredients, 
     selectedPizzaSize, 
-    selectedPizzaCrust, 
+    selectedPizzaType, 
     priceRange
   }: Filters) => {
 
@@ -29,7 +29,7 @@ export const useQueryFilters = ({
 
       let params = {
         pizzaSize: Array.from(selectedPizzaSize)?.sort(),
-        pizzaCrust: Array.from(selectedPizzaCrust),
+        pizzaType: Array.from(selectedPizzaType),
         ingredients: Array.from(selectedIngredients)?.sort(),
         ...priceRangeSort(priceRange),
       };
@@ -37,12 +37,11 @@ export const useQueryFilters = ({
       let query = qs.stringify(params, {
         arrayFormat: 'comma',
       });
-      console.log('useQueryFilters query', query);
+      
       router.push(`?${query}`, {
         scroll: false,
       });
 
-      console.log('useQueryFilters Params', params);
     }
 
     isMounted.current = true;
@@ -51,7 +50,7 @@ export const useQueryFilters = ({
     [
       selectedIngredients, 
       selectedPizzaSize, 
-      selectedPizzaCrust, 
+      selectedPizzaType, 
       priceRange
     ]
   );

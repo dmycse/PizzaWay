@@ -75,22 +75,22 @@ async function createData() {
   await prisma.productOption.createMany({
     data: [
       // Pizza "Peperoni fresh"
-      { productId: pizza1.id, pizzaType: 1, size: 25, price: 10 },
-      { productId: pizza1.id, pizzaType: 2, size: 30, price: 14},
-      { productId: pizza1.id, pizzaType: 2, size: 35, price: 18 },
+      { productId: pizza1.id, pizzaType: 1, pizzaSize: 25, price: 10 },
+      { productId: pizza1.id, pizzaType: 2, pizzaSize: 30, price: 14},
+      { productId: pizza1.id, pizzaType: 2, pizzaSize: 35, price: 18 },
 
       // Pizza "Chessy"
-      { productId: pizza2.id, pizzaType: 1, size: 25, price: 12 },
-      { productId: pizza2.id, pizzaType: 1, size: 30, price: 14, },
-      { productId: pizza2.id, pizzaType: 1, size: 35, price: 16, },
-      { productId: pizza2.id, pizzaType: 2, size: 25, price: 14},
-      { productId: pizza2.id, pizzaType: 2, size: 30, price: 16, },
-      { productId: pizza2.id, pizzaType: 2, size: 35, price: 18 },
+      { productId: pizza2.id, pizzaType: 1, pizzaSize: 25, price: 12 },
+      { productId: pizza2.id, pizzaType: 1, pizzaSize: 30, price: 14, },
+      { productId: pizza2.id, pizzaType: 1, pizzaSize: 35, price: 16, },
+      { productId: pizza2.id, pizzaType: 2, pizzaSize: 25, price: 14},
+      { productId: pizza2.id, pizzaType: 2, pizzaSize: 30, price: 16, },
+      { productId: pizza2.id, pizzaType: 2, pizzaSize: 35, price: 18 },
 
       // Pizza "Chorizo fresh"
-      { productId: pizza3.id, pizzaType: 1, size: 25, price: 14 },
-      { productId: pizza3.id, pizzaType: 2, size: 30, price: 17 },
-      { productId: pizza3.id, pizzaType: 2, size: 35, price: 20 },
+      { productId: pizza3.id, pizzaType: 1, pizzaSize: 25, price: 14 },
+      { productId: pizza3.id, pizzaType: 2, pizzaSize: 30, price: 17 },
+      { productId: pizza3.id, pizzaType: 2, pizzaSize: 35, price: 20 },
 
       // Other products
       { productId: 1, price: 5 },

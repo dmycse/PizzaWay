@@ -2,7 +2,7 @@
 
 import { Title, RangeSlider, FilterCheckboxGroup } from '@/components/shared';
 import { Button, Input } from '@/components/ui';
-import { pizzaSizes, pizzaCrust, prices } from '@/prisma/constants';
+import { pizzaSizes, pizzaType, prices } from '@/prisma/constants';
 import { useIngredients, useFilters, useQueryFilters } from '@/hooks';
 import { cn } from '@/lib/utils';
 
@@ -27,7 +27,7 @@ export let Filters = ({ className }: FiltersProps) => {
 
   let handleFilterClear = () => {
     filter.selectedPizzaSize.size > 0 && filter.clearSelectedPizzaSize();
-    filter.selectedPizzaCrust.size > 0 && filter.clearSelectedPizzaCrust();
+    filter.selectedPizzaType.size > 0 && filter.clearSelectedPizzaType();
     filter.selectedIngredients.size > 0 && filter.clearSelectedIngredients();
     (filter.priceRange.priceMin || filter.priceRange.priceMax) && filter.clearPriceRange();
   };
@@ -38,7 +38,7 @@ export let Filters = ({ className }: FiltersProps) => {
         <Title text='Filters' size='sm' className='mb-5 font-semibold' />
         {(
           filter.selectedPizzaSize.size > 0 || 
-          filter.selectedPizzaCrust.size > 0 || 
+          filter.selectedPizzaType.size > 0 || 
           filter.selectedIngredients.size > 0 ||
           filter.priceRange.priceMin || 
           filter.priceRange.priceMax
@@ -61,11 +61,11 @@ export let Filters = ({ className }: FiltersProps) => {
 
       <FilterCheckboxGroup
         className='mb-6' 
-        title='Crust'
-        name='crust' 
-        items={pizzaCrust}
-        selectedItem={filter.selectedPizzaCrust}
-        onClickCheckbox={filter.setSelectedPizzaCrust}
+        title='Crust type'
+        name='type' 
+        items={pizzaType}
+        selectedItem={filter.selectedPizzaType}
+        onClickCheckbox={filter.setSelectedPizzaType}
       />
   
       <section className="mt-5 py-6 pb-7 border-y border-y-neutral-100">

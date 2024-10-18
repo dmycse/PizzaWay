@@ -10,19 +10,19 @@ export type PriceRange = {
 export type Filters = {
   selectedIngredients: Set<string>;
   selectedPizzaSize: Set<string>;
-  selectedPizzaCrust: Set<string>;
+  selectedPizzaType: Set<string>;
   priceRange: PriceRange; 
 };
 
 type UseFilters = Filters & { 
   setSelectedIngredients: (value: string) => void;
   setSelectedPizzaSize: (value: string) => void;
-  setSelectedPizzaCrust: (value: string) => void;
+  setSelectedPizzaType: (value: string) => void;
   setPriceRange: (name: keyof PriceRange, value: number) => void;
 
   clearSelectedIngredients: () => void;
   clearSelectedPizzaSize: () => void;
-  clearSelectedPizzaCrust: () => void;
+  clearSelectedPizzaType: () => void;
   clearPriceRange: () => void; 
 };
 
@@ -34,9 +34,9 @@ export let useFilters = (): UseFilters => {
   let [selectedPizzaSize, { toggle: setSelectedPizzaSize, clear: clearSelectedPizzaSize }] = useSet(
     new Set<string>(searchParams.has('pizzaSize') ? searchParams.get('pizzaSize')?.split(',') : [])
   );
-  // store selected pizza crust
-  let [selectedPizzaCrust, { toggle: setSelectedPizzaCrust, clear: clearSelectedPizzaCrust }] = useSet(
-    new Set<string>(searchParams.has('pizzaCrust') ? searchParams.get('pizzaCrust')?.split(',') : [])
+  // store selected pizza crust type
+  let [selectedPizzaType, { toggle: setSelectedPizzaType, clear: clearSelectedPizzaType }] = useSet(
+    new Set<string>(searchParams.has('pizzaType') ? searchParams.get('pizzaType')?.split(',') : [])
   );
   // store selected ingredients
   let [selectedIngredients, { toggle: setSelectedIngredients, clear: clearSelectedIngredients }] = useSet(
@@ -61,23 +61,23 @@ export let useFilters = (): UseFilters => {
   return useMemo(() => ({
     selectedIngredients,
     selectedPizzaSize,
-    selectedPizzaCrust,
+    selectedPizzaType,
     priceRange,
 
     setSelectedPizzaSize,
-    setSelectedPizzaCrust,
+    setSelectedPizzaType,
     setSelectedIngredients,
     setPriceRange: handlePriceRangeChange,
 
     clearSelectedPizzaSize,
-    clearSelectedPizzaCrust,
+    clearSelectedPizzaType,
     clearSelectedIngredients,
     clearPriceRange: handlePriceRangeClear  
     }), 
     [
       selectedIngredients,
       selectedPizzaSize,
-      selectedPizzaCrust,
+      selectedPizzaType,
       priceRange
     ]);
 
