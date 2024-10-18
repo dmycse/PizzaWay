@@ -230,8 +230,8 @@ export const pizzaSizes = [
 ];
 
 export const pizzaType = [
-  {label: 'Thin', value: 'thin'},
-  {label: 'Thick', value: 'thick'},
+  {label: 'Thin', value: '1'},
+  {label: 'Thick', value: '2'},
 ];
 
 export const prices = {
