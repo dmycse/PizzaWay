@@ -168,7 +168,7 @@ model Order {
 
     token        String
 
-    sum  Int
+    sum          Int
     status       OrderStatus
     paymentId    String?
 

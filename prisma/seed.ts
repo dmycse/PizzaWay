@@ -39,7 +39,7 @@ async function createData() {
     data: {
       name: 'Pepironi fresh',
       imageUrl:
-        'https://media.dodostatic.net/image/r:233x233/11EE7D61304FAF5A98A6958F2BB2D260.webp',
+        '/images/products/pizzas/peperoni_fresh.webp',
       categoryId: 1,
       // extra ingredients for an order
       ingredients: {
