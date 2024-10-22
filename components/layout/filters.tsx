@@ -52,7 +52,7 @@ export let Filters = ({ className }: FiltersProps) => {
       
       <FilterCheckboxGroup
         className='mb-6' 
-        title='Size'
+        title='Pizza size'
         name='size' 
         items={pizzaSizes}
         selectedItem={filter.selectedPizzaSize}
@@ -103,7 +103,7 @@ export let Filters = ({ className }: FiltersProps) => {
 
       <FilterCheckboxGroup
         className='mt-5' 
-        title='Ingredients'
+        title='Extra ingredients'
         name='ingredients' 
         items={items}
         loading={ingredients.length < 1}
