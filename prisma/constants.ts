@@ -224,14 +224,14 @@ export const products = [
 
 
 export const pizzaSizes = [
-  {label: '20 sm', value: '20'},
+  {label: '25 sm', value: '25'},
   {label: '30 sm', value: '30'},
-  {label: '40 sm', value: '40'}
+  {label: '35 sm', value: '35'}
 ];
 
 export const pizzaType = [
   {label: 'Thin', value: '1'},
-  {label: 'Thick', value: '2'},
+  {label: 'Classic', value: '2'},
 ];
 
 export const prices = {
