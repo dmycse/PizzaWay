@@ -1,7 +1,5 @@
-import type { Metadata } from "next";
+import { ReactNode } from "react";
 import { Roboto } from "next/font/google";
-
-import { Header } from "@/components/layout";
 
 import "./globals.css";
 
@@ -11,25 +9,18 @@ const roboto = Roboto({
   weight: ['400', '500', '700', '900'],
 });
 
-export const metadata: Metadata = {
-  title: "Pizzas | PizzaWay",
-  description: "Delicious Pizzas for takeaway and delivery.",
-};
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout(
+  { children }: Readonly<{children: ReactNode}>
+  ) {
+    
   return (
     <html lang="en">
-      <body
-        className={`${roboto.variable} antialiased`}
-      >
-        <Header />
-        <main className="min-h-screen">
-          {children}
-        </main>
+      <head>
+        <link data-rh='true' rel="icon" href="/icons/favicon.ico" />
+      </head>
+      <body className={`${roboto.variable} antialiased`}>
+        {children}
       </body>
     </html>
   );
