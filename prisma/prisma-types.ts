@@ -5,7 +5,6 @@ export type ProductWithRelations = Product & {
   ingredients: Ingredient[];
 };
 
-
 export const mapPizzaSizes = {
   25: 'Small',
   30: 'Middle',
@@ -13,12 +12,10 @@ export const mapPizzaSizes = {
 } as const;
 
 export const mapPizzaType = {
-  1: 'thin',
-  2: 'classic',
+  1: 'classic',
+  2: 'thin',
 } as const;
 
-
 export type PizzaSize = keyof typeof mapPizzaSizes;
-
 export type PizzaType = keyof typeof mapPizzaType;
 

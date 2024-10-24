@@ -229,10 +229,20 @@ export const pizzaSizes = [
   {title: 'Big', label: '35 sm', value: '35'}
 ];
 
-export const pizzaType = [
-  {label: 'Thin', value: '1'},
-  {label: 'Classic', value: '2'},
+export const variantPizzaSizes = pizzaSizes.map(({title, value}) => ({
+  name: title,
+  value,
+}));
+
+export const pizzaTypes = [
+  {title: 'Classic', label: 'classic', value: '1'},
+  {title: 'Thin', label: 'thin', value: '2'},
 ];
+
+export const variantPizzaTypes = pizzaTypes.map(({title, value}) => ({
+  name: title,
+  value,
+}));
 
 export const prices = {
   priceMin: 5,
