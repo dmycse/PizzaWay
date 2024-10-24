@@ -224,9 +224,9 @@ export const products = [
 
 
 export const pizzaSizes = [
-  {label: '25 sm', value: '25'},
-  {label: '30 sm', value: '30'},
-  {label: '35 sm', value: '35'}
+  {title: 'Small', label: '25 sm', value: '25'},
+  {title: 'Middle', label: '30 sm', value: '30'},
+  {title: 'Big', label: '35 sm', value: '35'}
 ];
 
 export const pizzaType = [
