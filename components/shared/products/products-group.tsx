@@ -8,7 +8,7 @@ import { useCategoryStore } from '@/store/category';
 
 type ProductsGroupProps = {
   title: string;
-  items: any;
+  items: any[];
   categoryId: number;
   className?: string;
   listClassName?: string;
@@ -23,16 +23,16 @@ export let ProductsGroup = ({
   listClassName
   }: ProductsGroupProps) => {
 
-  const setCategoryId = useCategoryStore(state => state.setActiveId);
-  const intersectionRef = useRef(null);
-  const intersection = useIntersection(intersectionRef, {
-    threshold: 0.4
+  let setActiveCategory = useCategoryStore(state => state.setActiveCategory);
+  let intersectionRef = useRef(null);
+  let intersection = useIntersection(intersectionRef, {
+    threshold: 0.4,
   });
 
+  
   useEffect(() => {     
     if (intersection?.isIntersecting) {
-      setCategoryId(categoryId);
-      // intersectionRef.current.scrollIntoView({ behavior: 'smooth' });
+      setActiveCategory(categoryId);
     }  
   }, [intersection?.isIntersecting, categoryId, title]);
 
@@ -40,15 +40,17 @@ export let ProductsGroup = ({
     <section className={ cn('', className)} id={title} ref={intersectionRef}>
       <Title text={title} size='lg' className='mb-5 font-bold' />
       <article className={ cn('grid grid-cols-3 gap-7', listClassName) }>
-        {items.map((product: any) => (
-          <ProductCard 
-            key={product.id}
-            id={product.id}
-            name={product.name}
-            price={product.items[0].price}
-            imageUrl={product.image_url} 
-          />
-      ))}
+        {
+          items.map((product: any) => (
+            <ProductCard 
+              key={product.id}
+              id={product.id}
+              name={product.name}
+              price={product.options[0].price}
+              imageUrl={product.imageUrl} 
+            />
+          ))
+        }
       </article>
     </section>
   );
