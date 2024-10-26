@@ -2,7 +2,7 @@
 
 import { Title, RangeSlider, FilterCheckboxGroup } from '@/components/shared';
 import { Button, Input } from '@/components/ui';
-import { pizzaSizes, pizzaType, prices } from '@/prisma/constants';
+import { pizzaSizes, pizzaTypes, prices } from '@/prisma/constants';
 import { useIngredients, useFilters, useQueryFilters } from '@/hooks';
 import { cn } from '@/lib/utils';
 
@@ -63,7 +63,7 @@ export let Filters = ({ className }: FiltersProps) => {
         className='mb-6' 
         title='Crust type'
         name='type' 
-        items={pizzaType}
+        items={pizzaTypes}
         selectedItem={filter.selectedPizzaType}
         onClickCheckbox={filter.setSelectedPizzaType}
       />
