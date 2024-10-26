@@ -2,9 +2,10 @@
 'use client';
 
 import { useRouter } from "next/navigation";
-import { Dialog, DialogContent } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 import { ProductWithRelations } from "@/prisma/prisma-types";
-import { ChoosePizza } from "../pizzas/choose-pizza";
+import { ProductSelection } from "@/components/shared";
 import { cn } from "@/lib/utils";
 
 type ProductModalProps =  {
@@ -19,13 +20,16 @@ export let ProductModal = ({ product, className }: ProductModalProps) => {
 
   return (
     <Dialog open={!!product} onOpenChange={() => router.back()}>
+      <VisuallyHidden.Root asChild>
+        <DialogTitle>{product?.name}</DialogTitle>  
+      </VisuallyHidden.Root>
       <DialogContent
+        aria-describedby={undefined}
         className={cn(
           'p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden',
           className,
         )}>
-        <ChoosePizza  {...product} onSubmit={() => router.back()} />
-        {/* <ProductForm product={product} onSubmit={() => router.back()} /> */}
+        <ProductSelection product={product} onSubmit={() => router.back()} />
       </DialogContent>
     </Dialog>
   );
