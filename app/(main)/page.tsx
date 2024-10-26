@@ -1,7 +1,6 @@
-import { Container, ProductsGroup, Title } from "@/components/shared";
-import { TopBar, Filters } from "@/components/layout";
+import { Container, TopBar } from "@/components/layout";
+import { Title, Filters, ProductsGroup } from "@/components/shared";
 import { prisma } from "@/prisma/prisma-client";
-
 
 
 export default async function Home() {

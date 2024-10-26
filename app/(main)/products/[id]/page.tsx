@@ -1,4 +1,5 @@
-import { Container, PizzaVariant } from '@/components/shared';
+import { Container } from '@/components/layout';
+import { PizzaVariant } from '@/components/shared';
 import { prisma } from '@/prisma/prisma-client';
 
 type ProductPageProps = {
