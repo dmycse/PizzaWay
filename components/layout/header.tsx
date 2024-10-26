@@ -1,7 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { Container, SearchInput } from '@/components/shared';
+import { Container } from '@/components/layout';
+import { SearchInput } from '@/components/shared';
 import { Button } from '@/components/ui';
 
 import { cn } from '@/lib/utils';

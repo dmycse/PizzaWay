@@ -1,5 +1,4 @@
-import { Container } from '@/components/shared';
-import { Categories,  SortPopup} from '@/components/layout';
+import { Container, Categories,  SortPopup} from '@/components/layout';
 import { Category } from '@prisma/client';
 
 import { cn } from '@/lib/utils';
