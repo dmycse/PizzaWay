@@ -42,7 +42,7 @@ export let ProductCard = ({
 
       <Button variant="outline" className="w-full self-center text-base text-brand font-bold border-brand hover:bg-brand">
         <Plus size={20} className="mr-1" />
-        Add
+        Add to cart
       </Button>
       
     </Link>
