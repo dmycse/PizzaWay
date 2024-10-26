@@ -8,7 +8,7 @@ export type PizzaVariant = {
 };
 
 type PizzaSelectorProps = {
-  items: PizzaVariant[];
+  items: readonly PizzaVariant[];
   value?: PizzaVariant['value'];
   onClick?: (value: PizzaVariant['value']) => void;
   className?: string;

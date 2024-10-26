@@ -14,7 +14,7 @@ export let PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) =>
       
       <img
         src={imageUrl}
-        alt="product image"
+        alt="pizza image"
         className={cn('relative left-2 top-2 z-10 transition-all duration-300', {
           'w-[300px] h-[300px]': pizzaSize === 25,
           'w-[350px] h-[350px]': pizzaSize === 30,
