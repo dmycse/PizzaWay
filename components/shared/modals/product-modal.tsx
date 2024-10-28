@@ -14,12 +14,18 @@ type ProductModalProps =  {
 };
 
 /**
- * Component: Display modal window with selected product
+ * Component: displays a modal window with the selected product. The window is displayed
+ * when the product is selected and will be closed when the user clicks outside of the window
+ * or presses escape.
  * 
- * Parent component: ProductModalPage app/(main)/@modal/(.)products/[id]/page.tsx
- * @param product - selected product
- * @param className - css styles
+ * Parent component: ProductModalPage -> app/(main)/@modal/(.)products/[id]/page.tsx
+ * @param {Object} props
+ * @prop {string} [product] - selected product
+ * @prop {string} [className] - additional CSS styles to apply to the component
+ * 
+ * @returns {JSX.Element} The modal window component
  */
+
 
 export let ProductModal = ({ product, className }: ProductModalProps) => {
   
@@ -33,7 +39,7 @@ export let ProductModal = ({ product, className }: ProductModalProps) => {
       <DialogContent
         aria-describedby={undefined}
         className={cn(
-          'p-0 w-[960px] max-w-[850px] min-h-[500px] bg-white overflow-hidden',
+          'p-0 max-w-[850px] min-h-[400px] bg-white overflow-hidden',
           className,
         )}>
         <ProductSelection product={product} onSubmit={() => router.back()} />
