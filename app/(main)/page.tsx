@@ -18,7 +18,7 @@ export default async function Home() {
   console.log(categories[0].products[0])
   return (
     <>
-      <Container className='mt-8'>
+      <Container className='mt-6'>
         <Title text='Pizzas & More' size='lg' className="font-extrabold"/>
       </Container>
 
