@@ -15,6 +15,16 @@ type PizzaSelectorProps = {
 };
 
 
+/**
+ * Component: Selector pizza size or pizza crust type
+ * 
+ * Parent component: ChoosePizza, PizzaVariant
+ * @param items - array of pizza sizes or pizza crust types with disabled/not disabled property
+ * @param value - selected pizza size or pizza crust type
+ * @param onClick - choosing pizza size or pizza crust type
+ * @param className - css styles
+ */
+
 export let PizzaSelector = ({ items, value, onClick, className }: PizzaSelectorProps) => {
 
   return (
@@ -26,7 +36,7 @@ export let PizzaSelector = ({ items, value, onClick, className }: PizzaSelectorP
           className={cn(
             'px-5 h-[30px] flex-1 flex justify-center items-center text-sm cursor-pointer rounded-3xl transition-all duration-400',
             {
-              'bg-white shadow': item.value === value,
+              'bg-white shadow': !item.disabled && item.value === value,
               'text-gray-500 opacity-50 pointer-events-none': item.disabled,
             },
           )}>
