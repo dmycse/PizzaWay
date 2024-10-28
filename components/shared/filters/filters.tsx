@@ -10,6 +10,13 @@ type FiltersProps = {
     className?: string
 };
 
+/**
+ * Component: Side panel with filters for products search
+ * 
+ * Parent component: Home app/(main)/page.tsx
+ * @param className - css styles
+ */
+
 export let Filters = ({ className }: FiltersProps) => {
 
   let ingredients = useIngredients();
@@ -103,7 +110,7 @@ export let Filters = ({ className }: FiltersProps) => {
 
       <FilterCheckboxGroup
         className='mt-5' 
-        title='Extra ingredients'
+        title='Ingredients'
         name='ingredients' 
         items={items}
         loading={ingredients.length < 1}
