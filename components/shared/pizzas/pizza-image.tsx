@@ -6,11 +6,18 @@ type PizzaImageProps = {
   className?: string;
 };
 
-
+/**
+ * Component: Pizza image render
+ * 
+ * Parent component: ChoosePizza, PizzaVariant
+ * @param imageUrl - image url of selected pizza
+ * @param pizzaSize - selected size of selected pizza
+ * @param className - css styles
+ */
 export let PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) => {
 
   return (
-    <div className={cn('w-full mt-4 flex-1 relative flex justify-center items-center', className)}>
+    <div className={cn('flex-1 relative flex justify-center items-center', className)}>
       
       <img
         src={imageUrl}
@@ -18,7 +25,7 @@ export let PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) =>
         className={cn('relative left-2 top-2 z-10 transition-all duration-300', {
           'w-[300px] h-[300px]': pizzaSize === 25,
           'w-[350px] h-[350px]': pizzaSize === 30,
-          'w-[400px] h-[400px]': pizzaSize === 35,
+          'w-[430px] h-[430px]': pizzaSize === 35,
         })}
       />
 
