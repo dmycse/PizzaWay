@@ -13,6 +13,13 @@ type ProductModalProps =  {
   className?: string;
 };
 
+/**
+ * Component: Display modal window with selected product
+ * 
+ * Parent component: ProductModalPage app/(main)/@modal/(.)products/[id]/page.tsx
+ * @param product - selected product
+ * @param className - css styles
+ */
 
 export let ProductModal = ({ product, className }: ProductModalProps) => {
   
@@ -26,7 +33,7 @@ export let ProductModal = ({ product, className }: ProductModalProps) => {
       <DialogContent
         aria-describedby={undefined}
         className={cn(
-          'p-0 w-[1060px] max-w-[1060px] min-h-[500px] bg-white overflow-hidden',
+          'p-0 w-[960px] max-w-[850px] min-h-[500px] bg-white overflow-hidden',
           className,
         )}>
         <ProductSelection product={product} onSubmit={() => router.back()} />
