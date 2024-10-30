@@ -1,9 +1,14 @@
+'use client';
 
-import { cn } from '@/lib/utils';
 import { Ingredient, ProductOption } from '@prisma/client';
-import { PizzaImage, PizzaSelector, Title } from '@/components/shared';
-import { PizzaSize, PizzaType } from '@/prisma/prisma-types';
+import { variantPizzaTypes } from '@/prisma/constants';
+import { mapPizzaType, type PizzaSize, type PizzaType } from '@/prisma/prisma-types';
+import { IngredientItem, PizzaImage, PizzaSelector, Title } from '@/components/shared';
+import { cn, getTotalPizzaPrice } from '@/lib';
+import { usePizzaVariants } from '@/hooks';
 import { Button } from '@/components/ui';
+
+
 
 type ChoosePizzaProps = {
   name: string;
@@ -15,6 +20,21 @@ type ChoosePizzaProps = {
   className?: string;
 };
 
+/**
+ * Component (modal window): choose pizza variants and ingredients
+ * 
+ * Parent component: ProductSelection -> /components/products/product-selection.tsx
+ * @param {Object} props
+ * @prop {string} [name] - (product)name of selected pizza
+ * @prop {string} [imageUrl] - (product)imageUrl: image url of selected pizza
+ * @prop {Ingredient[]} [ingredients] - (product)ingredients: array of pizza ingredients
+ * @prop {ProductOption[]} [options] - (product)options: array of pizza options
+ * @prop {boolean} [loading] - loading state
+ * @prop {Function} [onSubmit] - function for submitting selected pizza
+ * @prop {string} [className] - additional CSS class names to apply to the Component.
+ *
+ * @returns {JSX.Element} The cart button variants component.
+ */
 
 export let ChoosePizza = ({
   name, 
@@ -26,53 +46,79 @@ export let ChoosePizza = ({
   className 
   }: ChoosePizzaProps) => {
 
-  let textDetaills = '25 sm, classic crust';
-  let totalPrice = 35;
+    let {
+      selectedSize,
+      selectedType,
+      selectedIngredients,
+      availablePizzaSizes,
+      currentItemId,
+      setSelectedSize,
+      setSelectedType,
+      addIngredient
+    } = usePizzaVariants(options);
 
+  let textDetaills = `Pizza: ${selectedSize} sm, ${mapPizzaType[selectedType]} crust`;
+
+  let totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
+
+  // const handleClickAdd = () => {
+  //   if (currentItemId) {
+  //     onSubmit(currentItemId, Array.from(selectedIngredients));
+  //   }
+  // };
+  console.log({selectedSize, selectedType});
+  console.log(options);
+  console.log(availablePizzaSizes);
   return (
     <div className={cn(className, 'flex-1 flex')}>
-      <PizzaImage imageUrl={imageUrl} pizzaSize={25} />
-
-      <div className="p-7 w-[490px] bg-[#f7f6f5]">
-        <Title text={name} size="md" className="mb-1 font-extrabold" />
-
-        <p className="text-gray-400">{textDetaills}</p>
-
-        {/* <div className="flex flex-col gap-4 mt-5">
-          <PizzaSelector
-            items={availableSizes}
-            value={String(pizzaSize)}
-            onClick={value => setSize(Number(value) as PizzaSize)}
-          />
-
-          <PizzaSelector
-            items={pizzaTypes}
-            value={String(type)}
-            onClick={(value) => setType(Number(value) as PizzaType)}
-          />
-        </div> */}
-
-        {/* <div className="bg-gray-50 p-5 rounded-md h-[420px] overflow-auto scrollbar mt-5">
-          <div className="grid grid-cols-3 gap-3">
-            {ingredients.map((ingredient) => (
-              <IngredientItem
-                key={ingredient.id}
-                name={ingredient.name}
-                price={ingredient.price}
-                imageUrl={ingredient.imageUrl}
-                onClick={() => addIngredient(ingredient.id)}
-                active={selectedIngredients.has(ingredient.id)}
-              />
-            ))}
-          </div>
-        </div> */}
-
+      <div className="py-6 px-1 w-[440px] flex flex-col justify-center items-center gap-4">
+        <PizzaImage imageUrl={imageUrl} pizzaSize={selectedSize} />
         <Button
           // loading={loading}
           // onClick={handleClickAdd}
-          className="mt-10 px-10 w-full h-11 text-base text-brand rounded-[18px] bg-white border border-brand hover:bg-brand hover:text-white">
+          disabled={totalPrice === 0}
+          className="mt-6 px-10 w-8/12 h-11 text-base text-brand rounded-xl
+          bg-white border border-brand hover:bg-brand hover:text-white
+          disabled:border-gray-500 disabled:text-gray-500 disabled:bg-"
+        >
           Add to cart &#8364;{totalPrice} 
         </Button>
+      </div>
+
+      <div className="p-6 pl-0 max-h-[600px] flex-1 flex flex-col gap-2">
+        <Title text={name} size="md" className="font-extrabold" />
+
+        <p className="text-gray-400">{textDetaills}</p>
+
+        <div className="flex flex-col gap-3">
+          <PizzaSelector
+            items={availablePizzaSizes}
+            value={`${selectedSize}`}
+            onClick={value => setSelectedSize(Number(value) as PizzaSize)}
+          />
+
+          <PizzaSelector
+            items={variantPizzaTypes}
+            value={String(selectedType)}
+            onClick={(value) => setSelectedType(Number(value) as PizzaType)}
+          />
+        </div>
+
+        <div className="p-3 bg-gray-50 rounded-md overflow-auto scrollbar">
+          <div className="grid grid-cols-3 gap-2">
+            {ingredients.map(ingredient => (
+              <IngredientItem
+                key={ingredient.id}
+                name={ingredient.name}
+                imageUrl={ingredient.imageUrl}
+                price={ingredient.price}
+                active={selectedIngredients.has(ingredient.id)}
+                onClick={() => addIngredient(ingredient.id)}
+              />
+            ))}
+          </div>
+        </div>
+
       </div>
     </div>
   );
