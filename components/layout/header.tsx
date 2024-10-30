@@ -2,11 +2,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 import { Container } from '@/components/layout';
-import { SearchInput } from '@/components/shared';
+import { CartButton, SearchInput } from '@/components/shared';
 import { Button } from '@/components/ui';
+import { UserPen } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
-import { ArrowRight, ShoppingBasket, UserPen } from 'lucide-react';
 
 
 type HeaderProps = {
@@ -14,6 +14,15 @@ type HeaderProps = {
 };
 
 
+/**
+ * Componrent: the App header, containing the logo, search input, sign in button, and cart button.
+ * 
+ * Parent component: Home app/(main)/page.tsx
+ * @param {Object} props
+ * @prop {string} [className] - additional CSS styles to apply to the header
+ * 
+ * @returns {JSX.Element} The header component.
+ */
 export let Header = ({className }: HeaderProps) => {
 
   return (
@@ -38,20 +47,7 @@ export let Header = ({className }: HeaderProps) => {
             <UserPen size={15}/>
             <span>Sign in</span>
           </Button>
-          <div>
-            <Button variant='custom' className='group relative'>
-              <b>&euro; 100</b>
-              <span className='mx-3 h-full w-[1px] bg-white/30' />
-              <div className='flex items-center gap-2 transition duration-300 group-hover:opacity-0'>
-                <ShoppingBasket strokeWidth={2} size={18} className='relative' />
-                <b>3</b>
-              </div>
-              <ArrowRight 
-                size={20} 
-                className='absolute right-5 transition duration-300 -translate-x-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-0' 
-              />
-            </Button>
-          </div>
+          <CartButton />
         </div>
       </Container>
     </header>
