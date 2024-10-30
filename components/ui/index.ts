@@ -7,4 +7,13 @@ export { Select } from '@/components/ui/select';
 export { Skeleton } from '@/components/ui/skeleton';
 export { Slider } from '@/components/ui/slider';
 export { Popover } from '@/components/ui/popover';
+export { 
+  Sheet, 
+  SheetClose,
+  SheetContent,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger
+} from '@/components/ui/sheet';
 
