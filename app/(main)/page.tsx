@@ -3,6 +3,10 @@ import { Title, Filters, ProductsGroup } from "@/components/shared";
 import { prisma } from "@/prisma/prisma-client";
 
 
+/**
+ * The home page of the application. This page displays all categories and their associated products.
+ * It also displays a filter menu for the user to filter the products by category.
+ */
 export default async function Home() {
 
   let categories = await prisma.category.findMany({
@@ -19,7 +23,7 @@ export default async function Home() {
   return (
     <>
       <Container className='mt-6'>
-        <Title text='Pizzas & More' size='lg' className="font-extrabold"/>
+        <Title text='Pizzas & More' size='lg' className="font-extrabold" />
       </Container>
 
       <TopBar categories={categories.filter(category => category.products.length > 0)} />
