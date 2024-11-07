@@ -14,7 +14,19 @@ type ProductsGroupProps = {
   listClassName?: string;
 };
 
-
+/**
+ * Component: displays a group of product's cards.
+ *
+ * Parent component: Home -> /app/(main)/page.tsx
+ * @param {Object} props
+ * @prop {string} title - the title of the section.
+ * @prop {Product[]} items - the list of products.
+ * @prop {number} categoryId - the id of the category.
+ * @prop {string} [className] - additional CSS styles to apply to the component.
+ * @prop {string} [listClassName] - additional CSS styles to apply to the list of products.
+ *
+ * @returns {JSX.Element} The products group component.
+ */
 export let ProductsGroup = ({
   title, 
   items, 

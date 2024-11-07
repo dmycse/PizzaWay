@@ -13,6 +13,27 @@ type ProductCardProps = {
   className?: string;
 }
 
+/**
+ * Component: displays a single product card.
+ *
+ * Parent component: ProductsGroup -> /components/shared/products/products-group.tsx
+ * @param {Object} props
+ * @prop {number} id - the id of the product.
+ * @prop {string} name - the name of the product.
+ * @prop {number} price - the price of the product.
+ * @prop {string} imageUrl - the image url of the product.
+ * @prop {string} [className] - additional CSS styles to apply to the component.
+ *
+ * @returns {JSX.Element} The product card component.
+ * @example
+ * <ProductCard
+ *   id={1}
+ *   name="Pizza 1"
+ *   price={100}
+ *   imageUrl="/pizza1.jpg"
+ *   className="mb-4"
+ * />
+ */
 export let ProductCard = ({
     id,
     name,
@@ -30,14 +51,14 @@ export let ProductCard = ({
       </div>
 
       <div className="flex justify-between items-center">
-        <Title text={name} size="sm" className="  font-bold" />
+        <Title text={name} size="sm" className="font-bold" />
         <span className="text-base text-primary">
           from &#8364;{price}
         </span>
       </div>
 
       <p className="mb-2 text-sm text-gray-400">
-      Mozzarella, ham, spicy pepperoni, cheese cubes, tomatoes, champignons, Italian herbs, firm tomato sauce
+        Mozzarella, ham, spicy pepperoni, cheese cubes, tomatoes, champignons, Italian herbs, firm tomato sauce
       </p>
 
       <Button variant="outline" className="w-full self-center text-base text-brand font-bold border-brand hover:bg-brand">
@@ -46,6 +67,5 @@ export let ProductCard = ({
       </Button>
       
     </Link>
-  
   );
 };
