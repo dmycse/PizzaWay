@@ -15,6 +15,17 @@ type SearchInputProps = {
 };
 
 
+/**
+ * Componrent: a search input component which shows a dropdown of products
+ * when the user types in the search field and focuses the input.
+ * 
+ * Parent component: Header app/components/layout/header.tsx
+ * 
+ * @param {Object} props
+ * @prop {string} [className] - additional CSS styles to apply to the header
+ * 
+ * @returns {JSX.Element} search input component.
+ */
 export let SearchInput = ({ className }: SearchInputProps) => {
 
   const searchRef = useRef(null);
@@ -52,6 +63,7 @@ export let SearchInput = ({ className }: SearchInputProps) => {
   return (
     <>
       {inputFocused && <div className='fixed top-0 bottom-0 left-0 right-0 z-30 bg-black/60' /> }
+
       <div 
         ref={searchRef}
         className={ cn('h-10 flex justify-between relative z-30', className) }

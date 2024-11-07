@@ -9,6 +9,17 @@ type TopBarProps = {
 };
 
 
+/**
+ * Component: the top bar of the application, featuring a list of categories and a sort popup.
+ * 
+ * Parent component: Home app/(main)/page.tsx
+ *
+ * @param {TopBarProps} props - T]the properties for the component.
+ * @param {Category[]} props.categories - the list of categories to display.
+ * @param {string} [props.className] - additional CSS styles to apply to the component.
+ * 
+ * @returns {JSX.Element} The rendered top bar.
+ */
 export let TopBar = ({ categories, className}: TopBarProps) => {
 
   return (

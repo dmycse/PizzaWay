@@ -12,6 +12,17 @@ type CategoriesProps = {
 };
 
 
+/**
+ * Component: a list of category buttons with active state highlighting.
+ *
+ * Parent component: TopBar -> /components/layout/topbar.tsx
+ * @param {CategoriesProps} props - The properties for the component.
+ * @param {Category[]} props.categories - The list of categories to display.
+ * @param {string} [props.className] - additional CSS styles to apply to the component.
+ *
+ * @returns {JSX.Element} The rendered category buttons.
+ */
+
 export let Categories = ({ categories, className}: CategoriesProps) => {
 
   let activeCategoryId = useCategoryStore(state => state.activeCategoryId);
