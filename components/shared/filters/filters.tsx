@@ -11,12 +11,14 @@ type FiltersProps = {
 };
 
 /**
- * Component: Side panel with filters for products search
+ * Comppnent: renders a list of filters for the pizza selection.
  * 
- * Parent component: Home app/(main)/page.tsx
- * @param className - css styles
+ * Parent component: Home -> app/(main)/page.tsx
+ * @param {FiltersProps} props
+ * @prop {string} [className] - additional CSS styles to apply to the component.
+ * 
+ * @returns {JSX.Element} The rendered filters.
  */
-
 export let Filters = ({ className }: FiltersProps) => {
 
   let ingredients = useIngredients();
@@ -61,8 +63,8 @@ export let Filters = ({ className }: FiltersProps) => {
         className='mb-6' 
         title='Pizza size'
         name='size' 
-        items={pizzaSizes}
-        selectedItem={filter.selectedPizzaSize}
+        checkboxes={pizzaSizes}
+        selectedCheckboxes={filter.selectedPizzaSize}
         onClickCheckbox={filter.setSelectedPizzaSize}
       />
 
@@ -70,8 +72,8 @@ export let Filters = ({ className }: FiltersProps) => {
         className='mb-6' 
         title='Crust type'
         name='type' 
-        items={pizzaTypes}
-        selectedItem={filter.selectedPizzaType}
+        checkboxes={pizzaTypes}
+        selectedCheckboxes={filter.selectedPizzaType}
         onClickCheckbox={filter.setSelectedPizzaType}
       />
   
@@ -112,9 +114,9 @@ export let Filters = ({ className }: FiltersProps) => {
         className='mt-5' 
         title='Ingredients'
         name='ingredients' 
-        items={items}
+        checkboxes={items}
         loading={ingredients.length < 1}
-        selectedItem={filter.selectedIngredients}
+        selectedCheckboxes={filter.selectedIngredients}
         onClickCheckbox={filter.setSelectedIngredients}
       />
 
