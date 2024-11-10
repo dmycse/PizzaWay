@@ -1,8 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
   provider = "prisma-client-js"
@@ -29,7 +24,7 @@ model User {
   verified    DateTime?
 
   // which provider (Google and so on) was used to login
-  // in case using Credentials to login provider will be null 
+  // in case using Credentials (login and password) a provider will be null 
   provider    String?
   providerId  String?
 
@@ -80,9 +75,9 @@ model Product {
 model ProductOption {
   id          Int @id @default(autoincrement())
 
-  // size -> 20 - small, 30 - medium, 40 - large
-  // pizzaType -> 1 - classical crust, 2 - thin crust
+  // size -> 20 - small, 30 - medium, 35 - large
   pizzaSize   Int?
+  // pizzaType -> 1 - classic crust, 2 - thin crust
   pizzaType   Int?
 
   price       Int
@@ -154,9 +149,9 @@ model CartItem {
 
 
 enum OrderStatus {
-    PENDING     // Pending - order created but not paid yet
-    SUCCEEDED   // Succeeded - order has been paid
-    CANCELLED   // Cancelled - order has been cancelled
+  PENDING    // Pending - an order created but not paid yet
+  SUCCEEDED   // Succeeded - an order has been paid
+  CANCELLED   // Cancelled - an order has been cancelled
 }
 
 // User's order
