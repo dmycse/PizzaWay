@@ -11,7 +11,7 @@ type FiltersProps = {
 };
 
 /**
- * Comppnent: renders a list of filters for the pizza selection.
+ * Component: renders a list of filters for the pizza selection.
  * 
  * Parent component: Home -> app/(main)/page.tsx
  * @param {FiltersProps} props

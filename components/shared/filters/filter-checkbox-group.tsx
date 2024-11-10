@@ -64,7 +64,7 @@ export let FilterCheckboxGroup = ({
     let checkboxesToShow = showAll 
       ? checkboxes.filter(checkbox => checkbox.label.toLowerCase().includes(searchValue.trim().toLowerCase())) 
       : checkboxes?.slice(0, limitCheckboxes);
-
+    
     let onSearchChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
       setSearchValue(target.value);
     };

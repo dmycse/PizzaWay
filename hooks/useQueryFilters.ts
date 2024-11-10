@@ -29,7 +29,7 @@ export const useQueryFilters = ({
 
       let params = {
         pizzaSize: Array.from(selectedPizzaSize)?.sort(),
-        pizzaType: Array.from(selectedPizzaType),
+        pizzaType: Array.from(selectedPizzaType)?.sort(),
         ingredients: Array.from(selectedIngredients)?.sort(),
         ...priceRangeSort(priceRange),
       };

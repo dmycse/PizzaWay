@@ -3,11 +3,11 @@
 import { MouseEventHandler, useRef, useState } from 'react';
 import Link from 'next/link';
 import {useClickAway, useDebounce} from 'react-use';
-import { Search } from 'lucide-react';
 
-import { cn } from '@/lib/utils';
-import { searchProducts } from '@/utils/products';
 import { Product } from '@prisma/client';
+import { searchProducts } from '@/utils/products';
+import { cn } from '@/lib/utils';
+import { Search } from 'lucide-react';
 
 
 type SearchInputProps = {
@@ -34,6 +34,7 @@ export let SearchInput = ({ className }: SearchInputProps) => {
   let [searchQuery, setSearchQuery] = useState('');
   let [products, setProducts] = useState<Product[]>([]);
 
+  // close dropdown when user clicks outside
   useClickAway(searchRef, () => {
     setInputFocused(false);
     setSearchQuery('');
@@ -71,7 +72,7 @@ export let SearchInput = ({ className }: SearchInputProps) => {
         <Search className="h-5 absolute top-1/2 left-3 translate-y-[-50%] text-gray-400" />
         <input
           type="text" 
-          className="px-10 py-2 w-full border border-gray-200 rounded-md text-md text-gray-900 focus:bg-white focus:border-none focus:ring-primary outline-none" 
+          className="px-10 py-2 w-full border border-gray-200 rounded-md text-md text-gray-900 bg-gray-50 focus:bg-white focus:ring-primary outline-none" 
           placeholder="Search..."
           value={searchQuery}
           onFocus={() => setInputFocused(true)}
