@@ -41,7 +41,7 @@ async function createData() {
       imageUrl:
         '/images/products/pizzas/peperoni_fresh.webp',
       categoryId: 1,
-      // extra ingredients for an order
+      // extra ingredients for an order connect [{id: 1}, {id: 2},...]  
       ingredients: {
         connect: ingredients.slice(0, 5),
       },
@@ -141,13 +141,13 @@ async function createData() {
 }
 
 async function deleteData() {
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "users" RESTART IDENTITY CASCADE;`);
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "categories" RESTART IDENTITY CASCADE;`);
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "products" RESTART IDENTITY CASCADE;`);
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "product_options" RESTART IDENTITY CASCADE;`);
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "ingredients" RESTART IDENTITY CASCADE;`);
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "carts" RESTART IDENTITY CASCADE;`);
-  await prisma.$executeRawUnsafe(`TRUNCATE TABLE "cart_items" RESTART IDENTITY CASCADE;`);
+  await prisma.$executeRaw`TRUNCATE TABLE "users" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "categories" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "products" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "product_options" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "ingredients" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "carts" RESTART IDENTITY CASCADE`;
+  await prisma.$executeRaw`TRUNCATE TABLE "cart_items" RESTART IDENTITY CASCADE`;
 }
 
 async function main() {
