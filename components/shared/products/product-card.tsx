@@ -17,11 +17,11 @@ type ProductCardProps = {
  * Component: displays a single product card.
  *
  * Parent component: ProductsGroup -> /components/shared/products/products-group.tsx
- * @param {Object} props
- * @prop {number} id - the id of the product.
- * @prop {string} name - the name of the product.
- * @prop {number} price - the price of the product.
- * @prop {string} imageUrl - the image url of the product.
+ * @param {ProductCardProps} props
+ * @prop {number} [id] - the id of the product.
+ * @prop {string} [name] - the name of the product.
+ * @prop {number} [price] - the price of the product.
+ * @prop {string} [imageUrl] - the image url of the product.
  * @prop {string} [className] - additional CSS styles to apply to the component.
  *
  * @returns {JSX.Element} The product card component.
