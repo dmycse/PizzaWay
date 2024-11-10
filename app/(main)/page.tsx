@@ -42,9 +42,9 @@ export default async function Home() {
                   category.products.length > 0 && (
                    <ProductsGroup 
                       key={category.id} 
-                      title={category.name} 
+                      categoryName={category.name} 
                       categoryId={category.id}
-                      items={category.products}
+                      products={category.products}
                   />
                   )
                 ))

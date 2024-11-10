@@ -3,13 +3,14 @@
 import { useEffect, useRef } from 'react';
 import { useIntersection } from 'react-use';
 import { ProductCard, Title } from '@/components/shared';
-import { cn } from '@/lib/utils';
+import { Product } from '@prisma/client';
 import { useCategoryStore } from '@/store/category';
+import { cn } from '@/lib/utils';
 
 type ProductsGroupProps = {
-  title: string;
-  items: any[];
   categoryId: number;
+  categoryName: string;
+  products: Product[];
   className?: string;
   listClassName?: string;
 };
@@ -19,23 +20,24 @@ type ProductsGroupProps = {
  *
  * Parent component: Home -> /app/(main)/page.tsx
  * @param {Object} props
- * @prop {string} title - the title of the section.
- * @prop {Product[]} items - the list of products.
+ * @prop {string} categoryName - the name of the category.
  * @prop {number} categoryId - the id of the category.
+ * @prop {Product[]} products - the list of products.
  * @prop {string} [className] - additional CSS styles to apply to the component.
  * @prop {string} [listClassName] - additional CSS styles to apply to the list of products.
  *
  * @returns {JSX.Element} The products group component.
  */
 export let ProductsGroup = ({
-  title, 
-  items, 
+  categoryName, 
   categoryId,
+  products, 
   className, 
   listClassName
   }: ProductsGroupProps) => {
 
   let setActiveCategory = useCategoryStore(state => state.setActiveCategory);
+  let activeCategoryId = useCategoryStore(state => state.activeCategoryId);
   let intersectionRef = useRef(null);
   let intersection = useIntersection(intersectionRef, {
     threshold: 0.4,
@@ -46,14 +48,15 @@ export let ProductsGroup = ({
     if (intersection?.isIntersecting) {
       setActiveCategory(categoryId);
     }  
-  }, [intersection?.isIntersecting, categoryId, title]);
+  }, [intersection?.isIntersecting, categoryId, categoryName]);
 
   return (
-    <section className={ cn('', className)} id={title} ref={intersectionRef}>
-      <Title text={title} size='lg' className='mb-5 font-bold' />
+    <section id={categoryName} className={ cn('', className)} ref={intersectionRef}>
+      {/* {activeCategoryId === categoryId && <div className='h-[50px] w-full'></div>} */}
+      <Title text={categoryName} size='lg' className='mb-5 font-bold' />
       <article className={ cn('grid grid-cols-3 gap-7', listClassName) }>
         {
-          items.map((product: any) => (
+          products.map((product: any) => (
             <ProductCard 
               key={product.id}
               id={product.id}
