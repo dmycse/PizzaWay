@@ -17,8 +17,8 @@ type CategoriesProps = {
  *
  * Parent component: TopBar -> /components/layout/topbar.tsx
  * @param {CategoriesProps} props - The properties for the component.
- * @param {Category[]} props.categories - The list of categories to display.
- * @param {string} [props.className] - additional CSS styles to apply to the component.
+ * @prop {Category[]} [categories] - The list of categories to display.
+ * @prop {string} [className] - additional CSS styles to apply to the component.
  *
  * @returns {JSX.Element} The rendered category buttons.
  */
