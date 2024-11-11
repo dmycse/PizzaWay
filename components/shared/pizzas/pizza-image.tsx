@@ -9,10 +9,11 @@ type PizzaImageProps = {
 /**
  * Component: Pizza image render
  * 
- * Parent component: ChoosePizza, PizzaVariant
- * @param imageUrl - image url of selected pizza
- * @param pizzaSize - selected size of selected pizza
- * @param className - css styles
+ * Parent component: ChoosePizza -> app/components/shared/pizzas , PizzaVariant
+ * @param {PizzaImageProps} props
+ * @prop  {string} [imageUrl] - image url of selected pizza
+ * @prop  {25 | 30 | 35} [pizzaSize] - selected size of selected pizza
+ * @prop  {string} [className] - additional css styles to apply to the component
  */
 export let PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) => {
 
@@ -22,15 +23,15 @@ export let PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) =>
       <img
         src={imageUrl}
         alt="pizza image"
-        className={cn('relative left-2 top-2 z-10 transition-all duration-300', {
-          'w-[300px] h-[300px]': pizzaSize === 25,
-          'w-[350px] h-[350px]': pizzaSize === 30,
-          'w-[430px] h-[430px]': pizzaSize === 35,
+        className={cn('relative left-2 top-2 z-10 transition-all duration-700', {
+          'w-[300px] h-[300px] rotate-90 -translate-x-4': pizzaSize === 25,
+          'w-[350px] h-[350px] -rotate-90 -translate-y-4': pizzaSize === 30,
+          'w-[430px] h-[430px] rotate-135 translate-x-1': pizzaSize === 35,
         })}
       />
 
-      <div className="w-[370px] h-[370px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dashed border-2 rounded-full border-gray-100 " />
-      <div className="w-[320px] h-[320px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-dotted border-2 rounded-full border-gray-100" />
+      <div className="w-[370px] h-[370px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-dotted rounded-full border-gray-200 " />
+      <div className="w-[320px] h-[320px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 border-2 border-dotted rounded-full border-gray-200" />
     </div>
   );
 };
