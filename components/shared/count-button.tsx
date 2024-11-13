@@ -12,16 +12,16 @@ type CountButtonProps = {
 /**
  * Component: a button element with increment and decrement functionality of the amount of a product order.
  * 
- * Parent component: CartItem -> /components/shared/cart/cart-item.tsx
- * @example
- * <CountButton value={1} />
- * @param {Object} props
- * @prop {number} [value=1] - current number value displayed between the buttons.
- * @prop {'sm' | 'lg'} [size='sm'] - size of the button, affecting its styling.
- * @prop {Function} [onClick] - callback function called with 'plus' or 'minus' when buttons are clicked.
- * @prop {string} [className] - aditional CSS styles to apply to the button.
+ * Parent: CartItem -> /components/shared/cart/cart-item.tsx
+ * @param {CountButtonProps} props
+ * @prop  {number} [value=1] - current number value displayed between the buttons.
+ * @prop  {'sm' | 'lg'} [size='sm'] - size of the button, affecting its styling.
+ * @prop  {Function} [onClick] - callback function called with 'plus' or 'minus' when buttons are clicked.
+ * @prop  {string} [className] - aditional CSS styles to apply to the button.
  * 
  * @returns {JSX.Element} The count button component.
+ * @example
+ * <CountButton value={1} />
  */
 
 export const CountButton = ({

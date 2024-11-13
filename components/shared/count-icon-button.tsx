@@ -12,11 +12,12 @@ export type CountIconButtonProps = {
 /**
  * Component: a button with a plus or minus icon, to be used to increment or decrement a count of product order.
  *
+ * Parent: CountButton -> /components/shared/count-button.tsx
  * @param {CountIconButtonProps} props
- * @prop {CountButtonProps['size']} [size] - the size of the button, either sm or lg
- * @prop {boolean} [disabled] - whether the button should be disabled
- * @prop {'plus' | 'minus'} [role] - the role of the button, either plus or minus
- * @prop {() => void} [onClick] - the function to call when the button is clicked
+ * @prop  {CountButtonProps['size']} [size] - the size of the button, either sm or lg
+ * @prop  {boolean} [disabled] - whether the button should be disabled
+ * @prop  {'plus' | 'minus'} [role] - the role of the button, either plus or minus
+ * @prop  {VoidFunction} [onClick] - the function to call when the button is clicked
  * 
  * @returns {JSX.Element} The count icon button component.
  */

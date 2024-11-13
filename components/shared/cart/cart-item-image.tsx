@@ -8,14 +8,14 @@ type CartItemImageProps = {
 /**
  * Component: displays an image of the item in the cart.
  * 
- * Parent component: CartItem -> /components/shared/cart/cart-item.tsx
+ * Parent: CartItem -> /components/shared/cart/cart-item.tsx
+ * @param {CartItemImageProps} props
+ * @prop  {string} [src] - the URL of the image.
+ * @prop  {string} [className] - additional CSS styles to apply to the img element.
+*
+* @returns {JSX.Element} The cart item image component.
  * @example
  * <CartItemImage src="https://example.com/image.jpg" />
- * @param {Object} props
- * @prop {string} src - the URL of the image.
- * @prop {string} [className] - additional CSS styles to apply to the img element.
- *
- * @returns {JSX.Element} The cart item image component.
  */
 
 export const CartItemImage = ({ src, className }: CartItemImageProps) => {

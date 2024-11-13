@@ -10,12 +10,12 @@ type CartButtonProps = {
 };
 
 /**
- * Component: a button that displays the total amount and number of items in the cart, 
+ * CartButton - this component (button) displays the total amount and number of items in the cart, 
  * and opens the cart drawer when clicked.
  * 
- * Parent component: Header -> /components/layout/header.tsx
- * @param {Object} props
- * @prop {string} [className] - additional CSS styles to apply to the button
+ * Parent: Header -> /components/layout/header.tsx
+ * @param {CartButtonProps} props
+ * @prop  {string} [className] - additional CSS styles to apply to the button
  *
  * @returns {JSX.Element} The cart button component.
  */
