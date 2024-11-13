@@ -11,6 +11,19 @@ type ChooseProductProps = {
   className?: string;
 }
 
+/**
+ * Component: Choose product variant
+ *
+ * Parent component: ProductModal
+ * @param name - product name
+ * @param imageUrl - product image url
+ * @param price - product price
+ * @param loading - loading state
+ * @param onSubmit - function for  submitting selected product
+ * @param className - css styles
+ */
+
+
 export const ChooseProduct = ({
   name,
   imageUrl,
@@ -21,7 +34,7 @@ export const ChooseProduct = ({
 }: ChooseProductProps) => {
 
   return (
-    <div className={cn(className, 'flex flex-1')}>
+    <div className={cn(className, 'flex-1 flex')}>
       <ProductImage imageUrl={imageUrl}  />
 
       <div className="p-7 w-[490px] bg-[#f7f6f5]">
