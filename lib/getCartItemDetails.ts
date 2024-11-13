@@ -6,15 +6,14 @@ import { Ingredient } from '@prisma/client';
  * Function: generates a detailed description (string) of a cart item.
  *
  * Used in: CartDrawer -> /components/shared/cart/cart-drawer-item.tsx
+*
+* @param {PizzaSize} [pizzaSize] - Optional size of the pizza.
+* @param {PizzaType} [pizzaType] - Optional type of the pizza crust.
+* @param {Ingredient[]} [ingredients=[]] - List of ingredients included in the pizza.
+* 
+* @returns {string} A string that describes the pizza size, crust type, and its ingredients.
  * @example
  * const details = getCartItemDetails(pizzaSize, pizzaType, ingredients);
- * console.log(details);
- *
- * @param {PizzaSize} [pizzaSize] - Optional size of the pizza.
- * @param {PizzaType} [pizzaType] - Optional type of the pizza crust.
- * @param {Ingredient[]} [ingredients=[]] - List of ingredients included in the pizza.
- * 
- * @returns {string} A string that describes the pizza size, type, and its ingredients.
  */
 
 export const getCartItemDetails = (
@@ -27,11 +26,11 @@ export const getCartItemDetails = (
 
   if (pizzaSize && pizzaType) {
     let pizzaTypeLabel = mapPizzaType[pizzaType];
-    details.push(`${pizzaTypeLabel} ${pizzaSize} см`);
+    details.push(`${pizzaSize} sm., ${pizzaTypeLabel} crust, `);
   }
 
   if (ingredients) {
-    details.push(...ingredients.map((ingredient) => ingredient.name));
+    details.push(...ingredients.map(ingredient => ingredient.name));
   }
 
   return details.join(', ');
