@@ -3,17 +3,17 @@ import { variantPizzaSizes } from '@/prisma/constants';
 import type { PizzaType } from '@/prisma/prisma-types';
 import type { PizzaVariant } from '@/components/shared/pizzas/pizza-selector';
 
-/**
- * Function: getting available pizza sizes.
- * 
- * Used in: usePizzaVariants
- *
- * @param selectedType (1 | 2) cruct type of selected pizza
- * @param options array of selected pizza options
- *
- * @returns array of pizza sizes with disabled/not disabled property
- */
 
+/**
+ * Function: given a selected pizza crust type and an array of pizza options, 
+ *          returns an array of pizza size variants with a disabled property 
+ *          indicating whether that size is available for the given crust type.
+ * 
+ * Used in: usePizzaVariants -> /hooks
+ * @param {PizzaType} [selectedType] - selected crust type of a pizza
+ * @param {ProductOption[]} [options] - list of pizza options
+ * @returns {PizzaVariant[]} array of pizza size variants
+ */
 export const getAvailablePizzaSizes = (
     selectedType: PizzaType, 
     options: ProductOption[]
