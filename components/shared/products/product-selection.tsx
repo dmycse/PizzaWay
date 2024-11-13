@@ -7,11 +7,21 @@ type ProductSelectionProps = {
   onSubmit?: VoidFunction;
 };
 
+/**
+ * Component: modal window for product selection
+ *
+ * Parent component: ProductModal -> /components/shared/modals/product-modal.tsx
+ * @param {Object} props
+ * @prop  {ProductWithRelations} product - product to select
+ * @prop  {Function} onSubmit - function for submitting selected product
+ *
+ * @returns {JSX.Element} The product selection component.
+ */
 export const ProductSelection = ({ product, onSubmit: _onSubmit }: ProductSelectionProps) => {
   // const [addCartItem, loading] = useCartStore((state) => [state.addCartItem, state.loading]);
 
-  const firstItem = product.options[0];
-  const isPizza = !!firstItem.pizzaType;
+  const firstOption = product.options[0];
+  const isPizza = !!firstOption.pizzaType;
 
   const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
     // try {
@@ -48,7 +58,7 @@ export const ProductSelection = ({ product, onSubmit: _onSubmit }: ProductSelect
     <ChooseProduct
       name={product.name}
       imageUrl={product.imageUrl}
-      price={firstItem.price}
+      price={firstOption.price}
       // loading={loading}
       onSubmit={onSubmit}
     />

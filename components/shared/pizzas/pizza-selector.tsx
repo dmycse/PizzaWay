@@ -18,11 +18,14 @@ type PizzaSelectorProps = {
 /**
  * Component: Selector pizza size or pizza crust type
  * 
- * Parent component: ChoosePizza, PizzaVariant
- * @param items - array of pizza sizes or pizza crust types with disabled/not disabled property
- * @param value - selected pizza size or pizza crust type
- * @param onClick - choosing pizza size or pizza crust type
- * @param className - css styles
+ * Parent component: ChoosePizza -> /components/shared/pizzas, PizzaVariant
+ * @param {PizzaSelectorProps} props
+ * @prop  {PizzaVariant[]} [items] - array of pizza sizes or pizza crust types with disabled/not disabled property
+ * @prop  {string} [value] - selected pizza size or pizza crust type
+ * @prop  {Function} [onClick] - choosing pizza size or pizza crust type
+ * @prop  {string} [className] - additional css styles to apply to the component
+ * 
+ * @returns {JSX.Element} - the pizza selector component
  */
 
 export let PizzaSelector = ({ items, value, onClick, className }: PizzaSelectorProps) => {

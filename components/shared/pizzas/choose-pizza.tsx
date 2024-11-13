@@ -25,13 +25,13 @@ type ChoosePizzaProps = {
  * 
  * Parent component: ProductSelection -> /components/products/product-selection.tsx
  * @param {Object} props
- * @prop {string} [name] - (product)name of selected pizza
- * @prop {string} [imageUrl] - (product)imageUrl: image url of selected pizza
- * @prop {Ingredient[]} [ingredients] - (product)ingredients: array of pizza ingredients
- * @prop {ProductOption[]} [options] - (product)options: array of pizza options
- * @prop {boolean} [loading] - loading state
- * @prop {Function} [onSubmit] - function for submitting selected pizza
- * @prop {string} [className] - additional CSS class names to apply to the Component.
+ * @prop  {string} [name] - (product)name of selected pizza
+ * @prop  {string} [imageUrl] - (product)imageUrl: image url of selected pizza
+ * @prop  {Ingredient[]} [ingredients] - (product)ingredients: array of pizza ingredients
+ * @prop  {ProductOption[]} [options] - (product)options: array of pizza options
+ * @prop  {boolean} [loading] - loading state
+ * @prop  {Function} [onSubmit] - function for submitting selected pizza
+ * @prop  {string} [className] - additional CSS class names to apply to the Component.
  *
  * @returns {JSX.Element} The cart button variants component.
  */
@@ -93,14 +93,14 @@ export let ChoosePizza = ({
         <div className="flex flex-col gap-3">
           <PizzaSelector
             items={availablePizzaSizes}
-            value={`${selectedSize}`}
+            value={String(selectedSize)}
             onClick={value => setSelectedSize(Number(value) as PizzaSize)}
           />
 
           <PizzaSelector
             items={variantPizzaTypes}
             value={String(selectedType)}
-            onClick={(value) => setSelectedType(Number(value) as PizzaType)}
+            onClick={value => setSelectedType(Number(value) as PizzaType)}
           />
         </div>
 
