@@ -19,17 +19,17 @@ type ReturnProps = {
 /**
  * Hook: handling choosing pizza variants
  * 
- * Used into the component: ChoosePizza -> /components/shared/pizzas/choose-pizza.tsx
- * @param {ProductOption[]} options - array of pizza options
+ * Used into the component: ChoosePizza -> /components/shared/pizzas
+ * @param   {ProductOption[]} options
  * @returns {Object} props:
- * @prop {number} [selectedSize] - size of selected pizza
- * @prop {number} [selectedType] - cruct type of selected pizza
- * @prop {Set<number>} [selectedIngredients] - selected ingredients for pizza sumplements
- * @prop {PizzaVariant[]} [availableSizes] - pizza variants
- * @prop {number} [currentItemId] - id of selected pizza
- * @prop {Function} [setSelectedSize] - function for changing selected pizza size
- * @prop {Function} [setSelectedType] - function for changing selected pizza crust type
- * @prop {Function} [addIngredient] - function for adding selected ingredients
+ * @prop    {number} [selectedSize] - size of selected pizza
+ * @prop    {number} [selectedType] - cruct type of selected pizza
+ * @prop    {Set<number>} [selectedIngredients] - selected ingredients for pizza sumplements
+ * @prop    {PizzaVariant[]} [availableSizes] - pizza variants
+ * @prop    {number} [currentItemId] - id of selected pizza
+ * @prop    {Function} [setSelectedSize] - function for changing selected pizza size
+ * @prop    {Function} [setSelectedType] - function for changing selected pizza crust type
+ * @prop    {Function} [addIngredient] - function for adding selected ingredients
  */
 
 export const usePizzaVariants = (options: ProductOption[]): ReturnProps => {
