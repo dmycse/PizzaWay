@@ -17,8 +17,8 @@ type HeaderProps = {
  * Componrent: the App header, containing the logo, search input, sign in button, and cart button.
  * 
  * Parent component: Home -> app/(main)/page.tsx
- * @param {Object} props
- * @prop {string} [className] - additional CSS styles to apply to the header
+ * @param {HeaderProps} props
+ * @prop  {string} [className] - additional CSS styles to apply to the header
  * 
  * @returns {JSX.Element} The header component.
  */
