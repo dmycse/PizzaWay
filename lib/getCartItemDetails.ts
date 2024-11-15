@@ -26,12 +26,12 @@ export const getCartItemDetails = (
 
   if (pizzaSize && pizzaType) {
     let pizzaTypeLabel = mapPizzaType[pizzaType];
-    details.push(`${pizzaSize} sm., ${pizzaTypeLabel} crust, `);
+    details.push(`${pizzaSize} sm., ${pizzaTypeLabel} crust`);
   }
 
   if (ingredients) {
-    details.push(...ingredients.map(ingredient => ingredient.name));
+    details.push(...ingredients.map(ingredient => ingredient.name.toLowerCase()));
   }
-
+  
   return details.join(', ');
 };
