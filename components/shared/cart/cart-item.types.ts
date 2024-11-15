@@ -7,3 +7,4 @@ export type CartItemProps = {
   quantity: number;
   disabled?: boolean;
 };
+

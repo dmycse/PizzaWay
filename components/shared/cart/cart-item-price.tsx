@@ -19,5 +19,5 @@ type CartItemPriceProps = {
  */
 
 export const CartItemPrice = ({ value, className }: CartItemPriceProps) => {
-  return <h2 className={cn('font-bold', className)}>&#8364;{value}</h2>;
+  return <h2 className={cn('font-medium', className)}>&#8364;{value}</h2>;
 };
