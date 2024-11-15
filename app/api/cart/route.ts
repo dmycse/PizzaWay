@@ -1,12 +1,13 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { prisma } from '@/prisma/prisma-client';
 
+
 export async function GET(req: NextRequest) {
   try {
     let token = req.cookies.get('cartToken')?.value;
 
     if (!token) {
-      return NextResponse.json({sum: 0, cart: []});
+      return NextResponse.json({totalAmount: 0, cart: []});
     }
 
     const userCart = await prisma.cart.findFirst({
@@ -39,7 +40,5 @@ export async function GET(req: NextRequest) {
   } catch (error) {
       console.warn(error)
   }
-
-
 
 }
