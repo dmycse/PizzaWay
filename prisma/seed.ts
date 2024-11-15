@@ -117,12 +117,12 @@ async function createData() {
     data: [
       {
         userId: 1,
-        sum: 0,
+        totalAmount: 0,
         token: '11111',
       },
       {
         userId: 2,
-        sum: 0,
+        totalAmount: 0,
         token: '222222',
       },
     ],

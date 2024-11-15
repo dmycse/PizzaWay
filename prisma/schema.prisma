@@ -110,16 +110,16 @@ model Ingredient {
 
 
 model Cart {
-    id        Int   @id @default(autoincrement())
+    id          Int   @id @default(autoincrement())
 
-    userId    Int?   @unique
-    user      User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
+    userId      Int?   @unique
+    user        User?  @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-    items     CartItem[]
+    items       CartItem[]
 
-    token     String
+    token       String
 
-    sum       Int @default(0)
+    totalAmount Int @default(0)
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
