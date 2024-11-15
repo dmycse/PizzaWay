@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { getCart, updateCartItemQuantity, addCartItem, removeCartItem } from '@/utils/cart';
+import { getCart, updateItemQuantity, addCartItem, removeCartItem } from '@/utils/cart';
 import { getCartDetails } from '@/lib';
 import  type { CartItemState } from '@/lib/getCartDetails'
 import { CreateCartItemValues } from '@/utils/cart.dto';
@@ -33,6 +33,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     try {
       set({ loading: true, error: false });
       const data = await getCart();
+      console.log('fetchCartItems data: ', data);
       set(getCartDetails(data));
     } catch (error) {
         console.error(error);
@@ -45,7 +46,7 @@ export const useCartStore = create<CartState>((set, get) => ({
   updateCartItemQuantity: async (id: number, quantity: number) => {
     try {
       set({ loading: true, error: false });
-      const data = await updateCartItemQuantity(id, quantity);
+      const data = await updateItemQuantity(id, quantity);
       set(getCartDetails(data));
     } catch (error) {
         console.error(error);
