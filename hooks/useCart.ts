@@ -18,6 +18,6 @@ export const useCart = (): ReturnProps => {
   useEffect(() => {
     cartState.fetchCartItems();
   }, []);
-  console.log('cartState: ', cartState);
+
   return cartState;
 };
