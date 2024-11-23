@@ -9,7 +9,7 @@ import { prisma } from "@/prisma/prisma-client";
  */
 export default async function Home() {
 
-  let categories = await prisma.category.findMany({
+  const categories = await prisma.category.findMany({
     include: {
       products: {
         include: {
@@ -19,7 +19,7 @@ export default async function Home() {
       }
     }
   });
-  console.log(categories[0].products[0])
+ 
   return (
     <>
       <Container className='mt-6'>
