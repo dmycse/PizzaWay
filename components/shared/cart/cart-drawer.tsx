@@ -17,26 +17,27 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet';
 
+import { DialogTitle } from '@radix-ui/react-dialog';
+
 
 import { Title } from '@/components/layout';
 import { Button } from '@/components/ui';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-import { Ingredient } from '@prisma/client';
 import { PizzaSize, PizzaType } from '@/prisma/prisma-types';
 import Image from 'next/image';
 import { cn } from '@/lib';
 
 
 
-export let CartDrawer = ({ children }: {children: ReactNode}) => {
+export const CartDrawer = ({ children }: {children: ReactNode}) => {
 
-  let {items, totalAmount, updateCartItemQuantity, removeCartItem } = useCart();
-  
-  let [redirecting, setRedirecting] = useState(false);
+  const {items, totalAmount, updateCartItemQuantity, removeCartItem } = useCart();
 
-  let onClickCountButton = (id: number, quantity: number, type: 'plus' | 'minus') => {
-    let newQuantity = type === 'plus' ? quantity + 1 : quantity - 1;
+  const [redirecting, setRedirecting] = useState(false);
+
+  const onClickCountButton = (id: number, quantity: number, role: 'plus' | 'minus') => {
+    const newQuantity = role === 'plus' ? quantity + 1 : quantity - 1;
     updateCartItemQuantity(id, newQuantity);
   };
 
@@ -44,12 +45,13 @@ export let CartDrawer = ({ children }: {children: ReactNode}) => {
     <Sheet>
       <SheetTrigger asChild>{children}</SheetTrigger>
 
-      <SheetContent className="flex flex-col justify-between pb-0 bg-[#F4F1EE]">
+      <SheetContent className="flex flex-col justify-between pb-0 bg-[#F4F1EE]" aria-describedby={undefined}>
+        <DialogTitle className='hidden'/> 
         <div className={cn('flex flex-col h-full', !totalAmount && 'justify-center')}>
           {totalAmount > 0 && (
             <SheetHeader>
-              <SheetTitle>
-                You've choosen: <span className="font-bold">{items.length} product(s)</span>
+              <SheetTitle aria-describedby={undefined}>
+                You have choosen: <span className="font-bold">{items.length} product(s)</span>
               </SheetTitle>
             </SheetHeader>
           )}
@@ -62,11 +64,11 @@ export let CartDrawer = ({ children }: {children: ReactNode}) => {
                 Add at least one pizza to complete your order
               </p>
 
-              <SheetClose>
-                <Button className="w-56 h-12 text-base" size="lg">
+              <SheetClose className='w-full'>
+                <span className="inline-flex justify-center items-center gap-2 w-56 h-12 text-brand text-2xl" >
                   <ArrowLeft className="w-5 mr-2" />
                   Go back
-                </Button>
+                </span>
               </SheetClose>
             </div>
           )}
@@ -83,7 +85,7 @@ export let CartDrawer = ({ children }: {children: ReactNode}) => {
                       details={getCartItemDetails(
                         item.pizzaSize as PizzaSize,
                         item.pizzaType as PizzaType,
-                        item.ingredients as Ingredient[],
+                        item.ingredients,
                       )}
                       price={item.price}
                       quantity={item.quantity}
