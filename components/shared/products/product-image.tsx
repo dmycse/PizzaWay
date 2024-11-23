@@ -6,7 +6,7 @@ type ProductImageProps = {
 };
 
 
-export let ProductImage = ({ className, imageUrl }: ProductImageProps) => {
+export const ProductImage = ({ className, imageUrl }: ProductImageProps) => {
 
   return (
     <div className={cn('w-full flex-1 relative flex justify-center items-center', className)}>

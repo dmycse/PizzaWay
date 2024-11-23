@@ -14,7 +14,7 @@ type PizzaVariantProps = {
 };
 
 
-export let PizzaVariant = ({
+export const PizzaVariant = ({
   name,
   imageUrl,
   ingredients,

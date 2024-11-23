@@ -46,7 +46,7 @@ type FilterCheckboxGroupProps = {
  *   ]}
  * />
  */
-export let FilterCheckboxGroup = ({
+export const FilterCheckboxGroup = ({
     title, 
     name, 
     checkboxes,
@@ -58,14 +58,14 @@ export let FilterCheckboxGroup = ({
     className
   }: FilterCheckboxGroupProps) => {
 
-    let [showAll, setShowAll] = useState(false);
-    let [searchValue, setSearchValue] = useState('');
+    const [showAll, setShowAll] = useState(false);
+    const [searchValue, setSearchValue] = useState('');
 
-    let checkboxesToShow = showAll 
+    const checkboxesToShow = showAll 
       ? checkboxes.filter(checkbox => checkbox.label.toLowerCase().includes(searchValue.trim().toLowerCase())) 
       : checkboxes?.slice(0, limitCheckboxes);
     
-    let onSearchChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
+    const onSearchChange: ChangeEventHandler<HTMLInputElement> = ({target}) => {
       setSearchValue(target.value);
     };
 

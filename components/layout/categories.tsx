@@ -23,9 +23,9 @@ type CategoriesProps = {
  * @returns {JSX.Element} The rendered category buttons.
  */
 
-export let Categories = ({ categories, className}: CategoriesProps) => {
+export const Categories = ({ categories, className}: CategoriesProps) => {
 
-  let activeCategoryId = useCategoryStore(state => state.activeCategoryId);
+  const activeCategoryId = useCategoryStore(state => state.activeCategoryId);
   
   return (
     <div className={ cn('inline-flex gap-2', className) }>

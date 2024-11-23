@@ -26,13 +26,13 @@ type SearchInputProps = {
  * 
  * @returns {JSX.Element} search input component.
  */
-export let SearchInput = ({ className }: SearchInputProps) => {
+export const SearchInput = ({ className }: SearchInputProps) => {
 
   const searchRef = useRef(null);
 
-  let [inputFocused, setInputFocused] = useState(false);
-  let [searchQuery, setSearchQuery] = useState('');
-  let [products, setProducts] = useState<Product[]>([]);
+  const [inputFocused, setInputFocused] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [products, setProducts] = useState<Product[]>([]);
 
   // close dropdown when user clicks outside
   useClickAway(searchRef, () => {
@@ -54,7 +54,7 @@ export let SearchInput = ({ className }: SearchInputProps) => {
     [searchQuery]
   );
 
-  let onClickHandler: MouseEventHandler<HTMLAnchorElement> = () => {
+  const onClickHandler: MouseEventHandler<HTMLAnchorElement> = () => {
     setInputFocused(false);
     setSearchQuery('');
     setProducts([]);

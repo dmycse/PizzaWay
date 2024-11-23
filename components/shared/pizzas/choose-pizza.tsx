@@ -36,7 +36,7 @@ type ChoosePizzaProps = {
  * @returns {JSX.Element} The cart button variants component.
  */
 
-export let ChoosePizza = ({
+export const ChoosePizza = ({
   name, 
   imageUrl, 
   ingredients, 
@@ -46,7 +46,7 @@ export let ChoosePizza = ({
   className 
   }: ChoosePizzaProps) => {
 
-    let {
+    const {
       selectedSize,
       selectedType,
       selectedIngredients,
@@ -57,9 +57,9 @@ export let ChoosePizza = ({
       addIngredient
     } = usePizzaVariants(options);
 
-  let textDetaills = `Pizza: ${selectedSize} sm, ${mapPizzaType[selectedType]} crust`;
+  const textDetaills = `Pizza: ${selectedSize} sm, ${mapPizzaType[selectedType]} crust`;
 
-  let totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
+  const totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
 
   // const handleClickAdd = () => {
   //   if (currentItemId) {

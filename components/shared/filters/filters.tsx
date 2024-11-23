@@ -19,26 +19,26 @@ type FiltersProps = {
  * 
  * @returns {JSX.Element} The rendered filters.
  */
-export let Filters = ({ className }: FiltersProps) => {
+export const Filters = ({ className }: FiltersProps) => {
 
-  let ingredients = useIngredients();
+  const ingredients = useIngredients();
 
-  let filter = useFilters();
+  const filter = useFilters();
   
   useQueryFilters(filter);
 
-  let items = ingredients.map((item, index) => ({label: item.name, value: String(index + 1)}));
+  const items = ingredients.map((item, index) => ({label: item.name, value: String(index + 1)}));
 
-  let onPriceRangeChange = (prices: number[]) => {
+  const onPriceRangeChange = (prices: number[]) => {
     filter.setPriceRange('priceMin', prices[0]);
     filter.setPriceRange('priceMax', prices[1]);
   };
 
-  let handleFilterClear = () => {
-    filter.selectedPizzaSize.size > 0 && filter.clearSelectedPizzaSize();
-    filter.selectedPizzaType.size > 0 && filter.clearSelectedPizzaType();
-    filter.selectedIngredients.size > 0 && filter.clearSelectedIngredients();
-    (filter.priceRange.priceMin || filter.priceRange.priceMax) && filter.clearPriceRange();
+  const handleFilterClear = () => {
+    if (filter.selectedPizzaSize.size > 0) filter.clearSelectedPizzaSize();
+    if (filter.selectedPizzaType.size > 0) filter.clearSelectedPizzaType();
+    if ( filter.selectedIngredients.size > 0) filter.clearSelectedIngredients();
+    if (filter.priceRange.priceMin || filter.priceRange.priceMax) filter.clearPriceRange();
   };
 
   return (

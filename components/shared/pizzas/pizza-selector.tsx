@@ -28,7 +28,7 @@ type PizzaSelectorProps = {
  * @returns {JSX.Element} - the pizza selector component
  */
 
-export let PizzaSelector = ({ items, value, onClick, className }: PizzaSelectorProps) => {
+export const PizzaSelector = ({ items, value, onClick, className }: PizzaSelectorProps) => {
 
   return (
     <div className={cn(className, 'p-1 flex justify-between bg-[#F3F3F7] rounded-3xl select-none')}>

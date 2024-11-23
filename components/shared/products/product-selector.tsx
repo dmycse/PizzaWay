@@ -12,7 +12,7 @@ type ProductSelectorProps = {
 };
 
 
-export let ProductSelector = ({
+export const ProductSelector = ({
   name,
   imageUrl,
   price,

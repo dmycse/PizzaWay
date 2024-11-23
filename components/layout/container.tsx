@@ -8,7 +8,7 @@ type Props = {
 };
 
 
-export let Container = ({className, children}: Props) => {
+export const Container = ({className, children}: Props) => {
 
   return (
     <div className={ cn('container px-4 max-sm:px-2 mx-auto', className) }>

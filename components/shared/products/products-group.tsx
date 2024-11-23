@@ -28,7 +28,7 @@ type ProductsGroupProps = {
  *
  * @returns {JSX.Element} The products group component.
  */
-export let ProductsGroup = ({
+export const ProductsGroup = ({
   categoryId,
   categoryName, 
   products, 
@@ -36,10 +36,10 @@ export let ProductsGroup = ({
   listClassName
   }: ProductsGroupProps) => {
 
-  let setActiveCategory = useCategoryStore(state => state.setActiveCategory);
+  const setActiveCategory = useCategoryStore(state => state.setActiveCategory);
  
-  let intersectionRef = useRef(null);
-  let intersection = useIntersection(intersectionRef, {
+  const intersectionRef = useRef(null);
+  const intersection = useIntersection(intersectionRef, {
     threshold: 0.4,
   });
 

@@ -27,9 +27,9 @@ type ProductModalProps =  {
  */
 
 
-export let ProductModal = ({ product, className }: ProductModalProps) => {
+export const ProductModal = ({ product, className }: ProductModalProps) => {
   
-  let router = useRouter();
+  const router = useRouter();
 
   return (
     <Dialog open={!!product} onOpenChange={() => router.back()}>

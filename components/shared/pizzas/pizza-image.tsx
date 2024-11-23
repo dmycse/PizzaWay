@@ -15,7 +15,7 @@ type PizzaImageProps = {
  * @prop  {25 | 30 | 35} [pizzaSize] - selected size of selected pizza
  * @prop  {string} [className] - additional css styles to apply to the component
  */
-export let PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) => {
+export const PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) => {
 
   return (
     <div className={cn('flex-1 relative flex justify-center items-center', className)}>

@@ -22,7 +22,7 @@ type HeaderProps = {
  * 
  * @returns {JSX.Element} The header component.
  */
-export let Header = ({className }: HeaderProps) => {
+export const Header = ({className }: HeaderProps) => {
 
   return (
     <header className={ cn('border-b', className) }>

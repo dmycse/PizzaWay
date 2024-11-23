@@ -1,8 +1,8 @@
 'use client';
 
 import { Button } from '@/components/ui';
-import { ArrowRight, ShoppingBasket, UserPen } from 'lucide-react';
-import { cn } from '@/lib';
+import { ArrowRight, ShoppingBasket } from 'lucide-react';
+// import { cn } from '@/lib';
 import { CartDrawer } from '@/components/shared';
 
 type CartButtonProps = {

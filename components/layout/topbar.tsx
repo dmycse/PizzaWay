@@ -19,7 +19,7 @@ type TopBarProps = {
  * 
  * @returns {JSX.Element} The rendered top bar.
  */
-export let TopBar = ({ categories, className}: TopBarProps) => {
+export const TopBar = ({ categories, className}: TopBarProps) => {
 
   return (
     <div className={ cn('py-5 sticky top-0 z-10 bg-white shadow-lg', className) }>

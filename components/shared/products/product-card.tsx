@@ -34,7 +34,7 @@ type ProductCardProps = {
  *   className="mb-4"
  * />
  */
-export let ProductCard = ({
+export const ProductCard = ({
     id,
     name,
     price,
