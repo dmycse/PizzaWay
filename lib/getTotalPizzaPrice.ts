@@ -20,10 +20,10 @@ export const getTotalPizzaPrice = (
   selectedIngredients: Set<number>,
 ) => {
 
-  let pizzaPriceByOptions = 
+  const pizzaPriceByOptions = 
     options.find(o => o.pizzaSize === selectedSize && o.pizzaType === selectedType)?.price ?? 0;
 
-  let pizzaPriceByIngredients = ingredients.reduce((sum, ingredient) => {
+  const pizzaPriceByIngredients = ingredients.reduce((sum, ingredient) => {
     if (selectedIngredients.has(ingredient.id)) {
       return sum += ingredient.price;
     }

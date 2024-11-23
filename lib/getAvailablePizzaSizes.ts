@@ -19,7 +19,7 @@ export const getAvailablePizzaSizes = (
     options: ProductOption[]
   ): PizzaVariant[] => {
 
-  let optionsBySelectedType = options.filter(option => option.pizzaType === selectedType);
+  const optionsBySelectedType = options.filter(option => option.pizzaType === selectedType);
   
   return variantPizzaSizes.map(variant => ({
     ...variant,

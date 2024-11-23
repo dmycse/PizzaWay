@@ -2,8 +2,8 @@ import { prisma } from '@/prisma/prisma-client';
 import { getCartItemTotalPrice } from '@/lib';
 
 export const getCartTotalAmount = async (token: string) => {
-
-  let userCart = await prisma.cart.findFirst({
+ 
+  const userCart = await prisma.cart.findFirst({
     where: {
       token,
     },
@@ -23,15 +23,15 @@ export const getCartTotalAmount = async (token: string) => {
       },
     },
   });
-
+  
   if (!userCart) {
     return;
   }
 
-  let totalAmount = userCart.items.reduce((sum, item) => {
+  const totalAmount = userCart.items.reduce((sum, item) => {
     return sum + getCartItemTotalPrice(item);
   }, 0);
-
+  
   return await prisma.cart.update({
     where: {
       id: userCart.id,
