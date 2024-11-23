@@ -1,6 +1,6 @@
 import { Cart, CartItem, Product, ProductOption, Ingredient } from '@prisma/client';
 
-/* Typificaion of api/cart response */
+/* Types of api/cart response */
 
 export type CartItemDTO = CartItem & {
   productOption: ProductOption & {
