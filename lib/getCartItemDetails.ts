@@ -1,6 +1,5 @@
 import { PizzaSize, PizzaType, mapPizzaType } from '@/prisma/prisma-types';
-import { Ingredient } from '@prisma/client';
-// import { CartStateItem } from './get-cart-details';
+import { CartItemState } from './getCartDetails';
 
 /**
  * Function: generates a detailed description (string) of a cart item.
@@ -19,7 +18,7 @@ import { Ingredient } from '@prisma/client';
 export const getCartItemDetails = (
     pizzaSize?: PizzaSize,
     pizzaType?: PizzaType,
-    ingredients: Ingredient[] = [],
+    ingredients: CartItemState['ingredients'] = [],
   ): string => {
 
   let details = [];
