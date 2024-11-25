@@ -28,7 +28,7 @@ export const ProductSelection = ({ product, onSubmit: handleSubmit }: ProductSel
 
   const firstOption = product.options[0];
   const isPizza = !!firstOption.pizzaType;
-
+  
   const onSubmit = async (productOptionId?: number, ingredients?: number[]) => {
     try {
       const itemId = productOptionId ?? firstOption.id;
@@ -40,7 +40,7 @@ export const ProductSelection = ({ product, onSubmit: handleSubmit }: ProductSel
 
       toast.success(product.name + ' added to cart');
       handleSubmit?.();
-      
+
     } catch (err) {
       toast.error('Error adding product to cart');
       console.error(err);

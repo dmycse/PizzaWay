@@ -44,7 +44,7 @@ export const IngredientItem = ({
   return (
     <button
       className={cn(
-        'p-1 w-28 relative flex flex-col items-center text-center bg-white shadow-lg rounded-md cursor-pointer',
+        'p-1 w-28 relative flex flex-col items-center text-center bg-white shadow-lg rounded-md border-2 border-transparent cursor-pointer',
         { 'border-2 border-primary': active },
         className,
       )}

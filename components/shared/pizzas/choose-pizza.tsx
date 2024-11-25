@@ -42,7 +42,7 @@ export const ChoosePizza = ({
   ingredients, 
   options, 
   loading, 
-  onSubmit, 
+  onSubmit,
   className 
   }: ChoosePizzaProps) => {
 
@@ -57,7 +57,7 @@ export const ChoosePizza = ({
       addIngredient
     } = usePizzaVariants(options);
   
-
+    console.log('onSubmit: ', onSubmit);
   // let ingerdietsDetails = ingredients.filter(item => selectedIngredients.has(item.id))
     
   const textDetaills = `Pizza: ${selectedSize} sm, ${mapPizzaType[selectedType]} crust`;
@@ -74,7 +74,7 @@ export const ChoosePizza = ({
   console.log(options);
   console.log(availablePizzaSizes);
   return (
-    <div className={cn(className, 'flex-1 flex')}>
+    <div className={cn(className, 'm-auto flex-1 flex')}>
       <div className="py-6 px-1 w-[440px] flex flex-col justify-center items-center gap-4">
         <PizzaImage imageUrl={imageUrl} pizzaSize={selectedSize} />
         <Button
@@ -89,7 +89,7 @@ export const ChoosePizza = ({
         </Button>
       </div>
 
-      <div className="p-6 pl-0 max-h-[600px] flex-1 flex flex-col gap-1">
+      <div className="p-6 pl-0 max-w-[400px] max-h-[600px] flex-1 flex flex-col gap-1">
         <Title text={name} size="md" className="font-extrabold" />
 
         <p className="pl-1 text-gray-400">{textDetaills}</p>
