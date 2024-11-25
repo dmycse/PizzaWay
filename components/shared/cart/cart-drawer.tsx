@@ -22,7 +22,7 @@ import { DialogTitle } from '@radix-ui/react-dialog';
 
 import { Title } from '@/components/layout';
 import { Button } from '@/components/ui';
-import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Loader } from 'lucide-react';
 
 import { PizzaSize, PizzaType } from '@/prisma/prisma-types';
 import Image from 'next/image';
@@ -32,7 +32,7 @@ import { cn } from '@/lib';
 
 export const CartDrawer = ({ children }: {children: ReactNode}) => {
 
-  const {items, totalAmount, updateCartItemQuantity, removeCartItem } = useCart();
+  const {items, totalAmount, loading, updateCartItemQuantity, deleteCartItem } = useCart();
 
   const [redirecting, setRedirecting] = useState(false);
 
@@ -40,6 +40,7 @@ export const CartDrawer = ({ children }: {children: ReactNode}) => {
     const newQuantity = role === 'plus' ? quantity + 1 : quantity - 1;
     updateCartItemQuantity(id, newQuantity);
   };
+
 
   return (
     <Sheet>
@@ -79,6 +80,7 @@ export const CartDrawer = ({ children }: {children: ReactNode}) => {
                 {items.map(item => (
                   <div key={item.id} className="mb-2">
                     <CartDrawerItem
+                      key={item.id}
                       id={item.id}
                       name={item.name}
                       imageUrl={item.imageUrl}
@@ -93,7 +95,7 @@ export const CartDrawer = ({ children }: {children: ReactNode}) => {
                       onClickCountButton={type =>
                         onClickCountButton(item.id, item.quantity, type)
                       }
-                      onClickRemove={() => removeCartItem(item.id)}
+                      onClickRemove={() => deleteCartItem(item.id)}
                     />
                   </div>
                 ))}
@@ -106,8 +108,10 @@ export const CartDrawer = ({ children }: {children: ReactNode}) => {
                       Total:
                       <div className="flex-1 border-b border-dotted border-b-neutral-200 relative -top-1 mx-2" />
                     </span>
-
-                    <span className="font-semibold text-lg">&#8364;{totalAmount}</span>
+                    {loading
+                      ? <Loader className="animate-spin" />
+                      : <span className="font-semibold text-lg">&#8364;{totalAmount}</span>
+                    }
                   </div>
 
                   <Link href="/checkout">

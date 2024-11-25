@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import { type CartItemProps } from './cart-item.types';
 import { CartItemImage, CartItemInfo, CartItemPrice } from '@/components/shared/cart';
 import { CountButton } from '@/components/shared';
@@ -50,6 +53,14 @@ export const CartDrawerItem = ({
     className,
   }: CartDrawerItemProps) => {
 
+  const [loading, setLoading] = useState(false);
+
+  const hancleCkickButton = (role: 'plus' | 'minus') => {
+    setLoading(true);
+    onClickCountButton?.(role);
+    setTimeout(() => setLoading(false), 4000);
+  };
+
   return (
     <div
       className={cn('p-5 flex gap-6 bg-white  ',
@@ -64,10 +75,14 @@ export const CartDrawerItem = ({
         <hr className="my-3" />
 
         <div className="flex justify-between items-center">
-          <CountButton value={quantity} onClick={onClickCountButton} />
+          <CountButton 
+            value={quantity} 
+            onClick={hancleCkickButton}
+            loading={loading}
+          />
 
           <div className="flex items-center gap-3">
-            <CartItemPrice value={price} />
+            <CartItemPrice value={price} loading={loading} />
             <Trash2Icon
               size={16}
               onClick={onClickRemove}
