@@ -7,3 +7,4 @@ export { getCartItemDetails } from '@/lib/getCartItemDetails';
 export { getCartItemTotalPrice } from '@/lib/getCartItemTotalPrice';
 export { getCartTotalAmount } from '@/lib/getCartTotalAmount';
 export { findOrCreateCart } from '@/lib/find_create_cart';
+export { findPizzas } from '@/lib/find-pizzas';

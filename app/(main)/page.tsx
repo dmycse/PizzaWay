@@ -1,24 +1,16 @@
 import { Container, TopBar } from "@/components/layout";
 import { Title, Filters, ProductsGroup } from "@/components/shared";
-import { prisma } from "@/prisma/prisma-client";
+import { findPizzas } from "@/lib";
+import type { GetSearchParams } from "@/lib/find-pizzas";
 import { Suspense } from "react";
 
 /**
  * The home page of the application. This page displays all categories and their associated products.
  * It also displays a filter menu for the user to filter the products by category.
  */
-export default async function Home() {
+export default async function Home({ searchParams }: { searchParams: GetSearchParams }) {
 
-  const categories = await prisma.category.findMany({
-    include: {
-      products: {
-        include: {
-          ingredients: true,
-          options: true
-        }
-      }
-    }
-  });
+  const categories = await findPizzas(searchParams);
  
   return (
     <>
