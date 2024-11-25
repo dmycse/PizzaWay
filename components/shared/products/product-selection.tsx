@@ -1,5 +1,10 @@
+'use client';
+
+import { useCartStore } from "@/store/cart-store";
+import { useShallow } from 'zustand/react/shallow'
 import { ProductWithRelations } from "@/prisma/prisma-types";
 import { ChoosePizza, ChooseProduct } from "@/components/shared";
+import toast from 'react-hot-toast';
 
 
 type ProductSelectionProps = {
@@ -17,28 +22,29 @@ type ProductSelectionProps = {
  *
  * @returns {JSX.Element} The product selection component.
  */
-export const ProductSelection = ({ product, onSubmit: _onSubmit }: ProductSelectionProps) => {
-  // const [addCartItem, loading] = useCartStore((state) => [state.addCartItem, state.loading]);
+export const ProductSelection = ({ product, onSubmit: handleSubmit }: ProductSelectionProps) => {
+
+  const [addCartItem, loading] = useCartStore(useShallow(state => [state.addCartItem, state.loading]));
 
   const firstOption = product.options[0];
   const isPizza = !!firstOption.pizzaType;
 
-  const onSubmit = async (productItemId?: number, ingredients?: number[]) => {
-    // try {
-    //   const itemId = productItemId ?? firstItem.id;
+  const onSubmit = async (productOptionId?: number, ingredients?: number[]) => {
+    try {
+      const itemId = productOptionId ?? firstOption.id;
 
-    //   await addCartItem({
-    //     productItemId: itemId,
-    //     ingredients,
-    //   });
+      await addCartItem({
+        productOptionId: itemId,
+        ingredients,
+      });
 
-    //   toast.success(product.name + ' добавлена в корзину');
-
-    //   _onSubmit?.();
-    // } catch (err) {
-    //   toast.error('Не удалось добавить товар в корзину');
-    //   console.error(err);
-    // }
+      toast.success(product.name + ' added to cart');
+      handleSubmit?.();
+      
+    } catch (err) {
+      toast.error('Error adding product to cart');
+      console.error(err);
+    }
   };
 
   if (isPizza) {
@@ -48,7 +54,7 @@ export const ProductSelection = ({ product, onSubmit: _onSubmit }: ProductSelect
         imageUrl={product.imageUrl}
         ingredients={product.ingredients}
         options={product.options}
-        // loading={loading}
+        loading={loading}
         onSubmit={onSubmit}
       />
     );
@@ -59,7 +65,7 @@ export const ProductSelection = ({ product, onSubmit: _onSubmit }: ProductSelect
       name={product.name}
       imageUrl={product.imageUrl}
       price={firstOption.price}
-      // loading={loading}
+      loading={loading}
       onSubmit={onSubmit}
     />
   );
