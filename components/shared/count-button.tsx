@@ -1,11 +1,13 @@
 
 import { cn } from '@/lib';
 import { CountIconButton, type CountIconButtonProps } from './count-icon-button';
+import { Loader } from 'lucide-react';
 
 type CountButtonProps = {
   value?: number;
   size?: CountIconButtonProps['size'];
   onClick?: (role: 'plus' | 'minus') => void;
+  loading?: boolean;
   className?: string;
 }
 
@@ -28,9 +30,10 @@ export const CountButton = ({
   value = 1,
   size,
   onClick,
+  loading,
   className
   }: CountButtonProps) => {
-
+  
   return (
     <div className={cn('inline-flex justify-between items-center gap-3', className)}>
       <CountIconButton
@@ -41,7 +44,7 @@ export const CountButton = ({
       />
 
       <b className={size === 'sm' ? 'text-sm' : 'text-md'}>
-        {value}
+        {loading ? <Loader className="animate-spin" /> : value}
       </b>
 
       <CountIconButton 
