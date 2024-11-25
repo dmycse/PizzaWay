@@ -1,7 +1,9 @@
 import { cn } from '@/lib';
+import { Loader } from 'lucide-react';
 
 type CartItemPriceProps = {
   value: number;
+  loading?: boolean;
   className?: string;
 };
 
@@ -18,6 +20,10 @@ type CartItemPriceProps = {
  * <CartItemPrice value={100} />
  */
 
-export const CartItemPrice = ({ value, className }: CartItemPriceProps) => {
-  return <h2 className={cn('font-medium', className)}>&#8364;{value}</h2>;
+export const CartItemPrice = ({ value, loading, className }: CartItemPriceProps) => {
+  return (
+    <h2 className={cn('font-medium', className)}>
+      {loading ? <Loader className="animate-spin" /> : <span>&#8364;{value}</span>}
+    </h2>
+  );
 };
