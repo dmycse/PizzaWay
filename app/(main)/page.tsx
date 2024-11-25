@@ -1,7 +1,7 @@
 import { Container, TopBar } from "@/components/layout";
 import { Title, Filters, ProductsGroup } from "@/components/shared";
 import { prisma } from "@/prisma/prisma-client";
-
+import { Suspense } from "react";
 
 /**
  * The home page of the application. This page displays all categories and their associated products.
@@ -32,7 +32,9 @@ export default async function Home() {
         <div className="flex gap-20">
 
           <div className="w-[250px]">
-            <Filters />
+            <Suspense>
+              <Filters />
+            </Suspense>
           </div>
 
           <div className="mt-8 flex-1">
@@ -44,7 +46,7 @@ export default async function Home() {
                       key={category.id} 
                       categoryName={category.name} 
                       categoryId={category.id}
-                      products={category.products}
+                      items={category.products}
                   />
                   )
                 ))
