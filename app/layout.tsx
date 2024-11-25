@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { Roboto } from "next/font/google";
+import { Toaster } from 'react-hot-toast';
 
 import "./globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout(
       </head>
       <body className={`${roboto.variable} antialiased`}>
         {children}
+        <Toaster />
       </body>
     </html>
   );
