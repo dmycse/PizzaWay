@@ -70,7 +70,7 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // if a cartItem has been found, do +1
+    // if the cartItem has been found, do quantity+1
     if (findCartItem) {
       await prisma.cartItem.update({
         where: {
@@ -85,8 +85,8 @@ export async function POST(req: NextRequest) {
         data: {
           cartId: userCart.id,
           productOptionId: data.productOptionId,
-          quantity: 1,
           ingredients: { connect: data.ingredients?.map(id => ({ id })) },
+          // quantity: 1,
         },
       });
     }
@@ -98,7 +98,7 @@ export async function POST(req: NextRequest) {
 
     return resp;
   } catch (error) {
-    console.log('[API_CART_POST] Server error', error);
+    console.log('[API_CART_POST] Server', error);
     return NextResponse.json({ message: 'The cart data cant be created' }, { status: 500 });
   }
 }
