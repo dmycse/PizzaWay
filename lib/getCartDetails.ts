@@ -36,7 +36,7 @@ export const getCartDetails = (data: CartDTO): ReturnProps => {
   })) as CartItemState[];
 
   return {
-    items,
+    items: [...items.sort((a, b) => (a.name > b.name ? 1 : -1))],
     totalAmount: data.totalAmount,
   };
 };
