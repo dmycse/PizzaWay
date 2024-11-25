@@ -40,8 +40,8 @@ export const usePizzaVariants = (options: ProductOption[]): ReturnProps => {
 
   let availablePizzaSizes = getAvailablePizzaSizes(selectedType, options);
 
-  let currentItemId = options.find(item => item.pizzaType === selectedType && item.pizzaSize === selectedSize)?.productId;
-
+  let currentItemId = options.find(item => item.pizzaType === selectedType && item.pizzaSize === selectedSize)?.id;
+  
   useEffect(() => {
     let isSelectedSizeAvailable = availablePizzaSizes?.find(
       item => +item.value === selectedSize && !item.disabled
