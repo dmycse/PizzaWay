@@ -2,15 +2,15 @@
 
 import { useEffect, useRef } from 'react';
 import { useIntersection } from 'react-use';
-import { ProductCard, Title } from '@/components/shared';
-import { Product } from '@prisma/client';
 import { useCategoryStore } from '@/store/category';
+import { ProductCard, Title } from '@/components/shared';
+import { ProductWithRelations } from '@/prisma/prisma-types';
 import { cn } from '@/lib/utils';
 
 type ProductsGroupProps = {
   categoryId: number;
   categoryName: string;
-  products: Product[];
+  items: ProductWithRelations[];
   className?: string;
   listClassName?: string;
 };
@@ -31,7 +31,7 @@ type ProductsGroupProps = {
 export const ProductsGroup = ({
   categoryId,
   categoryName, 
-  products, 
+  items, 
   className, 
   listClassName
   }: ProductsGroupProps) => {
@@ -55,13 +55,14 @@ export const ProductsGroup = ({
       <Title text={categoryName} size='lg' className='mb-5 font-bold' />
       <article className={ cn('grid grid-cols-3 gap-7', listClassName) }>
         {
-          products.map((product: any) => (
+          items.map(product => (
             <ProductCard 
               key={product.id}
               id={product.id}
               name={product.name}
               price={product.options[0].price}
-              imageUrl={product.imageUrl} 
+              imageUrl={product.imageUrl}
+              // ingredients={product.ingredients} 
             />
           ))
         }
