@@ -61,11 +61,11 @@ export const ChoosePizza = ({
 
   const totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
 
-  // const handleClickAdd = () => {
-  //   if (currentItemId) {
-  //     onSubmit(currentItemId, Array.from(selectedIngredients));
-  //   }
-  // };
+  const handleClickAdd = () => {
+    if (currentItemId) {
+      onSubmit(currentItemId, Array.from(selectedIngredients));
+    }
+  };
   console.log({selectedSize, selectedType});
   console.log(options);
   console.log(availablePizzaSizes);
@@ -74,8 +74,8 @@ export const ChoosePizza = ({
       <div className="py-6 px-1 w-[440px] flex flex-col justify-center items-center gap-4">
         <PizzaImage imageUrl={imageUrl} pizzaSize={selectedSize} />
         <Button
-          // loading={loading}
-          // onClick={handleClickAdd}
+          loading={loading}
+          onClick={handleClickAdd}
           disabled={totalPrice === 0}
           className="mt-6 px-10 w-8/12 h-11 text-base text-brand rounded-xl
           bg-white border border-brand hover:bg-brand hover:text-white
