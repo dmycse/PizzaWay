@@ -56,8 +56,12 @@ export const ChoosePizza = ({
       setSelectedType,
       addIngredient
     } = usePizzaVariants(options);
+  
 
+  // let ingerdietsDetails = ingredients.filter(item => selectedIngredients.has(item.id))
+    
   const textDetaills = `Pizza: ${selectedSize} sm, ${mapPizzaType[selectedType]} crust`;
+  const ingerdietsDetails = ingredients.map(item => item.name.toLowerCase()).join(', ');
 
   const totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
 
@@ -85,12 +89,13 @@ export const ChoosePizza = ({
         </Button>
       </div>
 
-      <div className="p-6 pl-0 max-h-[600px] flex-1 flex flex-col gap-2">
+      <div className="p-6 pl-0 max-h-[600px] flex-1 flex flex-col gap-1">
         <Title text={name} size="md" className="font-extrabold" />
 
-        <p className="text-gray-400">{textDetaills}</p>
+        <p className="pl-1 text-gray-400">{textDetaills}</p>
+        <p className="pl-1 text-gray-400 text-sm">{ingerdietsDetails}</p>
 
-        <div className="flex flex-col gap-3">
+        <div className="mt-1 mb-1 flex flex-col gap-3">
           <PizzaSelector
             items={availablePizzaSizes}
             value={String(selectedSize)}
