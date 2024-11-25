@@ -23,7 +23,7 @@ type ProductModalPageProps = {
  */
 export default async function ProductModalPage({params: { id }}: ProductModalPageProps) {
 
-  let product = await prisma.product.findFirst({
+  const product = await prisma.product.findFirst({
     where: {
       id: Number(id),
     },

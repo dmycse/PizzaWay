@@ -44,7 +44,7 @@ export const SearchInput = ({ className }: SearchInputProps) => {
   useDebounce(
     async () => {
       try {
-        let response = await searchProducts(searchQuery)
+        const response = await searchProducts(searchQuery)
         setProducts(response);
       } catch (error) {
           console.log(error)

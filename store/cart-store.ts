@@ -5,10 +5,10 @@ import  type { CartItemState } from '@/lib/getCartDetails'
 import { CreateCartItemValues } from '@/utils/cart.dto';
 
 export type CartState = {
+  items: CartItemState[];
+  totalAmount: number;
   loading: boolean;
   error: boolean;
-  totalAmount: number;
-  items: CartItemState[];
 
   /* Getting CartItems from the cart */
   fetchCartItems: () => Promise<void>;
@@ -20,20 +20,27 @@ export type CartState = {
   addCartItem: (values: CreateCartItemValues) => Promise<void>;
   
   /* Request for removing CartItem from the cart */
-  removeCartItem: (id: number) => Promise<void>;
+  deleteCartItem: (id: number) => Promise<void>;
 };
 
 export const useCartStore = create<CartState>((set, get) => ({
   items: [],
+  totalAmount: 0,
   error: false,
   loading: true,
-  totalAmount: 0,
 
+  /**
+   * Fetches the cart items from the server.
+   * Sets the loading state to true on start and false on finish.
+   * Sets the error state to true if an error occurs.
+   * Sets the items and totalAmount state with the returned data.
+   */
   fetchCartItems: async () => {
     try {
       set({ loading: true, error: false });
       const data = await getCart();
       console.log('fetchCartItems data: ', data);
+      console.log('fetchCartItems data returned: ', getCartDetails(data));
       set(getCartDetails(data));
     } catch (error) {
         console.error(error);
@@ -69,14 +76,16 @@ export const useCartStore = create<CartState>((set, get) => ({
     }
   },
 
-  removeCartItem: async (id: number) => {
+  deleteCartItem: async (id: number) => {
     try {
-      set((state) => ({
+      set(state => ({
         loading: true,
         error: false,
-        items: state.items.map((item) => (item.id === id ? { ...item, disabled: true } : item)),
+        items: state.items.map(item => (item.id === id ? { ...item, disabled: true } : item)),
       }));
       const data = await removeCartItem(id);
+      console.log('removeCartItem data: ', data);
+      console.log('removeCartItem data returned: ', getCartDetails(data));
       set(getCartDetails(data));
     } catch (error) {
         console.error(error);
@@ -84,7 +93,7 @@ export const useCartStore = create<CartState>((set, get) => ({
     } finally {
         set((state) => ({
           loading: false,
-          items: state.items.map((item) => ({ ...item, disabled: false })),
+          items: state.items.map(item => ({ ...item, disabled: false })),
         }));
     }
   }

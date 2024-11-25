@@ -21,10 +21,10 @@ export const getCartItemDetails = (
     ingredients: CartItemState['ingredients'] = [],
   ): string => {
 
-  let details = [];
+  const details = [];
 
   if (pizzaSize && pizzaType) {
-    let pizzaTypeLabel = mapPizzaType[pizzaType];
+    const pizzaTypeLabel = mapPizzaType[pizzaType];
     details.push(`${pizzaSize} sm., ${pizzaTypeLabel} crust`);
   }
 

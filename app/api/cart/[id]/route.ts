@@ -67,7 +67,7 @@ export async function DELETE(req: NextRequest, { params }: { params: { id: strin
     });
 
     const updatedUserCart = await getCartTotalAmount(token);
-
+    
     return NextResponse.json(updatedUserCart);
   } catch (error) {
     console.log('[CART_DELETE] Server', error);
