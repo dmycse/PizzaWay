@@ -62,7 +62,7 @@ export const ProductsGroup = ({
               name={product.name}
               price={product.options[0].price}
               imageUrl={product.imageUrl}
-              // ingredients={product.ingredients} 
+              ingredients={product.ingredients} 
             />
           ))
         }

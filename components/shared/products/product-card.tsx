@@ -1,15 +1,16 @@
 import Link from "next/link";
 import { Title } from "@/components/shared";
-import { Button } from "../../ui";
+import { Ingredient } from "@prisma/client";
+import { Button } from "@/components/ui";
 import { Plus } from "lucide-react";
-import Image from "next/image";
+// import Image from "next/image";
 
 type ProductCardProps = {
   id: number;
   name: string;
   price: number;
   imageUrl: string;
-  // ingredients: Ingredient[];
+  ingredients: Ingredient[];
   className?: string;
 }
 
@@ -39,8 +40,8 @@ export const ProductCard = ({
     name,
     price,
     imageUrl,
-    // ingredients,
-    className,
+    ingredients,
+    // className,
   }: ProductCardProps) => {
 
   return (
@@ -58,7 +59,7 @@ export const ProductCard = ({
       </div>
 
       <p className="mb-2 text-sm text-gray-400">
-        Mozzarella, ham, spicy pepperoni, cheese cubes, tomatoes, champignons, Italian herbs, firm tomato sauce
+        { ingredients.map(ingredient => ingredient.name).join(', ') }
       </p>
 
       <Button variant="outline" className="w-full self-center text-base text-brand font-bold border-brand hover:bg-brand">
