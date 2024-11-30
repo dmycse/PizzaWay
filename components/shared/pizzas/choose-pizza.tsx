@@ -57,22 +57,21 @@ export const ChoosePizza = ({
       addIngredient
     } = usePizzaVariants(options);
   
-    console.log('onSubmit: ', onSubmit);
-  // let ingerdietsDetails = ingredients.filter(item => selectedIngredients.has(item.id))
-    
   const textDetaills = `Pizza: ${selectedSize} sm, ${mapPizzaType[selectedType]} crust`;
-  const ingerdietsDetails = ingredients.map(item => item.name.toLowerCase()).join(', ');
+
+  const selectedIngredientsDetails = ingredients
+                                    .filter(item => selectedIngredients.has(item.id))
+                                    .map(item => item.name.toLowerCase()).join(', ');
 
   const totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
 
   const handleClickAdd = () => {
+    console.log('currentItemId', currentItemId)
     if (currentItemId) {
       onSubmit(currentItemId, Array.from(selectedIngredients));
     }
   };
-  console.log({selectedSize, selectedType});
-  console.log(options);
-  console.log(availablePizzaSizes);
+
   return (
     <div className={cn(className, 'm-auto flex-1 flex')}>
       <div className="py-6 px-1 w-[440px] flex flex-col justify-center items-center gap-4">
@@ -92,8 +91,8 @@ export const ChoosePizza = ({
       <div className="p-6 pl-0 max-w-[400px] max-h-[600px] flex-1 flex flex-col gap-1">
         <Title text={name} size="md" className="font-extrabold" />
 
-        <p className="pl-1 text-gray-400">{textDetaills}</p>
-        <p className="pl-1 text-gray-400 text-sm">{ingerdietsDetails}</p>
+        <p className="pl-1 h-6 text-gray-400">{textDetaills}</p>
+        <p className="pl-1 h-10 text-gray-400 text-sm">{selectedIngredientsDetails}</p>
 
         <div className="mt-1 mb-1 flex flex-col gap-3">
           <PizzaSelector
