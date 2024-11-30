@@ -55,29 +55,44 @@ export async function POST(req: NextRequest) {
     }
 
     const userCart = await findOrCreateCart(token);
-
+    
     const data = (await req.json()) as CreateCartItemValues;
-
-    const findCartItem = await prisma.cartItem.findFirst({
+    
+    const findCartItems = await prisma.cartItem.findMany({
       where: {
         cartId: userCart.id,
         productOptionId: data.productOptionId,
-        ingredients: {
-          every: {
-            id: { in: data.ingredients },
-          },
-        },
+        // ingredients: {
+        //   every: {
+        //     id: { in: data.ingredients },
+        //   },
+        // },
       },
+      include: {
+        ingredients: true
+      },
+    });
+    
+    const exactMatchCartItem = findCartItems.find(cartItem => {
+      
+      if (!data.ingredients) return true;
+
+      const ingredientIds = cartItem.ingredients.map(ingredient => ingredient.id);
+      
+      return (
+        ingredientIds.length === data.ingredients?.length &&
+        ingredientIds.every(id => data.ingredients?.includes(id))
+      );
     });
 
     // if the cartItem has been found, do quantity+1
-    if (findCartItem) {
+    if (exactMatchCartItem) {
       await prisma.cartItem.update({
         where: {
-          id: findCartItem.id,
+          id: exactMatchCartItem.id,
         },
         data: {
-          quantity: findCartItem.quantity + 1,
+          quantity: exactMatchCartItem.quantity + 1,
         },
       });
     } else {
@@ -92,7 +107,7 @@ export async function POST(req: NextRequest) {
     }
 
     const updatedUserCart = await getCartTotalAmount(token);
-
+    
     const resp = NextResponse.json(updatedUserCart);
     resp.cookies.set('cartToken', token);
 
