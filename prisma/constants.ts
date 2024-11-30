@@ -249,3 +249,7 @@ export const prices = {
   priceMax: 50,
   rangeStep: 5 
 };
+
+// constants for checkout
+export const VAT = 18;
+export const DELIVERY_PRICE = 10;
