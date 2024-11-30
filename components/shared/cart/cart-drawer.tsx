@@ -33,6 +33,7 @@ import { cn } from '@/lib';
 export const CartDrawer = ({ children }: {children: ReactNode}) => {
 
   const {items, totalAmount, loading, updateCartItemQuantity, deleteCartItem } = useCart();
+  console.log('Cart items: ', items)
 
   const [redirecting, setRedirecting] = useState(false);
 
@@ -114,12 +115,14 @@ export const CartDrawer = ({ children }: {children: ReactNode}) => {
                     }
                   </div>
 
-                  <Link href="/checkout">
+                  <Link href="/checkout" className={cn({'pointer-events-none': redirecting || loading})}>
                     <Button
                       onClick={() => setRedirecting(true)}
-                      loading={redirecting}
+                      loading={redirecting || loading}
                       type="submit"
-                      className="w-full h-12 font-semibold text-lg text-brand bg-white border border-brand hover:bg-brand hover:text-white"
+                      // disabled={redirecting || loading}
+                      className={cn('w-full h-12 font-semibold text-lg text-brand bg-white border border-brand hover:bg-brand hover:text-white',
+                                {'opacity-50 disabled:bg-white': redirecting || loading})}
                     >
                       Checkout
                       <ArrowRight className="w-5 ml-2" />
