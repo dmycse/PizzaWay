@@ -63,7 +63,7 @@ export const CartDrawerItem = ({
 
   return (
     <div
-      className={cn('p-5 flex gap-6 bg-white  ',
+      className={cn('p-3 flex gap-6 bg-white',
         {'opacity-50 pointer-events-none': disabled},
         className,
       )}>
