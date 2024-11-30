@@ -26,7 +26,7 @@ export const PizzaImage = ({ className, imageUrl, pizzaSize }: PizzaImageProps) 
         className={cn('relative left-2 top-2 z-10 transition-all duration-700', {
           'w-[300px] h-[300px] rotate-90 -translate-x-4': pizzaSize === 25,
           'w-[350px] h-[350px] -rotate-90 -translate-y-4': pizzaSize === 30,
-          'w-[430px] h-[430px] rotate-135 translate-x-1': pizzaSize === 35,
+          'w-[410px] h-[410px] rotate-135 translate-x-1': pizzaSize === 35,
         })}
       />
 
