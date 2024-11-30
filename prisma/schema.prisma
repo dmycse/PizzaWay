@@ -147,7 +147,6 @@ model CartItem {
   @@map("cart_items")
 }
 
-
 enum OrderStatus {
   PENDING    // Pending - an order created but not paid yet
   SUCCEEDED   // Succeeded - an order has been paid
