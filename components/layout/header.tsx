@@ -10,7 +10,9 @@ import { cn } from '@/lib/utils';
 
 
 type HeaderProps = {
-    className?: string
+  hasSearch?: boolean;
+  hasCart?: boolean;
+  className?: string;
 };
 
 /**
@@ -22,7 +24,7 @@ type HeaderProps = {
  * 
  * @returns {JSX.Element} The header component.
  */
-export const Header = ({className }: HeaderProps) => {
+export const Header = ({ hasSearch = true, hasCart = true, className }: HeaderProps) => {
 
   return (
     <header className={ cn('border-b', className) }>
@@ -38,16 +40,18 @@ export const Header = ({className }: HeaderProps) => {
           </Link>
         </div>
 
-        <div className='mx-10 flex-1'>
-          <SearchInput />
-        </div>
+        {hasSearch && 
+          <div className='mx-10 flex-1'>
+            <SearchInput />
+          </div>
+        }
 
         <div className='flex items-center gap-3'>
           <Button variant='outline' className='space-x-2'>
             <UserPen size={15}/>
             <span>Sign in</span>
           </Button>
-          <CartButton />
+          { hasCart && <CartButton /> }
         </div>
         
       </Container>
