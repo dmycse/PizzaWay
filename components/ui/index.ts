@@ -1,5 +1,6 @@
 export { Button } from '@/components/ui/button';
 export { Input } from '@/components/ui/input';
+export { Textarea } from "@/components/ui/textarea"
 export { Checkbox } from '@/components/ui/checkbox';
 export { Dialog } from '@/components/ui/dialog';
 export { Drawer } from '@/components/ui/drawer';
