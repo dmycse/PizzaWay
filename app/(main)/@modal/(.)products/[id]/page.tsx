@@ -10,7 +10,9 @@ type ProductModalPageProps = {
 
 
 /**
- * Component: ProductModalPage
+ * Component: displays a modal window with product details.
+ * 
+ * User sees this component when clicks on ProductCard -> @/components/shared/products/product-card
  * 
  * Fetches a product by id from the database and displays a modal with product details.
  * If the product is not found, it returns a notFound response.
