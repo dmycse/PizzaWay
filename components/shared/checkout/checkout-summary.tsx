@@ -1,9 +1,11 @@
+'use client';
+
+import  { useFormContext} from 'react-hook-form';
 import { CheckoutWhiteBlock, CheckoutItemDetails } from '@/components/shared/checkout';
 import { ArrowRight, Package, Percent, Truck } from 'lucide-react';
 import { Button, Skeleton } from '@/components/ui';
 import { cn } from '@/lib/utils';
 import { DELIVERY_PRICE, VAT } from '@/prisma/constants';
-
 
 type CheckoutSummaryProps = {
   totalAmount: number;
@@ -13,8 +15,11 @@ type CheckoutSummaryProps = {
 
 export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSummaryProps) => {
 
+  const { setValue } = useFormContext();
+
+
   const vatValue = (totalAmount * VAT) / 100;
-  const totalAmountWithDelivery = totalAmount + DELIVERY_PRICE + vatValue;
+  const totalAmountWithDelivery = totalAmount + DELIVERY_PRICE;
 
   return (
     <CheckoutWhiteBlock className={cn('p-6 sticky top-4', className)}>
@@ -23,7 +28,7 @@ export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSum
         {loading ? (
           <Skeleton className="h-11 w-48" />
         ) : (
-          <span className="h-11 text-2xl font-semibold">&#8364;{totalAmountWithDelivery.toFixed(2)}</span>
+          <span className="h-11 text-2xl font-semibold text-brand ">€{totalAmountWithDelivery.toFixed(2)}</span>
         )}
       </div>
 
@@ -40,7 +45,7 @@ export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSum
         title={
           <div className="flex items-center">
             <Percent size={18} className="mr-2 text-gray-400" />
-           VAT:
+           VAT (included) :
           </div>
         }
         value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `€${vatValue.toFixed(2)}`}
@@ -52,14 +57,15 @@ export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSum
             Delivery:
           </div>
         }
-        value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `€${DELIVERY_PRICE}`}
+        value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `€${DELIVERY_PRICE.toFixed(2)}`}
       />
 
       <Button
         loading={loading}
         type="submit"
-        className="w-full h-14 rounded-2xl mt-6 text-base font-bold
-                   bg-white border border-brand text-brand hover:bg-brand hover:text-white"
+        className={cn("w-full h-14 rounded-2xl mt-6 text-base font-bold bg-white border border-brand text-brand hover:bg-brand hover:text-white",
+                   { 'opacity-50 disabled:bg-white': loading })}
+        onClick={() => setValue('total', totalAmountWithDelivery)}
       >
         Pay your order
         <ArrowRight className="w-5 ml-2" />
