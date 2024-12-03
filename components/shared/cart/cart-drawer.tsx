@@ -28,13 +28,24 @@ import { PizzaSize, PizzaType } from '@/prisma/prisma-types';
 import Image from 'next/image';
 import { cn } from '@/lib';
 
-
-
+/**
+ * A Sheet component that renders a cart drawer with the items in the cart,
+ * allowing the user to update the quantity of each item and delete items.
+ * 
+ * This component is called from CartButton component -> /components/shared/cart/cart-button.tsx
+ * @param {ReactNode} children - The content of the cart drawer.
+ * @returns {JSX.Element} The cart drawer component.
+ * @example
+ * <CartDrawer>
+ *   <CartDrawerTrigger asChild>
+ *     <Button>Open Cart</Button>
+ *   </CartDrawerTrigger>
+ * </CartDrawer>
+ */
 export const CartDrawer = ({ children }: {children: ReactNode}) => {
 
   const {items, totalAmount, loading, updateCartItemQuantity, deleteCartItem } = useCart();
-  console.log('Cart items: ', items)
-
+  
   const [redirecting, setRedirecting] = useState(false);
 
   const onClickCountButton = (id: number, quantity: number, role: 'plus' | 'minus') => {

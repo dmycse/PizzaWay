@@ -8,8 +8,6 @@ import { cn, getTotalPizzaPrice } from '@/lib';
 import { usePizzaVariants } from '@/hooks';
 import { Button } from '@/components/ui';
 
-
-
 type ChoosePizzaProps = {
   name: string;
   imageUrl: string;
@@ -66,7 +64,6 @@ export const ChoosePizza = ({
   const totalPrice = getTotalPizzaPrice(selectedType, selectedSize, options, ingredients, selectedIngredients);
 
   const handleClickAdd = () => {
-    console.log('currentItemId', currentItemId)
     if (currentItemId) {
       onSubmit(currentItemId, Array.from(selectedIngredients));
     }
