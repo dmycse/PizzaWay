@@ -43,7 +43,9 @@ export const ChooseProduct = ({
         <Button
           loading={loading}
           onClick={() => onSubmit?.()}
-          className="mt-10 px-10 w-full h-11 text-base text-brand rounded-[18px] bg-white border border-brand hover:bg-brand hover:text-white">
+          className={cn("mt-10 px-10 w-full h-11 text-base text-brand rounded-[18px] bg-white border border-brand hover:bg-brand hover:text-white",
+            { 'opacity-50 disabled:bg-white': loading }
+          )}>
           Add to cart &#8364;{price}
         </Button>
       </div>
