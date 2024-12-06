@@ -1,6 +1,9 @@
+import { CartItemDTO } from "@/utils/cart.dto";
+
 type OrderPaymentTemplateProps = {
   orderId: number;
   amount: number;
+  items: CartItemDTO[];
 };
 
 /**
@@ -15,7 +18,7 @@ type OrderPaymentTemplateProps = {
  * @example
  * <OrderPaymentTemplate orderId={1} amount={25.90} />
  */
-export const OrderPaymentTemplate = ({ orderId, amount }: OrderPaymentTemplateProps) => (
+export const OrderPaymentTemplate = ({ orderId, amount, items }: OrderPaymentTemplateProps) => (
   <div>
     <h1>Order #{orderId}</h1>
 
@@ -23,7 +26,19 @@ export const OrderPaymentTemplate = ({ orderId, amount }: OrderPaymentTemplatePr
       You've just paid <b>€{amount}</b> for your order. Thank you!
       {/* <a href={paymentUrl}>this link</a> to make the payment. */}
     </p>
-    <p>Your order will be delivered to your doorstep soon.</p>
+    <hr />
+    <p>Your order:</p>
+    <ul>
+      {items.map(item => (
+        <li key={item.id}>
+          {item.productOption.product.name} x {item.quantity} ={' '}
+          €{item.productOption.price * item.quantity}
+        </li>
+      ))}
+    </ul>
+    <p> will be delivered to your doorstep soon.</p>
+    <br />
+    <p>Best regards, </p>
     <a href={process.env.NEXT_PUBLIC_URL}>PizzaWay | Pizzas&More</a>.
   </div>
 );

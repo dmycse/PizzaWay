@@ -4,6 +4,7 @@ import { prisma } from "@/prisma/prisma-client";
 import { OrderPaymentTemplate } from "@/components/shared/order";
 import { sendEmail } from "@/lib";
 import { OrderStatus } from "@prisma/client";
+import { CartItemDTO } from "@/utils/cart.dto";
 
 type PaymentDoneProps = {
   userCartId: number;
@@ -60,6 +61,7 @@ export async function paymentDone(data: PaymentDoneProps) {
       OrderPaymentTemplate({
         orderId: order.id,
         amount: order.sum,
+        items: order?.items as unknown as CartItemDTO[],
       }),
     );
 

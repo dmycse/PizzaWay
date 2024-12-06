@@ -1,6 +1,18 @@
 import { notFound } from 'next/navigation';
 import { paymentDone } from '@/actions/payment_done';
 import Link from 'next/link';
+
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog";
+
 type SuccessOrderProps = {
   params: {
     id: string;
@@ -12,7 +24,7 @@ type SuccessOrderProps = {
 };
 
 /**
- * Shows a success page for a paid order.
+ * Shows a success page (modal window) for a paid order.
  * 
  * This component is called from OrderProcessing component -> /components/shared/order/order-processing.tsx
  * when a user successfully pays for an order.
@@ -44,16 +56,34 @@ export default async function SuccessOrder({
   }
   
   return (
-    <main className="m-10 p-6 max-w-2xl mx-auto text-brand text-center border border-current rounded-md ">
-      <div className="mb-5">
-        <h1 className="mb-2 text-primary text-4xl font-extrabold ">Thank you!</h1>
-        <h2 className="mb-4 text-2xl">You successfully paid €{order.sum} for your order #{order.id}</h2>
-        <h2 className="mb-4 text-xl">Your order will be delivered at your address soon.</h2>
-        <div>
-          Would like to make a new order? {' '}
-          <Link href="/" className='text-primary font-bold'>Click here</Link>
-        </div>
-      </div>
-    </main>
+    <AlertDialog defaultOpen>
+      <AlertDialogContent className='max-w-2xl bg-white border-4 border-brand outline-none'>
+        <AlertDialogHeader>
+          <AlertDialogTitle 
+            className="mb-2 text-primary text-4xl font-extrabold"
+          >
+            Thank you!
+          </AlertDialogTitle>
+          <AlertDialogDescription className="mb-4 flex flex-col text-2xl space-y-4">
+            <span className='text-brand'>You successfully paid €{order.sum} for your order #{order.id}</span>
+            <span className='text-brand'>Details of your order have been sent to your email.</span>
+            <span>
+              Would like to make a new order? {' '}
+              <Link href="/" className='text-primary font-bold'>Click here</Link>
+            </span>
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogAction>
+            <Link 
+              href="/" 
+              className='p-6 font-bold text-[1rem]'
+            >
+              OK
+            </Link>
+          </AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
   );
 }
