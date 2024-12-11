@@ -1,11 +1,12 @@
+'use client';
+
+import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { signIn } from 'next-auth/react';
 
 import { Container } from '@/components/layout';
-import { CartButton, SearchInput } from '@/components/shared';
-import { Button } from '@/components/ui';
-import { UserPen } from 'lucide-react';
-
+import { AuthModal, CartButton, ProfileButton, SearchInput } from '@/components/shared';
 import { cn } from '@/lib/utils';
 
 
@@ -19,12 +20,11 @@ type HeaderProps = {
  * Componrent: the App header, containing the logo, search input, sign in button, and cart button.
  * 
  * Parent component: Home -> app/(main)/page.tsx
- * @param {HeaderProps} props
- * @prop  {string} [className] - additional CSS styles to apply to the header
- * 
- * @returns {JSX.Element} The header component.
  */
 export const Header = ({ hasSearch = true, hasCart = true, className }: HeaderProps) => {
+
+  const [openAuthModal, setOpenAuthModal] = useState(false);
+  
 
   return (
     <header className={ cn('border-b', className) }>
@@ -47,10 +47,11 @@ export const Header = ({ hasSearch = true, hasCart = true, className }: HeaderPr
         }
 
         <div className='flex items-center gap-3'>
-          <Button variant='outline' className='space-x-2'>
-            <UserPen size={15}/>
-            <span>Sign in</span>
-          </Button>
+          <AuthModal open={openAuthModal} onClose={() => setOpenAuthModal(false)} />
+          
+          <ProfileButton 
+            onClickSignIn={() => setOpenAuthModal(true)}
+          />
           { hasCart && <CartButton /> }
         </div>
         
