@@ -5,6 +5,7 @@ export { IngredientItem} from './ingredient-item';
 export { CountButton } from './count-button';
 export { CountIconButton } from './count-icon-button';
 export { ClearButton } from './clear-button';
+export { ProfileButton } from './profile-button';
 
 export { ErrorText } from './error-text';
 export { RedAsteriks } from './red-asteriks';
