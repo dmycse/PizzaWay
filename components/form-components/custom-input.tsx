@@ -29,6 +29,8 @@ interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const CustomInput = ({ name, label, required, className, ...props }: CustomInputProps) => {
 
+  console.log('props', {...props})
+
   const {
     register,
     formState: { errors },
@@ -38,7 +40,7 @@ export const CustomInput = ({ name, label, required, className, ...props }: Cust
 
   const value = watch(name);
   const errorText = errors[name]?.message as string;
-
+  
   const onClickClear = () => {
     setValue(name, '', { shouldValidate: true });
   };
