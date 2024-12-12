@@ -39,8 +39,6 @@ export const useCartStore = create<CartState>((set, get) => ({
     try {
       set({ loading: true, error: false });
       const data = await getCart();
-      console.log('fetchCartItems data: ', data);
-      console.log('fetchCartItems data returned: ', getCartDetails(data));
       set(getCartDetails(data));
     } catch (error) {
         console.error(error);
@@ -84,8 +82,6 @@ export const useCartStore = create<CartState>((set, get) => ({
         items: state.items.map(item => (item.id === id ? { ...item, disabled: true } : item)),
       }));
       const data = await removeCartItem(id);
-      console.log('removeCartItem data: ', data);
-      console.log('removeCartItem data returned: ', getCartDetails(data));
       set(getCartDetails(data));
     } catch (error) {
         console.error(error);
