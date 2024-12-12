@@ -10,6 +10,8 @@ export { ProfileButton } from './profile-button';
 export { ErrorText } from './error-text';
 export { RedAsteriks } from './red-asteriks';
 
+export { InfoBlock } from './infoblock';
+
 export * from './modals';
 export * from './filters';
 export * from './pizzas';
