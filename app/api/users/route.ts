@@ -14,3 +14,24 @@ export async function POST(req: Request) {
 
   return NextResponse.json(user);
 }
+
+export async function DELETE(req: Request) {
+  const data = await req.json();
+
+  const user = await prisma.user.findFirst({
+    where: {
+      email: data.email
+    }
+  });
+
+  if (!user) return false;
+
+  let removedUser = await prisma.user.delete({      
+    where: {
+      id: user.id
+    }
+  });
+
+
+  return NextResponse.json(removedUser);
+}
