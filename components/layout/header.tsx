@@ -1,9 +1,10 @@
 'use client';
 
-import { useState } from 'react';
-import Image from 'next/image';
+import { useEffect, useState } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { signIn } from 'next-auth/react';
+import Image from 'next/image';
+import toast from 'react-hot-toast';
 
 import { Container } from '@/components/layout';
 import { AuthModal, CartButton, ProfileButton, SearchInput } from '@/components/shared';
@@ -23,7 +24,27 @@ type HeaderProps = {
  */
 export const Header = ({ hasSearch = true, hasCart = true, className }: HeaderProps) => {
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
   const [openAuthModal, setOpenAuthModal] = useState(false);
+
+  useEffect(() => {
+    let toastMessage = '';
+
+    if (searchParams.has('verified')) {
+      toastMessage = 'Email verified';
+      toast.success(toastMessage, {
+        duration: 3000,
+      });
+    }
+
+    if (toastMessage) {
+      setTimeout(() => {
+        router.replace('/');
+      }, 1000);
+    }
+  }, []);
   
 
   return (
