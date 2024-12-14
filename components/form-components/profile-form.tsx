@@ -32,6 +32,7 @@ export const ProfileForm = ({ data }: ProfileFormProps) => {
   });
 
   const onSubmit = async (data: FormSignUpValues) => {
+    
     try {
       await updateUserInfo({
         email: data.email,
@@ -56,18 +57,21 @@ export const ProfileForm = ({ data }: ProfileFormProps) => {
   };
 
   return (
-    <Container className="my-10">
-      <Title text={`Personal Data | #${data.id}`} size="md" className="font-bold" />
+    <Container className="my-10 w-96">
+      <Title text={`Personal Data | User ID: #${data.id}`} size="md" className="font-bold" />
 
       <FormProvider {...form}>
-        <form className="mt-10 w-96 flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
+        <form className="mt-10 flex flex-col gap-5" onSubmit={form.handleSubmit(onSubmit)}>
           <CustomInput name="email" label="E-Mail" required />
           <CustomInput name="fullName" label="Full Name" required />
 
           <CustomInput type="password" name="password" label="New Password" required />
           <CustomInput type="password" name="confirmPassword" label="Retype Password" required />
 
-          <Button disabled={form.formState.isSubmitting} className="mt-10 text-base" type="submit">
+          <Button 
+            disabled={form.formState.isSubmitting} 
+            className="mt-10 text-lg text-primary bg-white border border-primary hover:text-white" 
+            type="submit">
             Save
           </Button>
 
@@ -75,7 +79,7 @@ export const ProfileForm = ({ data }: ProfileFormProps) => {
             onClick={onClickSignOut}
             variant="secondary"
             disabled={form.formState.isSubmitting}
-            className="text-base"
+            className="text-lg text-gray-400 bg-white border border-gray hover:text-white hover:bg-gray-300"
             type="button"
           >
             Sign Out
