@@ -1,7 +1,7 @@
 import Link from 'next/link';
 
 import { Button } from '@/components/ui';
-import { Title } from '@/components/layout';
+import { Container, Title } from '@/components/layout';
 
 import { ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib';
@@ -15,9 +15,9 @@ type InfoBlockProps = {
 
 export const InfoBlock = ({ className, title, text, imageUrl }: InfoBlockProps) => {
   return (
-    <div className={cn(className, 'w-[840px] flex justify-between items-center gap-12')}>
+    <Container className={cn(className, 'w-[50rem] flex justify-between items-center gap-12')}>
       <div className="flex flex-col">
-        <div className="w-[445px]">
+        <div className="w-[27rem]">
           <Title size="lg" text={title} className="font-extrabold text-primary" />
           <p className="text-gray-400 text-lg">{text}</p>
         </div>
@@ -29,15 +29,15 @@ export const InfoBlock = ({ className, title, text, imageUrl }: InfoBlockProps) 
               Go home
             </Button>
           </Link>
-          <Link href="">
+          {/* <Link href="">
             <Button variant="outline" className="text-gray-500 border-gray-400 hover:bg-gray-300 hover:text-gray-500">
-              Reset
+              Reload
             </Button>
-          </Link>
+          </Link> */}
         </div>
       </div>
 
       <img src={imageUrl} alt={title} width={300} />
-    </div>
+    </Container>
   );
 };
