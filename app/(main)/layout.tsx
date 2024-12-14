@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, Suspense } from "react";
 import type { Metadata } from "next";
 import { Header } from "@/components/layout";
 
@@ -15,7 +15,9 @@ export default function MainLayout(
   }>) {
   return (
     <>
-      <Header />
+      <Suspense>
+        <Header />
+      </Suspense>
       <main className="min-h-screen">
         {children}
         {modal}
