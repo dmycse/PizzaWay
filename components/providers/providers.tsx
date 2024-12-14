@@ -12,7 +12,7 @@ export const Providers = ({ children }: {children: ReactNode}) => {
         {children}
       </SessionProvider>
       <Toaster />
-      <NextTopLoader initialPosition={0.2} color="hsl(142.4 71.8% 29.2%)" shadow="false"/>
+      <NextTopLoader initialPosition={0.2} color="hsl(140.4 71.8% 29.2%)" shadow="false"/>
     </>
   );
 };
