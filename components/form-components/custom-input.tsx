@@ -29,8 +29,6 @@ interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const CustomInput = ({ name, label, required, className, ...props }: CustomInputProps) => {
 
-  console.log('props', {...props})
-
   const {
     register,
     formState: { errors },
