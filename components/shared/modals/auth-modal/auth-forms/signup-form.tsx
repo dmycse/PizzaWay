@@ -35,7 +35,7 @@ export const SignUpForm = ({ onClose, onClickLogin }: SignUpFormProps) => {
         password: data.password,
       });
 
-      toast.error('Sign up successfully. Confirm your email', {
+      toast.error('Sign up successfully. Check your email box to verify your account', {
         icon: '✅',
       });
 
