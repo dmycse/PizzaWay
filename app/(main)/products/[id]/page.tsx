@@ -1,6 +1,5 @@
 import { notFound } from 'next/navigation';
 import { Container } from '@/components/layout';
-// import { PizzaVariant } from '@/components/shared';
 import { prisma } from '@/prisma/prisma-client';
 import { ProductSelection } from '@/components/shared';
 

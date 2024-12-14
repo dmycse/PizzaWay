@@ -9,7 +9,7 @@ type PizzaImageProps = {
 /**
  * Component: Pizza image render
  * 
- * Parent component: ChoosePizza -> app/components/shared/pizzas , PizzaVariant
+ * Parent component: ChoosePizza -> app/components/shared/pizzas
  * @param {PizzaImageProps} props
  * @prop  {string} [imageUrl] - image url of selected pizza
  * @prop  {25 | 30 | 35} [pizzaSize] - selected size of selected pizza
