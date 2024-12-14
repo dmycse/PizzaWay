@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { useSession } from 'next-auth/react';
-import { Button } from '../ui/button';
+import { Button } from '../../ui/button';
 import { CircleUser, User } from 'lucide-react';
 
 type ProfileButtonProps = {
