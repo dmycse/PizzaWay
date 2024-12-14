@@ -23,6 +23,7 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
 
   const handleClose = () => {
     onClose();
+    setType('login');
   };
 
   return (
@@ -69,7 +70,7 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
           </Button>
         </div>
 
-        <Button variant="outline" onClick={onSwitchType} type="button" className="h-12">
+        <Button variant="outline" onClick={onSwitchType} type="button" className="h-12 text-lg font-medium">
           {type !== 'login' ? 'Sign in' : 'Sign up'}
         </Button>
       </DialogContent>
