@@ -81,7 +81,7 @@ export const ChoosePizza = ({
           bg-white border border-brand hover:bg-brand hover:text-white
           disabled:border-gray-500 disabled:text-gray-500 disabled:bg-"
         >
-          Add to cart &#8364;{totalPrice} 
+          Add to cart &#8364;{totalPrice.toFixed(2)} 
         </Button>
       </div>
 

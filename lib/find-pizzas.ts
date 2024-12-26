@@ -11,7 +11,7 @@ export type GetSearchParams = {
 };
 
 const DEFAULT_MIN_PRICE = 0;
-const DEFAULT_MAX_PRICE = 50;
+const DEFAULT_MAX_PRICE = 20;
 
 export const findPizzas = async (params: GetSearchParams) => {
 
@@ -26,7 +26,7 @@ export const findPizzas = async (params: GetSearchParams) => {
     include: {
       products: {
         orderBy: {
-          id: 'desc',
+          id: 'asc',
         },
         where: {
           ingredients: ingredientsIdArr

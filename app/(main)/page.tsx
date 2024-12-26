@@ -23,7 +23,7 @@ export default async function Home({ searchParams }: { searchParams: GetSearchPa
       <Stories />
 
       <Container className="pb-14">
-        <div className="flex gap-20">
+        <div className="flex gap-16">
 
           <div className="w-[250px]">
             <Suspense>
