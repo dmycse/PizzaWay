@@ -45,26 +45,31 @@ export const ProductCard = ({
   }: ProductCardProps) => {
 
   return (
-    <Link href={`/products/${id}`} className="flex flex-col gap-3">
-      <div className="p-1 h-[250px] flex-1 flex justify-center bg-white rounded-lg transition transition-duration-500 hover:translate-y-1">
+    <Link href={`/products/${id}`} className="h-full flex flex-col gap-4">
+      <div className="mb-5 w-[18rem] h-[18rem] flex-1 m-auto flex items-center bg-white rounded-lg transition transition-duration-500 hover:translate-y-3">
         {/* <Image src={imageUrl} alt={name} width={250} height={250} priority={true} className='ml-[1rem] w-auto'/> */}
-        <img src={imageUrl} alt={name} width={250} height={250} className='ml-[1rem] w-auto'/>
+        <img src={imageUrl} alt={name} className='w-full h-full object-contain'/>
       </div>
 
       <div className="flex justify-between items-center">
         <Title text={name} size="sm" className="font-bold" />
-        <span className="text-base text-primary">
-          from &#8364;{price}
-        </span>
+        {/* <span className="text-base text-primary">
+          from &#8364;{price.toFixed(2)}
+        </span> */}
       </div>
 
-      <p className="mb-2 text-sm text-gray-400">
-        { ingredients.map(ingredient => ingredient.name).join(', ') }
-      </p>
-
-      <Button variant="outline" className="w-full self-center text-base text-brand font-bold border-brand hover:bg-brand">
-        <Plus size={20} className="mr-1" />
-        Add to cart
+      {ingredients.length > 0 && (
+        <p className="mb-2 h-[4rem] overflow-hidden text-sm text-gray-400">
+          { ingredients.map(ingredient => ingredient.name).join(', ') }
+        </p>
+      )}
+      <Button 
+        variant="outline" 
+        className="mt-2 w-full self-center text-base text-brand font-bold border-brand hover:bg-brand"
+      >
+        {/* <Plus size={20} className="mr-1" /> */}
+        {ingredients.length > 0 ? 'from ' : ''}
+        &#8364;{price.toFixed(2)}
       </Button>
       
     </Link>

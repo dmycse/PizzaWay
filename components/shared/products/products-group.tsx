@@ -35,7 +35,7 @@ export const ProductsGroup = ({
   className, 
   listClassName
   }: ProductsGroupProps) => {
-
+  
   const setActiveCategory = useCategoryStore(state => state.setActiveCategory);
  
   const intersectionRef = useRef(null);
@@ -53,7 +53,7 @@ export const ProductsGroup = ({
   return (
     <section id={categoryName} className={ cn('', className)} ref={intersectionRef}>
       <Title text={categoryName} size='lg' className='mb-5 font-bold' />
-      <article className={ cn('grid grid-cols-3 gap-7', listClassName) }>
+      <article className={ cn('grid grid-cols-3 gap-10', listClassName) }>
         {
           items.map(product => (
             <ProductCard 

@@ -1,7 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 
-type TitleSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl';
+type TitleSize = 'xs' | 'vs' |'sm' | 'md' | 'lg' | 'xl' | '2xl';
 
 type TitleProps = {
   size?: TitleSize;
@@ -12,7 +12,8 @@ type TitleProps = {
 export const Title = ({ text, size = 'sm', className }: TitleProps) => {
   
   const tagBySize = {
-    xs: 'h5',
+    xs: 'h6',
+    vs: 'h5',
     sm: 'h4',
     md: 'h3',
     lg: 'h2',
@@ -22,6 +23,7 @@ export const Title = ({ text, size = 'sm', className }: TitleProps) => {
 
   const classNameBySize = {
     xs: 'text-[16px]',
+    vs: 'text-[20px]',
     sm: 'text-[22px]',
     md: 'text-[26px]',
     lg: 'text-[32px]',
