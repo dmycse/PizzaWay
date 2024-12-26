@@ -1,6 +1,9 @@
 import { prisma } from './prisma-client';
 import { hashPassword } from '../utils/password';
-import { categories, ingredients, products } from '../prisma/constants';
+import { categories } from '../prisma/constants';
+import { ingredients } from './products_data/ingredients';
+import { pizzas } from './products_data/pizzas';
+import { products } from './products_data/products';
 
 
 async function createData() {
@@ -35,73 +38,143 @@ async function createData() {
     data: products,
   });
 
-  const pizza1 = await prisma.product.create({
-    data: {
-      name: 'Pepironi fresh',
-      imageUrl:
-        '/images/products/pizzas/peperoni_fresh.webp',
-      categoryId: 1,
-      // extra ingredients for an order connect [{id: 1}, {id: 2},...]  
-      ingredients: {
-        connect: ingredients.slice(0, 5),
-      },
-    },
-  });
-
-  const pizza2 = await prisma.product.create({
-    data: {
-      name: 'Cheese',
-      imageUrl:
-        'https://media.dodostatic.net/image/r:233x233/11EE7D610CF7E265B7C72BE5AE757CA7.webp',
-      categoryId: 1,
-      ingredients: {
-        connect: ingredients.slice(5, 10),
-      },
-    },
-  });
-
-  const pizza3 = await prisma.product.create({
-    data: {
-      name: 'Chorizo fresh',
-      imageUrl:
-        'https://media.dodostatic.net/image/r:584x584/11EE7D61706D472F9A5D71EB94149304.webp',
-      categoryId: 1,
-      ingredients: {
-        connect: ingredients.slice(10, 15),
-      },
-    },
-  });
+  const pizza1 = await prisma.product.create({data: pizzas.pizza1});
+  const pizza2 = await prisma.product.create({data: pizzas.pizza2});
+  const pizza3 = await prisma.product.create({data: pizzas.pizza3});
+  const pizza4 = await prisma.product.create({data: pizzas.pizza4});
+  const pizza5 = await prisma.product.create({data: pizzas.pizza5});
+  const pizza6 = await prisma.product.create({data: pizzas.pizza6});
+  const pizza7 = await prisma.product.create({data: pizzas.pizza7});
+  const pizza8 = await prisma.product.create({data: pizzas.pizza8});
+  const pizza9 = await prisma.product.create({data: pizzas.pizza9});
+  const pizza10 = await prisma.product.create({data: pizzas.pizza10});
+  const pizza11 = await prisma.product.create({data: pizzas.pizza11});
+  const pizza12 = await prisma.product.create({data: pizzas.pizza12});
+  const pizza13 = await prisma.product.create({data: pizzas.pizza13});
+  const pizza14 = await prisma.product.create({data: pizzas.pizza14});
+  const pizza15 = await prisma.product.create({data: pizzas.pizza15});
 
   await prisma.productOption.createMany({
     data: [
       // Pizza "Peperoni fresh"
-      { productId: pizza1.id, pizzaType: 1, pizzaSize: 25, price: 10 },
-      { productId: pizza1.id, pizzaType: 2, pizzaSize: 30, price: 14},
-      { productId: pizza1.id, pizzaType: 2, pizzaSize: 35, price: 18 },
+      {productId: pizza1.id, pizzaType: 1, pizzaSize: 25, price: 6},
+      {productId: pizza1.id, pizzaType: 1, pizzaSize: 30, price: 7},
+      {productId: pizza1.id, pizzaType: 1, pizzaSize: 35, price: 8},
+      {productId: pizza1.id, pizzaType: 2, pizzaSize: 30, price: 5},
+      {productId: pizza1.id, pizzaType: 2, pizzaSize: 35, price: 7},
 
       // Pizza "Chessy"
-      { productId: pizza2.id, pizzaType: 1, pizzaSize: 25, price: 12 },
-      { productId: pizza2.id, pizzaType: 1, pizzaSize: 30, price: 14, },
-      { productId: pizza2.id, pizzaType: 1, pizzaSize: 35, price: 16, },
-      { productId: pizza2.id, pizzaType: 2, pizzaSize: 25, price: 14},
-      { productId: pizza2.id, pizzaType: 2, pizzaSize: 30, price: 16, },
-      { productId: pizza2.id, pizzaType: 2, pizzaSize: 35, price: 18 },
+      {productId: pizza2.id, pizzaType: 1, pizzaSize: 25, price: 5},
+      {productId: pizza2.id, pizzaType: 1, pizzaSize: 30, price: 6},
+      {productId: pizza2.id, pizzaType: 1, pizzaSize: 35, price: 8},
+      {productId: pizza2.id, pizzaType: 2, pizzaSize: 30, price: 6},
+      {productId: pizza2.id, pizzaType: 2, pizzaSize: 35, price: 7},
 
       // Pizza "Chorizo fresh"
-      { productId: pizza3.id, pizzaType: 1, pizzaSize: 25, price: 14 },
-      { productId: pizza3.id, pizzaType: 2, pizzaSize: 30, price: 17 },
-      { productId: pizza3.id, pizzaType: 2, pizzaSize: 35, price: 20 },
+      {productId: pizza3.id, pizzaType: 1, pizzaSize: 25, price: 5},
+      {productId: pizza3.id, pizzaType: 1, pizzaSize: 30, price: 6},
+      {productId: pizza3.id, pizzaType: 1, pizzaSize: 35, price: 8},
+      {productId: pizza3.id, pizzaType: 2, pizzaSize: 30, price: 6},
+      {productId: pizza3.id, pizzaType: 2, pizzaSize: 35, price: 8},
+
+      // Pizza "Ham and mushrooms"
+      {productId: pizza4.id, pizzaType: 1, pizzaSize: 25, price: 5},
+      {productId: pizza4.id, pizzaType: 1, pizzaSize: 30, price: 7},
+      {productId: pizza4.id, pizzaType: 1, pizzaSize: 35, price: 10},
+      {productId: pizza4.id, pizzaType: 2, pizzaSize: 30, price: 8},
+      {productId: pizza4.id, pizzaType: 2, pizzaSize: 35, price: 9},
+
+      // Pizza "Julien"
+      { productId: pizza5.id, pizzaType: 1, pizzaSize: 25, price: 6},
+      { productId: pizza5.id, pizzaType: 1, pizzaSize: 30, price: 9},
+      { productId: pizza5.id, pizzaType: 1, pizzaSize: 35, price: 11},
+      { productId: pizza5.id, pizzaType: 2, pizzaSize: 30, price: 9},
+      { productId: pizza5.id, pizzaType: 2, pizzaSize: 35, price: 10},
+
+      // Pizza "Meaty"
+      { productId: pizza6.id, pizzaType: 1, pizzaSize: 25, price: 6},
+      { productId: pizza6.id, pizzaType: 1, pizzaSize: 30, price: 9},
+      { productId: pizza6.id, pizzaType: 1, pizzaSize: 35, price: 10},
+      { productId: pizza6.id, pizzaType: 2, pizzaSize: 30, price: 9},
+      { productId: pizza6.id, pizzaType: 2, pizzaSize: 35, price: 11},
+
+      // Pizza "PizzaWay"
+      {productId: pizza7.id, pizzaType: 1, pizzaSize: 25, price: 8},
+      {productId: pizza7.id, pizzaType: 1, pizzaSize: 30, price: 10},
+      {productId: pizza7.id, pizzaType: 1, pizzaSize: 35, price: 14},
+      {productId: pizza7.id, pizzaType: 2, pizzaSize: 25, price: 7},
+      {productId: pizza7.id, pizzaType: 2, pizzaSize: 30, price: 10},
+      {productId: pizza7.id, pizzaType: 2, pizzaSize: 35, price: 12},
+
+      // Pizza "Cheese chick"
+      {productId: pizza8.id, pizzaType: 1, pizzaSize: 25, price: 7},
+      {productId: pizza8.id, pizzaType: 1, pizzaSize: 30, price: 9},
+      {productId: pizza8.id, pizzaType: 1, pizzaSize: 35, price: 11},
+      {productId: pizza8.id, pizzaType: 2, pizzaSize: 25, price: 6},
+      {productId: pizza8.id, pizzaType: 2, pizzaSize: 30, price: 8},
+      {productId: pizza8.id, pizzaType: 2, pizzaSize: 35, price: 10},
+
+      // Pizza "Four seasons"
+      {productId: pizza9.id, pizzaType: 1, pizzaSize: 25, price: 5},
+      {productId: pizza9.id, pizzaType: 1, pizzaSize: 30, price: 7},
+      {productId: pizza9.id, pizzaType: 1, pizzaSize: 35, price: 9},
+      {productId: pizza9.id, pizzaType: 2, pizzaSize: 30, price: 8},
+      {productId: pizza9.id, pizzaType: 2, pizzaSize: 35, price: 9},
+
+      // Pizza "Vegan"
+      {productId: pizza10.id, pizzaType: 1, pizzaSize: 25, price: 6},
+      {productId: pizza10.id, pizzaType: 1, pizzaSize: 30, price: 9},
+      {productId: pizza10.id, pizzaType: 1, pizzaSize: 35, price: 11},
+      {productId: pizza10.id, pizzaType: 2, pizzaSize: 30, price: 9},
+      {productId: pizza10.id, pizzaType: 2, pizzaSize: 35, price: 10},
+
+      // Pizza "Diablo Hot"
+      {productId: pizza11.id, pizzaType: 1, pizzaSize: 25, price: 5},
+      {productId: pizza11.id, pizzaType: 1, pizzaSize: 30, price: 8},
+      {productId: pizza11.id, pizzaType: 1, pizzaSize: 35, price: 10},
+      {productId: pizza11.id, pizzaType: 2, pizzaSize: 25, price: 5},
+      {productId: pizza11.id, pizzaType: 2, pizzaSize: 30, price: 7},
+      {productId: pizza11.id, pizzaType: 2, pizzaSize: 35, price: 9},
+
+      // Pizza "Margarita"
+      {productId: pizza12.id, pizzaType: 1, pizzaSize: 25, price: 7},
+      {productId: pizza12.id, pizzaType: 1, pizzaSize: 30, price: 10},
+      {productId: pizza12.id, pizzaType: 1, pizzaSize: 35, price: 12},
+      {productId: pizza12.id, pizzaType: 2, pizzaSize: 30, price: 10},
+      {productId: pizza12.id, pizzaType: 2, pizzaSize: 35, price: 12},
+
+      // Pizza "Burger"
+      {productId: pizza13.id, pizzaType: 1, pizzaSize: 25, price: 7},
+      {productId: pizza13.id, pizzaType: 1, pizzaSize: 30, price: 10},
+      {productId: pizza13.id, pizzaType: 1, pizzaSize: 35, price: 12},
+      {productId: pizza13.id, pizzaType: 2, pizzaSize: 30, price: 10},
+      {productId: pizza13.id, pizzaType: 2, pizzaSize: 35, price: 12},
+
+      // Pizza "Hawaiian"
+      {productId: pizza14.id, pizzaType: 1, pizzaSize: 25, price: 6},
+      {productId: pizza14.id, pizzaType: 1, pizzaSize: 30, price: 9},
+      {productId: pizza14.id, pizzaType: 1, pizzaSize: 35, price: 12},
+      {productId: pizza14.id, pizzaType: 2, pizzaSize: 30, price: 10},
+      {productId: pizza14.id, pizzaType: 2, pizzaSize: 35, price: 12},
+
+       // Pizza "Ranch"
+       {productId: pizza15.id, pizzaType: 1, pizzaSize: 25, price: 8},
+       {productId: pizza15.id, pizzaType: 1, pizzaSize: 30, price: 10},
+       {productId: pizza15.id, pizzaType: 1, pizzaSize: 35, price: 12},
+       {productId: pizza15.id, pizzaType: 2, pizzaSize: 25, price: 7},
+       {productId: pizza15.id, pizzaType: 2, pizzaSize: 30, price: 9},
+       {productId: pizza15.id, pizzaType: 2, pizzaSize: 35, price: 11},
 
       // Other products
       { productId: 1, price: 5 },
-      { productId: 2, price: 6 },
-      { productId: 3, price: 7 },
-      { productId: 4, price: 8 },
-      { productId: 5, price: 9 },
-      { productId: 6, price: 5 },
-      { productId: 7, price: 6 },
-      { productId: 8, price: 7 },
-      { productId: 9, price: 8 },
+      { productId: 2, price: 5 },
+      { productId: 3, price: 6 },
+      { productId: 4, price: 6 },
+      { productId: 5, price: 6 },
+      { productId: 6, price: 6 },
+      { productId: 7, price: 5 },
+      { productId: 8, price: 6 },
+      { productId: 9, price: 6 },
       { productId: 10, price: 9 },
       { productId: 11, price: 5 },
       { productId: 12, price: 6 },
