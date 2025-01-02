@@ -15,19 +15,12 @@ type OrderProcessingProps = {
 };
 
 /**
-* Renders the order submission form using Stripe Elements.
+* OrderProcessing renders the order submission form using Stripe Elements.
 *
-* This component is called from the PaymentPage -> /app/(checkout)/payment/page.tsx
+* OrderProcessing is called from the PaymentPage -> /app/(checkout)/payment/page.tsx
 *
 * It fetches a Payment Intent from the server and uses it to render the
 * Stripe Elements component.
-*
-* @param {Object} props - The properties passed to the component.
-* @param {number} props.userCartId - The ID of the user's cart.
-* @param {number} props.orderId - The ID of the order.
-* @param {number} props.amount - The total amount for the order.
-*
-* @returns {JSX.Element} A JSX element for the order submission form.
 */
 
 export const OrderProcessing = ({ userCartId, orderId, amount }: OrderProcessingProps) => {
