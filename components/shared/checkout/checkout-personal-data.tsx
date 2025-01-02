@@ -5,6 +5,12 @@ type CheckoutPersonalDataProps = {
   className?: string;
 };
 
+/**
+ * CheckoutPersonalData renders a form with the personal data information. 
+ * The form contains 4 inputs for the first name, surname, email and phone.
+ *
+ * Use in: Checkout page -> /app/(checkout)/checkout/page.tsx
+ */
 export const CheckoutPersonalData = ({ className }: CheckoutPersonalDataProps) => {
   return (
     <CheckoutWhiteBlock title="2. Personal Data" className={className}>

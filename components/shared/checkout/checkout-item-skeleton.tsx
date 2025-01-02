@@ -4,6 +4,10 @@ type CheckoutItemSkeletonProps = {
   className?: string;
 };
 
+/**
+ * CheckoutItemSkeleton displays a skeleton of the checkout item.
+ * It is used to display a placeholder for the checkout item when the data is being fetched.
+ */
 export const CheckoutItemSkeleton = ({ className }: CheckoutItemSkeletonProps) => {
   
   return (

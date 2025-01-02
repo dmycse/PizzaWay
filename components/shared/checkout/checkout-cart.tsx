@@ -1,8 +1,7 @@
-import { CheckoutWhiteBlock, CheckoutItem, CheckoutItemSkeleton } from '@/components/shared/checkout';
-import { getCartItemDetails } from '@/lib';
-import { CartItemState } from '@/lib/getCartDetails';
 import { PizzaSize, PizzaType } from '@/prisma/prisma-types';
-
+import { CheckoutWhiteBlock, CheckoutItem, CheckoutItemSkeleton } from '@/components/shared/checkout';
+import { CartItemState } from '@/lib/getCartDetails';
+import { getCartItemDetails } from '@/lib';
 
 type CheckoutCartProps = {
   items: CartItemState[];
@@ -12,6 +11,12 @@ type CheckoutCartProps = {
   className?: string;
 };
 
+/**
+ * CheckoutCart displays the cart items with quantity count and a button to remove item.
+ * 
+ * Parent: Checkout -> app
+ * 
+ */
 export const CheckoutCart = ({
     items,
     onClickCountButton,

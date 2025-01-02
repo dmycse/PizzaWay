@@ -3,14 +3,21 @@
 import { CartItemProps } from '@/components/shared/cart/cart-item.types';
 import { CartItemImage, CartItemInfo, CartItemPrice } from '@/components/shared/cart';
 import { CountButton } from '@/components/shared';
-import { cn } from '@/lib/utils';
+
 import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 type CheckoutItemProps = CartItemProps & {
   onClickCountButton?: (role: 'plus' | 'minus') => void;
   onClickRemove?: VoidFunction;
   className?: string;
 }
+
+/**
+ * CheckoutItem displays an individual item in the checkout process.
+ * It includes the item's image, name, details, price, and quantity, along with controls 
+ * to adjust the quantity or remove the item from the cart.
+ */
 
 export const CheckoutItem = ({
     name,
@@ -29,7 +36,7 @@ export const CheckoutItem = ({
       className={cn(
         'flex items-center justify-between',
         {
-          'opacity-50 pointer-events-none': disabled,
+        'opacity-50 pointer-events-none': disabled,
         },
         className,
       )}>

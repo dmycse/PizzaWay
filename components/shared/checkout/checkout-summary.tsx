@@ -4,8 +4,8 @@ import  { useFormContext} from 'react-hook-form';
 import { CheckoutWhiteBlock, CheckoutItemDetails } from '@/components/shared/checkout';
 import { ArrowRight, Package, Percent, Truck } from 'lucide-react';
 import { Button, Skeleton } from '@/components/ui';
-import { cn } from '@/lib/utils';
 import { DELIVERY_PRICE, VAT } from '@/prisma/constants';
+import { cn } from '@/lib/utils';
 
 type CheckoutSummaryProps = {
   totalAmount: number;
@@ -13,10 +13,17 @@ type CheckoutSummaryProps = {
   className?: string;
 };
 
+/**
+ * CheckoutSummary displays a summary of the checkout process, including
+ * the total amount with delivery, product cost, VAT, and delivery charges.
+ * It also provides a button to proceed with the payment.
+ *
+ * Parent: Checkout page -> /app/(checkout)/checkout/page.tsx
+ */
+
 export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSummaryProps) => {
 
   const { setValue } = useFormContext();
-
 
   const vatValue = (totalAmount * VAT) / 100;
   const totalAmountWithDelivery = totalAmount + DELIVERY_PRICE;
@@ -31,7 +38,6 @@ export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSum
           <span className="h-11 text-2xl font-semibold text-brand ">€{totalAmountWithDelivery.toFixed(2)}</span>
         )}
       </div>
-
       <CheckoutItemDetails
         title={
           <div className="flex items-center">
@@ -59,7 +65,6 @@ export const CheckoutSummary = ({ totalAmount, loading, className }: CheckoutSum
         }
         value={loading ? <Skeleton className="h-6 w-16 rounded-[6px]" /> : `€${DELIVERY_PRICE.toFixed(2)}`}
       />
-
       <Button
         loading={loading}
         type="submit"

@@ -7,6 +7,17 @@ type CheckoutItemDetailsProps = {
   className?: string;
 };
 
+/**
+ * CheckoutItemDetails displays the title and value of an item in the checkout summary.
+ *
+ * Parent: CheckoutSummary -> /components/shared/checkout/checkout-summary.tsx
+ * 
+ * @example
+ * <CheckoutItemDetails
+ *   title="Name:"
+ *   value="John Doe"
+ * />
+ */
 export const CheckoutItemDetails = ({ title, value, className }: CheckoutItemDetailsProps) => {
   
   return (
@@ -16,7 +27,9 @@ export const CheckoutItemDetails = ({ title, value, className }: CheckoutItemDet
         <div className="flex-1 border-b border-dashed border-b-neutral-200 relative -top-1 mx-2" />
       </span>
 
-      <span className="font-bold text-lg">{value}</span>
+      <span className="font-bold text-lg">
+        {value}
+      </span>
     </div>
   );
 };
