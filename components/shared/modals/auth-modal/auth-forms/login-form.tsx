@@ -15,6 +15,12 @@ type LoginFormProps = {
   onClose?: VoidFunction;
 };
 
+/**
+ * LoginForm renders a form for logging in.
+ *
+ * @example
+ * <LoginForm onClose={() => console.log('Form closed')} />
+ */
 export const LoginForm = ({ onClose }: LoginFormProps) => {
 
   const form = useForm<FormLoginValues>({

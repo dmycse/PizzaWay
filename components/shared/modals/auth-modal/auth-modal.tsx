@@ -13,6 +13,12 @@ type AuthModalProps = {
   onClose: () => void;
 };
 
+/**
+ * A modal for signing up or logging in to the application.
+ * Contains a form for logging in or signing up and buttons for logging in with GitHub or Google.
+ *
+ * Used in: Header -> /components/layout/header.tsx
+ */
 export const AuthModal = ({ open, onClose }: AuthModalProps) => {
 
   const [type, setType] = useState<'login' | 'signup'>('login');
@@ -48,7 +54,8 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
             }
             type="button"
             className="p-2 h-12 flex-1 gap-2">
-            <img className="w-6 h-6" src="https://github.githubassets.com/favicons/favicon.svg" />
+            <img className="w-6 h-6" src="https://github.githubassets.com/favicons/favicon.svg" 
+          />
             GitHub
           </Button>
 

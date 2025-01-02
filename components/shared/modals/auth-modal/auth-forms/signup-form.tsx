@@ -15,6 +15,17 @@ type SignUpFormProps = {
   onClickLogin?: VoidFunction;
 };
 
+/**
+ * SignUpForm component.
+ *
+ * This component renders a sign-up form that includes fields for email, full name,
+ * password, and password confirmation. It handles form submission by calling
+ * the `registerUser` function and provides feedback to the user using toast notifications.
+ *
+ * The form uses react-hook-form for form state management and validation, leveraging
+ * zod as a validation schema.
+ */
+
 export const SignUpForm = ({ onClose, onClickLogin }: SignUpFormProps) => {
 
   const form = useForm<FormSignUpValues>({

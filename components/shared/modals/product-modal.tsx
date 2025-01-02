@@ -18,12 +18,7 @@ type ProductModalProps =  {
  * when the product is selected and will be closed when the user clicks outside of the window
  * or presses escape.
  * 
- * Parent component: ProductModalPage -> app/(main)/@modal/(.)products/[id]/page.tsx
- * @param {Object} props
- * @prop {string} [product] - selected product
- * @prop {string} [className] - additional CSS styles to apply to the component
- * 
- * @returns {JSX.Element} The modal window component
+ * Used in: ProductModalPage -> app/(main)/@modal/(.)products/[id]/page.tsx
  */
 
 
