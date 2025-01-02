@@ -11,16 +11,9 @@ interface CustomTextareaProps extends React.TextareaHTMLAttributes<HTMLTextAreaE
   className?: string;
 }
 
-
 /**
- * Component: a textarea component that uses React Hook Form to register the textarea,
- *   and display an error message and clear button if the field has an error.
- *
- * @param {Object} props
- * @prop {string} name - the name of the textarea field. Used to register the field with React Hook Form.
- * @prop {string} [label] - the label for the textarea.
- * @prop {boolean} [required] - whether the textarea is required.
- * @prop {string} [className] - additional CSS classes to apply to the component.
+ * CustomTextarea uses React Hook Form to register the textarea
+ * and displays an error message and clear button if the field has an error.
  */
 export const CustomTextarea = ({ className, name, label, required, ...props }: CustomTextareaProps) => {
   

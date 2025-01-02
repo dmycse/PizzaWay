@@ -12,19 +12,8 @@ interface CustomInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 };
 
 /**
- * Component: input component that provides a clear button and error text
+ * CustomInput provides a clear button and error text
  * for input fields registered with React Hook Form.
- *
- * Use in: 
- * @param {Object} props
- * @prop {string} name - the name of the input field, used to register the
- * field with React Hook Form.
- * @prop {string} label - the label for the input field. If `required` is true,
- * a required symbol will be appended to the label.
- * @prop {boolean} required - whether the input field is required. If true, a
- * required symbol will be appended to the label.
- * @prop {string} className - additional CSS classes to apply to the component.
- * @prop {object} props - props to be passed to the underlying `Input` component.
  */
 
 export const CustomInput = ({ name, label, required, className, ...props }: CustomInputProps) => {

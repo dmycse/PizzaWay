@@ -19,6 +19,14 @@ type ProfileFormProps = {
   data: User;
 };
 
+/**
+ * ProfileForm renders a form for the user to edit their personal data.
+ *
+ * Used in: /app/(main)/profile/page.tsx
+ *
+ * @example
+ * <ProfileForm data={user} />
+ */
 export const ProfileForm = ({ data }: ProfileFormProps) => {
 
   const form = useForm({

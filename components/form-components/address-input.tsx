@@ -8,6 +8,13 @@ type AdressInputProps = {
   onChange?: (value?: string) => void;
 };
 
+/**
+ * AdressInput renders a component for entering and selecting addresses.
+ * It uses the DaData API (react-dadto provide address suggestions.
+ * 
+ * Used in: CheckoutAddressData -> /components/shared/checkout/checkout-address-data.tsx
+ *
+ */
 export const AdressInput = ({ onChange }: AdressInputProps) => {
   return (
     <AddressSuggestions
