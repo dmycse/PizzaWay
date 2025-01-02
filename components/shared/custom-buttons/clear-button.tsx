@@ -1,11 +1,21 @@
-import { cn } from '@/lib/utils';
 import { X } from 'lucide-react';
+import { cn } from '@/lib/utils';
 
 type ClearButtonProps = {
   onClick?: VoidFunction;
   className?: string;
 };
 
+/**
+ * A button element to clear the input field.
+ * 
+ * Used in: 
+ * CustomInput -> /components/form-components/custom-input.tsx,
+ * CustomTextarea -> /components/form-components/custom-textarea.tsx
+ * 
+ * @example
+ * <ClearButton onClick={() => console.log('Button was clicked')} />
+ */
 export const ClearButton = ({ onClick, className }: ClearButtonProps) => {
   
   return (

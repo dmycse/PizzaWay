@@ -9,7 +9,7 @@ type ProfileButtonProps = {
 };
 
 /**
- * A button that displays either a "Sign in" button when the user is not
+ * ProfileButton displays either a "Sign in" button when the user is not
  * authenticated, or a "Profile" button that links to the user's profile page
  * when the user is authenticated.
  * 
