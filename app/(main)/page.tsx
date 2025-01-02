@@ -20,7 +20,7 @@ export default async function Home({ searchParams }: { searchParams: GetSearchPa
 
       <TopBar categories={categories.filter(category => category.products.length > 0)} />
 
-      <Stories />
+      {/* <Stories /> */}
 
       <Container className="pb-14">
         <div className="flex gap-16">
