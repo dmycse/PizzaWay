@@ -18,23 +18,11 @@ type FilterCheckboxGroupProps = {
   className?: string;
 };
 
-
 /**
  * Component: renders a list of checkboxes for a given filter.
  * 
  * Parent component: Filters -> /components/shared/filters/filters.tsx
- * @param {FilterCheckboxGroupProps} props
- * @prop {string} title - the title of the filter group.
- * @prop {string} name - the name attribute for grouping checkboxes.
- * @prop {Checkbox[]} checkboxes - an array of checkboxes to render.
- * @prop {number} [limitCheckboxes] - the maximum number of checkboxes to the first render.
- * @prop {string} [searchInputPlaceholder] - the placeholder text for the search input.
- * @prop {boolean} [loading] - whether the component should render a loading state.
- * @prop {Set<string>} [selectedCheckboxes] - the checkboxes had been selected when the component is mounted.
- * @prop {Function} [onClickCheckbox] - the callback function when a checkbox is clicked.
- * @prop {string} [className] - additional CSS styles to apply to the component.
- *
- * @returns {JSX.Element} The rendered filter group.
+ * 
  * @example
  * <FilterCheckboxGroup
  *   title="Pizza Size"
@@ -113,7 +101,6 @@ export const FilterCheckboxGroup = ({
           ))
         } 
       </div>
-
       {
         checkboxes.length > limitCheckboxes && (
           <div className="mt-5 border-t border-neutral-100">
@@ -123,7 +110,6 @@ export const FilterCheckboxGroup = ({
           </div>
         )
       }
-
     </section>
   );
 };
