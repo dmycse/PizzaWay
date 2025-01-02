@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { Button } from '../ui';
-import { useCategoryStore } from '@/store/category';
 import { Category } from '@prisma/client';
+import { useCategoryStore } from '@/store/category';
+import { Button } from '../ui';
 import { cn } from '@/lib/utils';
 
 type CategoriesProps = {
@@ -11,16 +11,10 @@ type CategoriesProps = {
   className?: string
 };
 
-
 /**
  * Component: a list of category buttons with active state highlighting.
  *
  * Parent component: TopBar -> /components/layout/topbar.tsx
- * @param {CategoriesProps} props - The properties for the component.
- * @prop {Category[]} [categories] - The list of categories to display.
- * @prop {string} [className] - additional CSS styles to apply to the component.
- *
- * @returns {JSX.Element} The rendered category buttons.
  */
 
 export const Categories = ({ categories, className}: CategoriesProps) => {

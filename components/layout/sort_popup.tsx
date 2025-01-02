@@ -4,7 +4,14 @@ import { ArrowUpDown } from 'lucide-react';
 type SortPopupProps = {
   className?: string;
 }
-
+// * Component needs to be fixed. Not in use now.
+/**
+ * Component: A popup for sorting items. It displays the current sorting
+ * criterion with an orange color and can be clicked to change the sorting
+ * criterion.
+ *
+ * Parent component: TopBar -> components/layout/topbar.tsx
+ */
 export const SortPopup = ({ className }: SortPopupProps) => {
   return (
     <div

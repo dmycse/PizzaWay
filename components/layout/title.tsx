@@ -1,4 +1,4 @@
-import React from 'react';
+import { createElement } from 'react';
 import clsx from 'clsx';
 
 type TitleSize = 'xs' | 'vs' |'sm' | 'md' | 'lg' | 'xl' | '2xl';
@@ -9,6 +9,12 @@ type TitleProps = {
   text: string;
 }
 
+/**
+ * Title is reusable component which renders a heading element (h1-h6) based on the given size.
+ * 
+ * @example
+ * <Title text="My website" size="lg" />
+ */
 export const Title = ({ text, size = 'sm', className }: TitleProps) => {
   
   const tagBySize = {
@@ -31,7 +37,7 @@ export const Title = ({ text, size = 'sm', className }: TitleProps) => {
     '2xl': 'text-[48px]',
   } as const;
 
-  return React.createElement(
+  return createElement(
     tagBySize[size],
     { className: clsx(classNameBySize[size], className) },
     text,
