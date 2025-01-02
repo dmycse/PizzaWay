@@ -21,17 +21,7 @@ type ChoosePizzaProps = {
 /**
  * Component (modal window): choose pizza variants and ingredients
  * 
- * Parent component: ProductSelection -> /components/products/product-selection.tsx
- * @param {Object} props
- * @prop  {string} [name] - (product)name of selected pizza
- * @prop  {string} [imageUrl] - (product)imageUrl: image url of selected pizza
- * @prop  {Ingredient[]} [ingredients] - (product)ingredients: array of pizza ingredients
- * @prop  {ProductOption[]} [options] - (product)options: array of pizza options
- * @prop  {boolean} [loading] - loading state
- * @prop  {Function} [onSubmit] - function for submitting selected pizza
- * @prop  {string} [className] - additional CSS class names to apply to the Component.
- *
- * @returns {JSX.Element} The cart button variants component.
+ * Used in: ProductSelection -> /components/products/product-selection.tsx
  */
 
 export const ChoosePizza = ({
@@ -78,8 +68,8 @@ export const ChoosePizza = ({
           onClick={handleClickAdd}
           disabled={totalPrice === 0}
           className="mt-6 px-10 w-8/12 h-11 text-base text-brand rounded-xl
-          bg-white border border-brand hover:bg-brand hover:text-white
-          disabled:border-gray-500 disabled:text-gray-500 disabled:bg-"
+                   bg-white border border-brand hover:bg-brand hover:text-white
+                   disabled:border-gray-500 disabled:text-gray-500 disabled:bg-"
         >
           Add to cart &#8364;{totalPrice.toFixed(2)} 
         </Button>

@@ -1,6 +1,5 @@
 import { cn } from '@/lib/utils';
 
-
 export type PizzaVariant = {
   name: string;
   value: string;
@@ -14,18 +13,10 @@ type PizzaSelectorProps = {
   className?: string;
 };
 
-
 /**
  * Component: Selector pizza size or pizza crust type
  * 
- * Parent component: ChoosePizza -> /components/shared/pizzas, PizzaVariant
- * @param {PizzaSelectorProps} props
- * @prop  {PizzaVariant[]} [items] - array of pizza sizes or pizza crust types with disabled/not disabled property
- * @prop  {string} [value] - selected pizza size or pizza crust type
- * @prop  {Function} [onClick] - choosing pizza size or pizza crust type
- * @prop  {string} [className] - additional css styles to apply to the component
- * 
- * @returns {JSX.Element} - the pizza selector component
+ * Used in: ChoosePizza -> /components/shared/pizzas
  */
 
 export const PizzaSelector = ({ items, value, onClick, className }: PizzaSelectorProps) => {
