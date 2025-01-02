@@ -3,9 +3,9 @@
 import { useCartStore } from '@/store/cart-store';
 import { useShallow } from 'zustand/react/shallow'
 import { Button } from '@/components/ui';
+import { CartDrawer } from '@/components/shared';
 import { ArrowRight, ShoppingBasket } from 'lucide-react';
 import { cn } from '@/lib';
-import { CartDrawer } from '@/components/shared';
 
 type CartButtonProps = {
   className?: string;
@@ -16,10 +16,6 @@ type CartButtonProps = {
  * and opens the cart drawer when clicked.
  * 
  * Parent: Header -> /components/layout/header.tsx
- * @param {CartButtonProps} props
- * @prop  {string} [className] - additional CSS styles to apply to the button
- *
- * @returns {JSX.Element} The cart button component.
  */
 export const CartButton = ( { className }: CartButtonProps) => {
   

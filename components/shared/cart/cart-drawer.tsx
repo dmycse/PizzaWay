@@ -6,7 +6,6 @@ import { useCart } from '@/hooks';
 import { getCartItemDetails } from '@/lib';
 import { CartDrawerItem } from '@/components/shared';
 
-
 import {
   Sheet,
   SheetClose,
@@ -18,8 +17,6 @@ import {
 } from '@/components/ui/sheet';
 
 import { DialogTitle } from '@radix-ui/react-dialog';
-
-
 import { Title } from '@/components/layout';
 import { Button } from '@/components/ui';
 import { ArrowLeft, ArrowRight, Loader } from 'lucide-react';
@@ -33,8 +30,7 @@ import { cn } from '@/lib';
  * allowing the user to update the quantity of each item and delete items.
  * 
  * This component is called from CartButton component -> /components/shared/cart/cart-button.tsx
- * @param {ReactNode} children - The content of the cart drawer.
- * @returns {JSX.Element} The cart drawer component.
+ * 
  * @example
  * <CartDrawer>
  *   <CartDrawerTrigger asChild>
@@ -52,7 +48,6 @@ export const CartDrawer = ({ children }: {children: ReactNode}) => {
     const newQuantity = role === 'plus' ? quantity + 1 : quantity - 1;
     updateCartItemQuantity(id, newQuantity);
   };
-
 
   return (
     <Sheet>

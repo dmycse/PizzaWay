@@ -5,8 +5,8 @@ import { type CartItemProps } from './cart-item.types';
 import { CartItemImage, CartItemInfo, CartItemPrice } from '@/components/shared/cart';
 import { CountButton } from '@/components/shared';
 
-import { cn } from '@/lib';
 import { Trash2Icon } from 'lucide-react';
+import { cn } from '@/lib';
 
 type CartDrawerItemProps = CartItemProps & {
   onClickCountButton?: (role: 'plus' | 'minus') => void;
@@ -18,18 +18,7 @@ type CartDrawerItemProps = CartItemProps & {
  * CartDrawerItem: this component is a single item (product) in the cart drawer.
  * 
  * Parent: CartDrawer -> /components/shared/cart/cart-drawer.tsx
- * @param {CartDrawerItemProps} props
- * @prop  {string} [name] - the name of the cart item
- * @prop  {string} [imageUrl] - the image URL of the cart item
- * @prop  {string} [details] - the details (description) of the cart item
- * @prop  {number} [price] - the price of the cart item
- * @prop  {number} [quantity] - the current quantity of the cart item
- * @prop  {boolean} [disabled=false] - whether the cart item should be disabled
- * @prop  {Function} [onClickCountButton] - callback function called with 'plus' or 'minus' when quantity buttons are clicked.
- * @prop  {Function} [onClickRemove] - callback function called when the remove button is clicked.
- * @prop  {string} [className] - additional CSS styles to apply to the component.
- * 
- * @returns {JSX.Element} The cart drawer item component.
+
  * @example
  * <CartDrawerItem
  *   name="Product 1"
