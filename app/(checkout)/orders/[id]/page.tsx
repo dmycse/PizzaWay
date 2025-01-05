@@ -10,7 +10,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
 type SuccessOrderProps = {
@@ -33,12 +32,6 @@ type SuccessOrderProps = {
  * If the action returns a valid order, it shows the order details has been updated in DB.
  * If the action does not return a valid order, it shows a 404 page.
  * 
- * @param {SuccessOrderProps} props - The props of the component.
- * @param {string} props.params.id - The id of the order.
- * @param {string} props.searchParams.userCartId - The id of the user's cart.
- * @param {string} props.searchParams.payment_intent - The id of the payment.
- * 
- * @returns A JSX element for the success page.
  */
 export default async function SuccessOrder({ 
   params: { id },

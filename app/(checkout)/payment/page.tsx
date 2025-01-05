@@ -18,14 +18,6 @@ const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
  * using the `OrderProcessing` component.
  * 
  * This component is called from the CheckoutPpage -> /app/(checkout)/checkout/page.tsx
- *
- * @param {Object} props - The properties passed to the component.
- * @param {Object} props.searchParams - The search parameters from the URL.
- * @param {string} props.searchParams.userCartId - The ID of the user's cart.
- * @param {string} props.searchParams.orderId - The ID of the order.
- * @param {string} props.searchParams.amount - The total amount for the order.
- *
- * @returns {JSX.Element} A JSX element for the payment page.
  */
 export default function PaymentPage({ 
     searchParams: { userCartId, orderId, amount } 
