@@ -12,6 +12,6 @@ export async function GET(req: NextRequest) {
     },
     take: 5
   });
-  // console.log(query)
+
   return NextResponse.json(products);
 }

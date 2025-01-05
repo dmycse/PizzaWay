@@ -14,11 +14,6 @@ export async function GET(req: NextRequest) {
 
     const userCart = await prisma.cart.findFirst({
       where: {
-        // OR: [
-        //   {
-        //     token,
-        //   },
-        // ],
         token
       },
       include: {
@@ -62,11 +57,6 @@ export async function POST(req: NextRequest) {
       where: {
         cartId: userCart.id,
         productOptionId: data.productOptionId,
-        // ingredients: {
-        //   every: {
-        //     id: { in: data.ingredients },
-        //   },
-        // },
       },
       include: {
         ingredients: true

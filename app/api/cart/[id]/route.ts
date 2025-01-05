@@ -33,7 +33,7 @@ export async function PATCH(req: NextRequest, { params }: { params: { id: string
     });
 
     const updatedUserCart = await getCartTotalAmount(token);
-    console.log('updatedUserCart', updatedUserCart);
+   
     return NextResponse.json(updatedUserCart);
   } catch (error) {
       console.log('[CART_PATCH] Server', error);
