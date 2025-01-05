@@ -16,11 +16,6 @@ type ProductSelectionProps = {
  * Component: modal window for product selection
  *
  * Parent component: ProductModal -> /components/shared/modals/product-modal.tsx
- * @param {Object} props
- * @prop  {ProductWithRelations} product - product to select
- * @prop  {Function} onSubmit - function for submitting selected product
- *
- * @returns {JSX.Element} The product selection component.
  */
 export const ProductSelection = ({ product, onSubmit: handleSubmit }: ProductSelectionProps) => {
 

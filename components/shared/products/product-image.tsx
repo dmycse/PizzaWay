@@ -6,6 +6,14 @@ type ProductImageProps = {
 };
 
 
+/**
+ * Component: displays an image of the product.
+ *
+ * Parent component: ChooseProduct -> /components/products/choose-product.tsx
+ * 
+ * @example
+ * <ProductImage imageUrl="https://example.com/image.jpg" />
+ */
 export const ProductImage = ({ className, imageUrl }: ProductImageProps) => {
 
   return (

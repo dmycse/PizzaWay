@@ -15,12 +15,6 @@ type ChooseProductProps = {
  * Component: Choose product variant
  *
  * Parent component: ProducSelection -> /components/products/product-selection.tsx
- * @param name - product name
- * @param imageUrl - product image url
- * @param price - product price
- * @param loading - loading state
- * @param onSubmit - function for  submitting selected product
- * @param className - css styles
  */
 
 

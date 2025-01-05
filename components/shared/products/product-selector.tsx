@@ -12,6 +12,12 @@ type ProductSelectorProps = {
 };
 
 
+/**
+ * Component: Renders a product selector with image and details.
+ *
+ * Parent component: ChooseProduct -> /components/products/choose-product.tsx
+ */
+
 export const ProductSelector = ({
   name,
   imageUrl,
@@ -20,7 +26,7 @@ export const ProductSelector = ({
   onSubmit,
   className
   }: ProductSelectorProps) => {
-
+    console.log('Name', name)
   return (
     <div className={ cn(className, 'flex-1 flex') }>
       
@@ -34,7 +40,7 @@ export const ProductSelector = ({
 
       <div className="p-7 w-[490px] bg-[#f7f6f5]">
         <Title text={name} size="md" className="mb-1 font-extrabold" />
-
+        
         <Button
           loading={loading}
           onClick={() => onSubmit?.()}
