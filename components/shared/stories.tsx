@@ -13,6 +13,11 @@ type StoriesProps = {
   className?: string;
 };
 
+/**
+ * A component that displays a list of stories, each with a preview image.
+ * When a story is clicked, it will open a modal with the stories items.
+ * Parent component: Home -> /app/(main)/page.tsx
+ */
 export const Stories = ({ className }: StoriesProps) => {
 
   const [stories, setStories] = useState<TStory[]>([]);

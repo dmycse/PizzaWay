@@ -1,8 +1,6 @@
 import Link from 'next/link';
-
 import { Button } from '@/components/ui';
 import { Container, Title } from '@/components/layout';
-
 import { ArrowLeft } from 'lucide-react';
 import { cn } from '@/lib';
 
@@ -13,6 +11,18 @@ type InfoBlockProps = {
   imageUrl?: string;
 };
 
+/**
+ * Component: displays a block of information with an image on the right-hand side.
+ * 
+ * Used in: UnauthorizedPage -> app/(main)/not-auth/page.tsx
+ *
+ * @example
+ * <InfoBlock
+ *   title="Page not found"
+ *   text="The page you are looking for does not exist."
+ *   imageUrl="/static/img/404.svg"
+ * />
+ */
 export const InfoBlock = ({ className, title, text, imageUrl }: InfoBlockProps) => {
   return (
     <Container className={cn(className, 'w-[50rem] flex justify-between items-center gap-12')}>
@@ -29,11 +39,6 @@ export const InfoBlock = ({ className, title, text, imageUrl }: InfoBlockProps) 
               Go home
             </Button>
           </Link>
-          {/* <Link href="">
-            <Button variant="outline" className="text-gray-500 border-gray-400 hover:bg-gray-300 hover:text-gray-500">
-              Reload
-            </Button>
-          </Link> */}
         </div>
       </div>
 

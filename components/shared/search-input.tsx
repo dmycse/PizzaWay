@@ -14,17 +14,12 @@ type SearchInputProps = {
   className?: string;
 };
 
-
 /**
  * Componrent: a search input component which shows a dropdown of products
  * when the user types in the search field and focuses the input.
  * 
  * Parent component: Header app/components/layout/header.tsx
  * 
- * @param {Object} props
- * @prop {string} [className] - additional CSS styles to apply to the header
- * 
- * @returns {JSX.Element} search input component.
  */
 export const SearchInput = ({ className }: SearchInputProps) => {
 

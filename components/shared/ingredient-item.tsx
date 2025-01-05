@@ -14,15 +14,6 @@ type IngredientItemProps = {
  * Component: A single ingredient item to be used in the pizza ingredient selector.
  *
  * Parent component: ChoosePizza -> /components/shared/pizzas/choose-pizza.tsx
- * @param {Object} props
- * @prop  {string} [name] - the name of the ingredient.
- * @prop  {string} [imageUrl] - the URL of the ingredient image.
- * @prop  {number} [price] - the price of the ingredient.
- * @prop  {boolean} [active=false] - whether the ingredient is selected or not.
- * @prop  {Function} [onClick] - the function to be called when the ingredient is clicked.
- * @prop  {string} [className] - additional CSS styles to apply to the Component.
- * 
- * @returns {JSX.Element} The ingredient item component
  * @example
  * <IngredientItem
  *   name="Mozzarella"
