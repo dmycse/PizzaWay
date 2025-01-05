@@ -4,6 +4,10 @@ import { Ingredient } from "@prisma/client";
 import { getAllIngredients } from "@/utils/ingredients";
 
 
+  /**
+   * Hook for getting all available ingredients.
+   * 
+   */
 export let useIngredients = (): Ingredient[] => {
 
   let [ingredients, setIngredients] = useState<Ingredient[]>([]);

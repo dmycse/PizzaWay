@@ -12,6 +12,16 @@ type ReturnProps = {
   deleteCartItem: (id: number) => void;
 };
 
+/**
+ * useCart
+ *
+ * This hook returns the cart state from the cart store. When the component
+ * mounts, it fetches the cart items from the server.
+ *
+ * @returns Cart state, containing the items, total amount, loading state,
+ * and functions for updating the cart item quantity, adding a new item,
+ * and removing an item.
+ */
 export const useCart = (): ReturnProps => {
   let cartState = useCartStore(state => state);
 

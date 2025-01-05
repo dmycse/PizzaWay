@@ -26,7 +26,11 @@ type UseFilters = Filters & {
   clearPriceRange: () => void; 
 };
 
-
+/**
+ * Hook: handling filters in url search params
+ * 
+ * Used in: Filters -> components/shared/filters/filters.tsx
+ */
 export let useFilters = (): UseFilters => {
   let searchParams = useSearchParams();
   

@@ -3,6 +3,11 @@ import { useRouter } from 'next/navigation';
 import type { Filters, PriceRange } from '@/hooks/useFilters';
 import qs from 'qs';
 
+/**
+ * Hook: update url query parameters based on the given filters.
+ * 
+ * Used in: Filters -> components/shared/filters/filters.tsx
+ */
 export const useQueryFilters = ({
     selectedIngredients, 
     selectedPizzaSize, 
