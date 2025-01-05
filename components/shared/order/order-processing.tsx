@@ -8,6 +8,7 @@ import {
 } from "@stripe/react-stripe-js";
 import { orderAmountConvert } from "@/lib";
 
+
 type OrderProcessingProps = {
   userCartId: number;
   orderId: number;
@@ -51,7 +52,7 @@ export const OrderProcessing = ({ userCartId, orderId, amount }: OrderProcessing
         });
       });
   }, [amount]);
-
+  
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
     
@@ -73,10 +74,10 @@ export const OrderProcessing = ({ userCartId, orderId, amount }: OrderProcessing
       elements,
       clientSecret: paymentData.clientSecret,
       confirmParams: {
-        return_url: `${process.env.NEXT_PUBLIC_API_URL}/orders/${orderId}?userCartId=${userCartId}`,
+        return_url: `http://localhost:3000/orders/${orderId}?userCartId=${userCartId}`,
       },
     });
-
+    
     if (error) {
       // This point is only reached if there's an immediate error when
       // confirming the payment. Show the error to a customer (for example, payment details incomplete)
@@ -88,6 +89,7 @@ export const OrderProcessing = ({ userCartId, orderId, amount }: OrderProcessing
     }
 
     setLoading(false);
+    // router.push(`/order/${orderId}?userCartId=${userCartId}&payment_intent=${paymentData.paymentId}`);
   };
 
   if (!paymentData.clientSecret || !stripe || !elements) {

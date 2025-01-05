@@ -37,29 +37,30 @@ export default async function SuccessOrder({
   params: { id },
   searchParams: { userCartId, payment_intent }
   }: SuccessOrderProps) {
-
+  
   let order = await paymentDone({ 
     userCartId: +userCartId, 
     orderId: +id, 
-    paymentId: payment_intent 
+    paymentId: payment_intent
   });
 
   if (!order) {
     return notFound();
-  }
+  };
+   
   
   return (
     <AlertDialog defaultOpen>
       <AlertDialogContent className='max-w-2xl bg-white border-4 border-brand outline-none'>
         <AlertDialogHeader>
           <AlertDialogTitle 
-            className="mb-2 text-primary text-4xl font-extrabold"
+            className="mx-auto mb-2 text-primary text-4xl font-extrabold"
           >
             Thank you!
           </AlertDialogTitle>
-          <AlertDialogDescription className="mb-4 flex flex-col text-2xl space-y-4">
+          <AlertDialogDescription className="mb-4 flex flex-col items-center text-2xl space-y-4">
             <span className='text-brand'>You successfully paid €{order.sum} for your order #{order.id}</span>
-            <span className='text-brand'>Details of your order have been sent to your email.</span>
+            {/* <span className='text-brand'>Details of your order have been sent to your email.</span> */}
             <span>
               Would like to make a new order? {' '}
               <Link href="/" className='text-primary font-bold'>Click here</Link>
@@ -67,7 +68,7 @@ export default async function SuccessOrder({
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogAction>
+          <AlertDialogAction className='mt-4 mx-auto'>
             <Link 
               href="/" 
               className='p-6 font-bold text-[1rem]'
