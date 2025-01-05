@@ -20,7 +20,7 @@ type ReturnProps = {
 
 
 export const getCartDetails = (data: CartDTO): ReturnProps => {
-  const items = data.items.map(item => ({
+  const items = data?.items?.map(item => ({
     id: item.id,
     quantity: item.quantity,
     name: item.productOption.product.name,
@@ -36,7 +36,7 @@ export const getCartDetails = (data: CartDTO): ReturnProps => {
   })) as CartItemState[];
 
   return {
-    items: [...items.sort((a, b) => (a.name > b.name ? 1 : -1))],
-    totalAmount: data.totalAmount,
+    items:  items && [...items].sort((a, b) => (a.name > b.name ? 1 : -1)),
+    totalAmount: data?.totalAmount,
   };
 };

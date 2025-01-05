@@ -36,7 +36,7 @@ export const CartButton = ( { className }: CartButtonProps) => {
         <span className='mx-3 w-[1px] h-full bg-white/30' />
         <div className='flex items-center gap-2 transition duration-300 group-hover:opacity-0'>
           <ShoppingBasket strokeWidth={2} size={18} className='relative' />
-          <b>{items.length}</b>
+          <b>{items?.length}</b>
         </div>
         <ArrowRight 
           size={20} 
