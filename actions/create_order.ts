@@ -9,9 +9,6 @@ import { CheckoutFormValues } from "@/components/zod/checkout-form-schema";
  * Creates an order based on the provided checkout form data.
  *
  * Getting data from CheckoutPage component -> @/app/(checkout)/checkout/page.tsx
- * @param data - The checkout form values containing user's information and order details.
- * @returns A URL for the payment page if the order is successfully created.
- * @throws Will throw an error if the cart token is not found, the cart is not found, or the cart is empty.
  */
 export async function createOrder(data: CheckoutFormValues) {
   

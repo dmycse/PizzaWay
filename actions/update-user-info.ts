@@ -6,7 +6,7 @@ import { prisma } from "@/prisma/prisma-client";
 import { hashSync } from "bcryptjs";
 
 export async function updateUserInfo(body: Prisma.UserUpdateInput) {
-  console.log('body', body)
+  
   try {
     const currentUser = await getUserSession();
 

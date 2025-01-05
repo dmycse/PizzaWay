@@ -16,9 +16,6 @@ type PaymentDoneProps = {
  * Marks the order as succeeded and clears the cart.
  * 
  * Getting data from SuccessOrder component -> @/app/(checkout)/orders/[id]/page.tsx
- * @param data The data about the order and the cart.
- * @returns The order if it was successfully updated.
- * @throws If the order is not found.
  */
 export async function paymentDone(data: PaymentDoneProps) {
 
