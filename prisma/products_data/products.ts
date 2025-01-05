@@ -2,7 +2,7 @@ export const products = [
   // Breakfast
   {
     id: 1,
-    name: 'Ham&mushrooms Omelette',
+    name: 'Ham Omelette',
     imageUrl: '/images/products/breakfast/omelette_ham.webp',
     categoryId: 2,
   },
@@ -32,7 +32,7 @@ export const products = [
   },
   {
     id: 6,
-    name: 'Cheese Sarter',
+    name: 'Cheese Starter',
     imageUrl: '/images/products/breakfast/starter_cheese.webp',
     categoryId: 2,
   },
@@ -81,19 +81,19 @@ export const products = [
   },
   {
     id: 14,
-    name: 'Danwich Chorizo BBQ',
+    name: 'Chorizo BBQ Danwich',
     imageUrl: '/images/products/snaks/danwich_chorizo.webp',
     categoryId: 3,
   },
   {
     id: 15,
-    name: 'Danwich Ham&Cheese',
+    name: 'Ham & Cheese Danwich',
     imageUrl: '/images/products/snaks/danwich_ham_cheese.webp',
     categoryId: 3,
   },
   {
     id: 16,
-    name: 'Chicken Wings BBQ',
+    name: 'Chicken Wings BBQ 🌶️',
     imageUrl: '/images/products/snaks/bbq_chicken_wings.webp',
     categoryId: 3,
   },
@@ -148,19 +148,19 @@ export const products = [
   // Coffe
   {
     id: 25,
-    name: 'Cappucciino',
+    name: 'Cappuccino',
     imageUrl: '/images/products/coffee/cappuccino.webp',
     categoryId: 4,
   },
   {
     id: 26,
-    name: 'Cappuccino caramel',
+    name: 'Caramel Cappuccino',
     imageUrl: '/images/products/coffee/cappuccino_caramel.webp',
     categoryId: 4,
   },
   {
     id: 27,
-    name: 'Americano',
+    name: 'Americano 🌱',
     imageUrl: '/images/products/coffee/americano.webp',
     categoryId: 4,
   },
@@ -172,38 +172,38 @@ export const products = [
   },
   {
     id: 29,
-    name: 'Latte Coconut',
+    name: 'Coconut Latte',
     imageUrl: '/images/products/coffee/latte_coconut.webp',
     categoryId: 4,
   },
   {
     id: 30,
-    name: 'Latte Hazelnut',
+    name: 'Hazelnut Latte',
     imageUrl: '/images/products/coffee/latte_hazelnut.webp',
     categoryId: 4,
   },
   // Deserts
   {
     id: 31,
-    name: 'Cheesecake banana',
+    name: 'Banana Cheesecake',
     imageUrl: '/images/products/desserts/cheesecake_banana_chocolate.webp',
     categoryId: 5,
   },
   {
     id: 32,
-    name: 'Macaroni Mango',
+    name: 'Mango Macaroni',
     imageUrl: '/images/products/desserts/macaroni_mango.webp',
     categoryId: 5,
   },
   {
     id: 33,
-    name: 'Cheesecake NewYork',
+    name: 'NewYork Cheesecake',
     imageUrl: '/images/products/desserts/cheesecake_new_york.webp',
     categoryId: 5,
   },
   {
     id: 34,
-    name: 'Muffin Chocolate',
+    name: 'Chocolate Muffin',
     imageUrl: '/images/products/desserts/muffin_chocolate.webp',
     categoryId: 5,
   },
@@ -215,7 +215,7 @@ export const products = [
   },
   {
     id: 36,
-    name: 'Muffin Salted Caramel',
+    name: 'Salted Caramel Muffin',
     imageUrl: '/images/products/desserts/muffin_salted_caramel.webp',
     categoryId: 5,
   },

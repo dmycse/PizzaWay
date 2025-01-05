@@ -4,7 +4,7 @@ import { ingredients } from './ingredients';
 export const pizzas = {
 
   pizza1: {
-    name: 'Pepironi fresh',
+    name: 'Pepironi',
     imageUrl: '/images/products/pizzas/peperoni_fresh.webp',
     categoryId: 1,
     ingredients: {
@@ -22,7 +22,7 @@ export const pizzas = {
   },
 
   pizza3: {
-    name: 'Chorizo fresh',
+    name: 'Chorizo 🌶️',
     imageUrl: '/images/products/pizzas/chorizo_fresh.webp',
     categoryId: 1,
     ingredients: {
@@ -31,7 +31,7 @@ export const pizzas = {
   },
 
   pizza4: {
-    name: 'Ham&mushrooms',
+    name: 'Ham & Mushrooms',
     imageUrl: '/images/products/pizzas/ham_mushrooms.webp',
     categoryId: 1,
     ingredients: {
@@ -67,7 +67,7 @@ export const pizzas = {
   },
 
   pizza8: {
-    name: 'Cheese chick',
+    name: 'Cheese Chick',
     imageUrl: '/images/products/pizzas/cheese_chick.webp',
     categoryId: 1,
     ingredients: {
@@ -76,7 +76,7 @@ export const pizzas = {
   },
 
   pizza9: {
-    name: 'Four seasons',
+    name: 'Four Seasons',
     imageUrl: '/images/products/pizzas/four_seasons.webp',
     categoryId: 1,
     ingredients: {
@@ -85,7 +85,7 @@ export const pizzas = {
   },
 
   pizza10: {
-    name: 'Vegan',
+    name: 'Vegan 🌱',
     imageUrl: '/images/products/pizzas/vegan.webp',
     categoryId: 1,
     ingredients: {
@@ -94,7 +94,7 @@ export const pizzas = {
   },
 
   pizza11: {
-    name: 'Diablo Hot',
+    name: 'Diablo Hot 🌶️🌶️' ,
     imageUrl: '/images/products/pizzas/diablo_hot.webp',
     categoryId: 1,
     ingredients: {
