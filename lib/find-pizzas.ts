@@ -13,6 +13,10 @@ export type GetSearchParams = {
 const DEFAULT_MIN_PRICE = 0;
 const DEFAULT_MAX_PRICE = 20;
 
+/**
+ * Asynchronously retrieves a list of pizza categories and their associated products based on search parameters.
+ */
+
 export const findPizzas = async (params: GetSearchParams) => {
 
   const sizes = params.pizzaSize?.split(',').map(Number);

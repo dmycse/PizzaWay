@@ -10,9 +10,6 @@ import type { PizzaVariant } from '@/components/shared/pizzas/pizza-selector';
  *          indicating whether that size is available for the given crust type.
  * 
  * Used in: usePizzaVariants -> /hooks
- * @param {PizzaType} [selectedType] - selected crust type of a pizza
- * @param {ProductOption[]} [options] - list of pizza options
- * @returns {PizzaVariant[]} array of pizza size variants
  */
 export const getAvailablePizzaSizes = (
     selectedType: PizzaType, 

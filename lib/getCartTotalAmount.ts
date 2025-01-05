@@ -1,6 +1,12 @@
 import { prisma } from '@/prisma/prisma-client';
 import { getCartItemTotalPrice } from '@/lib';
 
+/**
+ * Finds a cart by token, calculates the total amount of all items in the cart,
+ * updates the cart with the total amount and returns the updated cart.
+ 
+ * @returns The updated cart with the total amount.
+ */
 export const getCartTotalAmount = async (token: string) => {
  
   const userCart = await prisma.cart.findFirst({

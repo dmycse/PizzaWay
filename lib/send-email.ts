@@ -1,6 +1,10 @@
 import { ReactNode } from 'react';
 import { Resend } from 'resend';
 
+/**
+ * Sends an email using the Resend API.
+ */
+
 export const sendEmail = async (to: string, subject: string, template: ReactNode) => {
   
   const resend = new Resend(process.env.RESEND_API_KEY);

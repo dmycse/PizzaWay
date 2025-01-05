@@ -19,6 +19,10 @@ type ReturnProps = {
 };
 
 
+/**
+ * Converts the raw cart data from the server into a format that is easily usable
+ * by the cart components.
+ */
 export const getCartDetails = (data: CartDTO): ReturnProps => {
   const items = data?.items?.map(item => ({
     id: item.id,
