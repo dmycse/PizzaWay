@@ -74,7 +74,8 @@ export const OrderProcessing = ({ userCartId, orderId, amount }: OrderProcessing
       elements,
       clientSecret: paymentData.clientSecret,
       confirmParams: {
-        return_url: `${process.env.NEXT_PUBLIC_URL}/orders/${orderId}?userCartId=${userCartId}`,
+        // return_url: `${process.env.NEXT_PUBLIC_URL}/orders/${orderId}?userCartId=${userCartId}`,
+        return_url: `https://pizza-way.vercel.app/orders/${orderId}?userCartId=${userCartId}`,
       },
     });
     
