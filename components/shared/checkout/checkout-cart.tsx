@@ -1,3 +1,4 @@
+import { redirect } from 'next/navigation'
 import { PizzaSize, PizzaType } from '@/prisma/prisma-types';
 import { CheckoutWhiteBlock, CheckoutItem, CheckoutItemSkeleton } from '@/components/shared/checkout';
 import { CartItemState } from '@/lib/getCartDetails';
@@ -14,7 +15,7 @@ type CheckoutCartProps = {
 /**
  * CheckoutCart displays the cart items with quantity count and a button to remove item.
  * 
- * Parent: Checkout -> app
+ * Parent: Checkout -> app/(checkout)/checkout/page.tsx
  * 
  */
 export const CheckoutCart = ({
@@ -24,6 +25,10 @@ export const CheckoutCart = ({
     loading,
     className,
   }: CheckoutCartProps) => {
+
+  if (items.length === 0) {
+    redirect('/');
+  }
 
   return (
     <CheckoutWhiteBlock title="1. The Cart" className={className}>
