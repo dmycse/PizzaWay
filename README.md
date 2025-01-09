@@ -1,36 +1,74 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+  <h3 align="center">FullStack E-commerce Web-Site</h3>
+   <h3 align="center">PizzaWay | Pizzas & More</h3>
 
-First, run the development server:
+   <div align="center">
+     This Web-Site buld on <a href="https://nextjs.org/" target="_blank"><b>NextJS v.14.2+</b> </a>with <a href="https://www.typescriptlang.org/" target="_blank"><b>TypeScript v.5+</b></a>
+    </div>
+</div>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### <a name="table">Content</a>
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- [App Features](#features)
+- [Project setup](#setup)
+- [Tech Stack](#tech-stack)
+- [Good to know](#know)
+- [Web-link to deploy](#web-link)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### <a name="features">App Features</a>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* **Products catalog**
+* **Products categories**
+* **Products search**
+* **Products filtering**
+* **Products description**
+* **Products selection**
+* **Adding ingredients**
+* **Shopping cart creating**
+* **Shopping cart management**
+* **Checkout process**
+* **Payment process**
+* **User registration**
+* **User authentication**
+* **User loging out**
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+### <a name="features">Project setup</a>
+1. Clone the repository: <code>git clone https://github.com/dmycse/PizzaWay</code>
+2. Navigate into local folder of the repository
+3. Install dependencies. Run <code>npm install</code>
+4. Running the project in developing mode: <code>npm run dev</code>
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### <a name="tech-stack">Tech Stack</a>
 
-## Deploy on Vercel
+* **[NextJS](https://nextjs.org/)**: Frontend and Bacend. Server-side rendering, Server components, Static Routing
+* **[TypeScript](https://www.typescriptlang.org/)**: A strongly typed programming language that builds on JavaScript
+* **[Prisma ORM](https://prisma.io/)**: Object-Relational Mapping tool for Node.js and TypeScript
+* **[PostgreSQL](https://postgresql.org/)**: Open-source relational database management system
+* **[Zod](https://zod.dev/)**: Form validation
+* **[React Hook Form](https://react-hook-form.com/)**: A performant, flexible, and extensible form library for React
+* **[Zustand](https://zustand-demo.pmnd.rs/)**: State management library for React
+* **[React Use](https://github.com/streamich/react-use/)**: A collection of React Hooks
+* **[React Hot Toast](https://react-hot-toast.com/)**: A lightweight and customizable toast notification library
+* **[Resend](https://resend.com/)**: An email AP
+* **[Axios](https://axios-http.com/)**: A promise-based HTTP client for JavaScript
+* **[Nextjs Progressbar](https://github.com/apal21/nextjs-progressbar/)**: A Next.js component that displays a loading progress bar
+* **[NextAuth.js](https://next-auth.js.org/)**: An authentication solution for Next.js
+* **[Bcrypt.js](https://github.com/dcodeIO/bcrypt.js/)**: A payment processing platform
+* **[Stripe](https://stripe.com/)**: A payment processing platform
+* **[Shadcn](https://shadcn.dev/)**: A component UI library 
+* **[TailwindCSS](https://tailwindcss.com/)**: CSS framework for rapidly building custom user interfaces without leaving HTML.
+* **[Git](https://git-scm.com/)**: Version Control
+* **[Npm](https://www.npmjs.com/)**: Package manager
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* **[Versel](https://vercel.com/)**: Hosting & DB Storage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+### <a name="know">Good to know</a>
+* **Website is styled** for desktop version only
+
+
+### <a name="web-link">Web-link</a>
+This repository contains the code corresponding to an in-depth app available on web-link: <a href="https://.." target="_blank"><b>PizzaWay</b></a>. 
