@@ -53,9 +53,13 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
               })
             }
             type="button"
-            className="p-2 h-12 flex-1 gap-2">
-            <img className="w-6 h-6" src="https://github.githubassets.com/favicons/favicon.svg" 
-          />
+            className="p-2 h-12 flex-1 gap-2"
+          >
+            <img 
+              className="w-6 h-6" 
+              src="https://github.githubassets.com/favicons/favicon.svg" 
+              alt='github favicon'
+            />
             GitHub
           </Button>
 
@@ -68,10 +72,12 @@ export const AuthModal = ({ open, onClose }: AuthModalProps) => {
               })
             }
             type="button"
-            className="p-2 h-12 flex-1 gap-2">
+            className="p-2 h-12 flex-1 gap-2"
+          >
             <img
               className="w-6 h-6"
               src="https://fonts.gstatic.com/s/i/productlogos/googleg/v6/24px.svg"
+              alt='google favicon'
             />
             Google
           </Button>

@@ -52,6 +52,7 @@ export const ProfileForm = ({ data }: ProfileFormProps) => {
         icon: '✅',
       });
     } catch (error) {
+      console.error(error);
       return toast.error('Data update error', {
         icon: '❌',
       });

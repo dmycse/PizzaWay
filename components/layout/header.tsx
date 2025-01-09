@@ -44,7 +44,7 @@ export const Header = ({ hasSearch = true, hasCart = true, className }: HeaderPr
         router.replace('/');
       }, 1000);
     }
-  }, []);
+  }, [searchParams, router]);
   
 
   return (

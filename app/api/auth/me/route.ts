@@ -3,11 +3,13 @@ import { getServerSession } from 'next-auth/next';
 import { prisma } from '@/prisma/prisma-client';
 import { authOptions } from '@/lib/auth-options';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET() {
 
   try {
     const user = await getServerSession(authOptions);
-    console.log('user', user);
+    // console.log('user', user);
     if (!user) {
       return NextResponse.json({ message: 'You are not logged in' }, { status: 401 });
     }

@@ -38,7 +38,7 @@ export default async function SuccessOrder({
   searchParams: { userCartId, payment_intent }
   }: SuccessOrderProps) {
   
-  let order = await paymentDone({ 
+  const order = await paymentDone({ 
     userCartId: +userCartId, 
     orderId: +id, 
     paymentId: payment_intent

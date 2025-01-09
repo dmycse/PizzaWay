@@ -4,7 +4,7 @@ import { CustomInput, CustomTextarea } from '@/components/form-components';
 // import { AdressInput } from '@/components/form-components';
 import { CheckoutWhiteBlock } from '@/components/shared';
 // import { ErrorText } from '@/components/shared';
-import { useFormContext } from 'react-hook-form';
+// import { useFormContext } from 'react-hook-form';
 // import { Controller } from 'react-hook-form';
 
 type CheckoutAddressDataProps = {
@@ -20,7 +20,7 @@ type CheckoutAddressDataProps = {
  */
 export const CheckoutAddressData = ({ className }: CheckoutAddressDataProps) => {
   
-  const { control } = useFormContext();
+  // const { control } = useFormContext();
 
   return (
     <CheckoutWhiteBlock title="3. Delivery address" className={className}>

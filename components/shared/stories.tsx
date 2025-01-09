@@ -52,11 +52,12 @@ export const Stories = ({ className }: StoriesProps) => {
         {stories.map((story) => (
           <img
             key={story.id}
+            src={story.previewImageUrl}
+            alt='story image'
+            width={200}
+            height={250}
             onClick={() => onClickStory(story)}
             className="rounded-md cursor-pointer"
-            height={250}
-            width={200}
-            src={story.previewImageUrl}
           />
         ))}
 

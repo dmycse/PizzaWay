@@ -18,7 +18,7 @@ export const OrderPaymentTemplate = ({ orderId, amount, items }: OrderPaymentTem
   <div>
     <h1>Order #{orderId}</h1>
     <p>
-      You've just paid <b>€{amount}</b> for your order. Thank you!
+      You have just paid <b>€{amount}</b> for your order. Thank you!
       {/* <a href={paymentUrl}>this link</a> to make the payment. */}
     </p>
     <hr />

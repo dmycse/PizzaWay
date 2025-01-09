@@ -26,7 +26,7 @@ type SignUpFormProps = {
  * zod as a validation schema.
  */
 
-export const SignUpForm = ({ onClose, onClickLogin }: SignUpFormProps) => {
+export const SignUpForm = ({ onClose }: SignUpFormProps) => {
 
   const form = useForm<FormSignUpValues>({
     resolver: zodResolver(formSignUpSchema),
@@ -52,6 +52,7 @@ export const SignUpForm = ({ onClose, onClickLogin }: SignUpFormProps) => {
 
       onClose?.();
     } catch (error) {
+      console.error(error);
       return toast.error('Not correct email or password', {
         icon: '❌',
       });

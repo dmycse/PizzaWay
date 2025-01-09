@@ -40,7 +40,7 @@ export const ProductsGroup = ({
     if (intersection?.isIntersecting) {
       setActiveCategory(categoryId);
     }  
-  }, [intersection?.isIntersecting, categoryId, categoryName]);
+  }, [intersection?.isIntersecting, categoryId, categoryName, setActiveCategory]);
 
   return (
     <section id={categoryName} className={ cn('', className)} ref={intersectionRef}>
