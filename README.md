@@ -2,7 +2,9 @@
 
   <h3 align="center">FullStack E-commerce Web-Site</h3>
   <h3 align="center"><span style="color: darkred;">Pizza</span><span style="color: darkgreen;">Way</span> | Pizzas & More</h3>
-  <img src='public/images/app/app_view.png' alt='app view' width="500px" style="margin-bottom: 30px;"/>
+  <img src='public/images/app/app_view.png' alt='app view' width="500px" />
+  <br />
+  <br />
   <br />
   <div>
     This Web-Site buld on 
