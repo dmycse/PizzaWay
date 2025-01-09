@@ -1,7 +1,7 @@
 <div align="center">
 
   <h3 align="center">FullStack E-commerce Web-Site</h3>
-   <h3 align="center">PizzaWay | Pizzas & More</h3>
+   <h3 align="center"><span style="color: darkred;">Pizza</span><span style="color: darkgreen;">Way</span> | Pizzas & More</h3>
 
    <div align="center">
      This Web-Site buld on <a href="https://nextjs.org/" target="_blank"><b>NextJS v.14.2+</b> </a>with <a href="https://www.typescriptlang.org/" target="_blank"><b>TypeScript v.5+</b></a>
@@ -71,4 +71,4 @@
 
 
 ### <a name="web-link">Web-link</a>
-This repository contains the code corresponding to an in-depth app available on web-link: <a href="https://.." target="_blank"><b>PizzaWay</b></a>. 
+This repository contains the code corresponding to an in-depth app available on web-link: <a href="https://pizza-way.vercel.app/" target="_blank"><b>PizzaWay</b></a>. 
